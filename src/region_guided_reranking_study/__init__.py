@@ -1,5 +1,17 @@
-"""
-Region-Guided Candidate Reranking Study Package.
-"""
+"""Region-guided local transfer optimization package."""
 
-__version__ = "0.2.0"
+from .local_region_transfer import (
+    CandidateDecision,
+    LocalRegionTransferConfig,
+    LocalRegionTransferOptimizer,
+    LocalRegionTransferResult,
+)
+
+__all__ = [
+    "CandidateDecision",
+    "LocalRegionTransferConfig",
+    "LocalRegionTransferOptimizer",
+    "LocalRegionTransferResult",
+]
+
+__version__ = "0.3.0"
