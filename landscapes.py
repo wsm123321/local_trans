@@ -154,31 +154,40 @@ class ShiftedRotatedRastrigin(BaseLandscape):
 class LunacekBiRastrigin(BaseLandscape):
     """
     Lunacek Bi-Rastrigin landscape: contains two major basins at mu1 and mu2.
-    One basin contains the global optimum, the second contains a deceptive local optimum.
+    One basin (mu1) contains the global optimum, the second (mu2) contains a deceptive local optimum.
     Tests whether source region prior correctly differentiates or guides search.
     """
-    def __init__(self, dim: int = 2, mu1_val: float = 2.5, d_scale: float = 1.0, 
+    def __init__(self, dim: int = 2, mu1: Optional[np.ndarray] = None, mu1_val: float = 2.5, 
+                 mu2: Optional[np.ndarray] = None, d_scale: float = 1.0, 
                  noise_std: float = 0.0, seed: int = 42):
         bounds = np.zeros((dim, 2))
         bounds[:, 0] = -5.0
         bounds[:, 1] = 5.0
         super().__init__(dim=dim, bounds=bounds, name=f"Lunacek_{dim}D")
-        self.mu1 = np.ones(dim) * mu1_val
-        self.mu2 = -np.ones(dim) * np.sqrt((mu1_val**2 - d_scale) / d_scale) if d_scale > 0 else -np.ones(dim) * mu1_val
-        self.d_scale = d_scale
-        self.noise_std = noise_std
+        
+        if mu1 is not None:
+            self.mu1 = np.array(mu1, dtype=float).ravel()
+        else:
+            self.mu1 = np.ones(dim) * mu1_val
+            
+        if mu2 is not None:
+            self.mu2 = np.array(mu2, dtype=float).ravel()
+        else:
+            self.mu2 = -self.mu1.copy()
+            
+        self.d_scale = float(d_scale)
+        self.noise_std = float(noise_std)
         self.rng = np.random.RandomState(seed)
         self.s = 1.0 - 1.0 / (2.0 * np.sqrt(dim + 20.0) - 8.2)
-        self.mu0 = 2.5
 
     def __call__(self, X: np.ndarray) -> np.ndarray:
         X = np.atleast_2d(X)
         N, d = X.shape
-        # Distance to mu1 and mu2
-        d1 = np.sum((X - self.mu0)**2, axis=1)
-        d2 = self.d_scale * d + self.s * np.sum((X + self.mu0)**2, axis=1)
+        # Distance to mu1 (global basin) and mu2 (deceptive basin)
+        d1 = np.sum((X - self.mu1[np.newaxis, :])**2, axis=1)
+        d2 = self.d_scale * d + self.s * np.sum((X - self.mu2[np.newaxis, :])**2, axis=1)
         
-        ras = 10.0 * (d - np.sum(np.cos(2.0 * np.pi * (X - self.mu0)), axis=1))
+        ras = 10.0 * (d - np.sum(np.cos(2.0 * np.pi * (X - self.mu1[np.newaxis, :])), axis=1))
         y = np.minimum(d1, d2) + ras
         if self.noise_std > 0:
             y += self.rng.normal(0, self.noise_std, size=N)
@@ -186,8 +195,8 @@ class LunacekBiRastrigin(BaseLandscape):
 
     def get_oracle_basins(self) -> List[Dict]:
         return [
-            {"center": np.ones(self.dim) * self.mu0, "cov": np.eye(self.dim) * 0.3, "weight": 1.0, "is_global": True},
-            {"center": -np.ones(self.dim) * self.mu0, "cov": np.eye(self.dim) * 0.5, "weight": 0.7, "is_global": False}
+            {"center": self.mu1.copy(), "cov": np.eye(self.dim) * 0.3, "weight": 1.0, "is_global": True},
+            {"center": self.mu2.copy(), "cov": np.eye(self.dim) * 0.5, "weight": 0.7, "is_global": False}
         ]
 
 
@@ -278,15 +287,16 @@ def get_task_suite(dim: int = 2, seed: int = 42) -> Dict[str, Dict]:
     }
     
     # 3. Lunacek Bi-Rastrigin Landscape
-    target_luna = LunacekBiRastrigin(dim=dim, seed=seed)
+    target_mu1 = rng.uniform(1.8, 2.8, size=dim)
+    target_luna = LunacekBiRastrigin(dim=dim, mu1=target_mu1, seed=seed)
     matching_luna = [
-        LunacekBiRastrigin(dim=dim, mu1_val=2.3, seed=seed+1),
-        LunacekBiRastrigin(dim=dim, mu1_val=2.7, seed=seed+2),
+        LunacekBiRastrigin(dim=dim, mu1=target_mu1 + rng.normal(0, 0.15, size=dim), seed=seed+1),
+        LunacekBiRastrigin(dim=dim, mu1=target_mu1 + rng.normal(0, 0.25, size=dim), seed=seed+2),
     ]
-    # Mismatched puts high attraction on the deceptive basin
+    # Mismatched sources: invert global/local basins (putting global optimum at the deceptive basin) or large offset
     mismatched_luna = [
-        LunacekBiRastrigin(dim=dim, mu1_val=-2.5, seed=seed+3),
-        ShiftedAckley(dim=dim, shift=np.ones(dim)*(-3.0), seed=seed+4)
+        LunacekBiRastrigin(dim=dim, mu1=-target_mu1, mu2=target_mu1, seed=seed+3),
+        LunacekBiRastrigin(dim=dim, mu1=-target_mu1 + rng.normal(0, 0.2, size=dim), seed=seed+4)
     ]
     suite["Lunacek"] = {
         "target": target_luna,
