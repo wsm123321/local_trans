@@ -1,10 +1,10 @@
 """
-Synthetic & Benchmark Problem Landscapes for Region-Guided Transfer Verification.
-Provides controllable multi-modal landscapes with known ground truth basins,
+Synthetic and Benchmark Optimization Landscapes for Region-Guided Transfer Verification.
+Provides controllable multi-modal landscapes with known ground-truth basin structures,
 controllable source-target shift, rotation, and deformation.
 """
 
-from typing import Dict, List, Tuple, Optional, Callable
+from typing import Dict, List, Tuple, Optional, Union
 import numpy as np
 
 
@@ -40,14 +40,12 @@ class GaussianMixtureLandscape(BaseLandscape):
                  covs: Optional[List[np.ndarray]] = None,
                  weights: Optional[List[float]] = None,
                  noise_std: float = 0.0,
-                 seed: int = 42):
+                 rng: Optional[np.random.Generator] = None):
         super().__init__(dim=dim, bounds=bounds, name=f"GMM_{dim}D")
-        self.rng = np.random.RandomState(seed)
-        self.noise_std = noise_std
+        self.rng = rng if rng is not None else np.random.default_rng(42)
+        self.noise_std = float(noise_std)
         
         if centers is None:
-            # Generate 4 distinct basins
-            num_basins = 4
             self.centers = []
             self.covs = []
             self.weights = [1.0, 0.8, 0.6, 0.5]
@@ -76,7 +74,7 @@ class GaussianMixtureLandscape(BaseLandscape):
             self.centers.append(c4)
             self.covs.append(np.eye(dim) * 0.9)
         else:
-            self.centers = [np.array(c, dtype=float) for c in centers]
+            self.centers = [np.array(c, dtype=float).ravel() for c in centers]
             self.covs = [np.array(cov, dtype=float) for cov in covs] if covs is not None else [np.eye(dim) for _ in centers]
             self.weights = list(weights) if weights is not None else [1.0] * len(self.centers)
 
@@ -85,12 +83,10 @@ class GaussianMixtureLandscape(BaseLandscape):
         N, d = X.shape
         vals = np.zeros(N)
         for k, (mu, sigma, w) in enumerate(zip(self.centers, self.covs, self.weights)):
-            inv_sig = np.linalg.inv(sigma + 1e-6 * np.eye(d))
+            inv_sig = np.linalg.inv(sigma + 1e-5 * np.eye(d))
             diff = X - mu[np.newaxis, :]
-            # Mahalanobis dist sq
             quad = np.sum((diff @ inv_sig) * diff, axis=1)
-            vals += w * np.exp(-0.5 * quad)
-        # Minimize: negative peak value
+            vals += w * np.exp(-0.5 * np.maximum(0.0, quad))
         y = -vals
         if self.noise_std > 0:
             y += self.rng.normal(0, self.noise_std, size=N)
@@ -98,32 +94,33 @@ class GaussianMixtureLandscape(BaseLandscape):
 
     def get_oracle_basins(self) -> List[Dict]:
         basins = []
+        max_w = max(self.weights)
         for mu, cov, w in zip(self.centers, self.covs, self.weights):
             basins.append({
                 "center": mu.copy(),
                 "cov": cov.copy(),
-                "weight": w,
-                "is_global": (w == max(self.weights))
+                "weight": float(w),
+                "is_global": (w == max_w)
             })
         return basins
 
 
 class ShiftedRotatedRastrigin(BaseLandscape):
     """
-    Rastrigin landscape with optional shift and orthogonal rotation.
+    Rastrigin landscape with shift and orthogonal rotation.
     f(x) = 10*d + sum(z_i^2 - 10*cos(2*pi*z_i)), where z = R * (x - x_opt)
     """
     def __init__(self, dim: int = 2, shift: Optional[np.ndarray] = None, 
-                 rotation_angle: float = 0.0, noise_std: float = 0.0, seed: int = 42):
+                 rotation_angle: float = 0.0, noise_std: float = 0.0, 
+                 rng: Optional[np.random.Generator] = None):
         bounds = np.zeros((dim, 2))
         bounds[:, 0] = -5.12
         bounds[:, 1] = 5.12
         super().__init__(dim=dim, bounds=bounds, name=f"Rastrigin_{dim}D")
-        self.shift = np.zeros(dim) if shift is None else np.array(shift, dtype=float)
-        self.rng = np.random.RandomState(seed)
-        self.noise_std = noise_std
+        self.shift = np.zeros(dim) if shift is None else np.array(shift, dtype=float).ravel()
+        self.rng = rng if rng is not None else np.random.default_rng(42)
+        self.noise_std = float(noise_std)
         
-        # Orthogonal rotation matrix
         self.R = np.eye(dim)
         if dim >= 2 and abs(rotation_angle) > 1e-5:
             theta = rotation_angle
@@ -155,11 +152,10 @@ class LunacekBiRastrigin(BaseLandscape):
     """
     Lunacek Bi-Rastrigin landscape: contains two major basins at mu1 and mu2.
     One basin (mu1) contains the global optimum, the second (mu2) contains a deceptive local optimum.
-    Tests whether source region prior correctly differentiates or guides search.
     """
-    def __init__(self, dim: int = 2, mu1: Optional[np.ndarray] = None, mu1_val: float = 2.5, 
+    def __init__(self, dim: int = 2, mu1: Optional[np.ndarray] = None, 
                  mu2: Optional[np.ndarray] = None, d_scale: float = 1.0, 
-                 noise_std: float = 0.0, seed: int = 42):
+                 noise_std: float = 0.0, rng: Optional[np.random.Generator] = None):
         bounds = np.zeros((dim, 2))
         bounds[:, 0] = -5.0
         bounds[:, 1] = 5.0
@@ -168,7 +164,7 @@ class LunacekBiRastrigin(BaseLandscape):
         if mu1 is not None:
             self.mu1 = np.array(mu1, dtype=float).ravel()
         else:
-            self.mu1 = np.ones(dim) * mu1_val
+            self.mu1 = np.ones(dim) * 2.5
             
         if mu2 is not None:
             self.mu2 = np.array(mu2, dtype=float).ravel()
@@ -177,13 +173,12 @@ class LunacekBiRastrigin(BaseLandscape):
             
         self.d_scale = float(d_scale)
         self.noise_std = float(noise_std)
-        self.rng = np.random.RandomState(seed)
+        self.rng = rng if rng is not None else np.random.default_rng(42)
         self.s = 1.0 - 1.0 / (2.0 * np.sqrt(dim + 20.0) - 8.2)
 
     def __call__(self, X: np.ndarray) -> np.ndarray:
         X = np.atleast_2d(X)
         N, d = X.shape
-        # Distance to mu1 (global basin) and mu2 (deceptive basin)
         d1 = np.sum((X - self.mu1[np.newaxis, :])**2, axis=1)
         d2 = self.d_scale * d + self.s * np.sum((X - self.mu2[np.newaxis, :])**2, axis=1)
         
@@ -202,14 +197,15 @@ class LunacekBiRastrigin(BaseLandscape):
 
 class ShiftedAckley(BaseLandscape):
     """Ackley multimodal benchmark function with controllable shift."""
-    def __init__(self, dim: int = 2, shift: Optional[np.ndarray] = None, noise_std: float = 0.0, seed: int = 42):
+    def __init__(self, dim: int = 2, shift: Optional[np.ndarray] = None, 
+                 noise_std: float = 0.0, rng: Optional[np.random.Generator] = None):
         bounds = np.zeros((dim, 2))
         bounds[:, 0] = -5.0
         bounds[:, 1] = 5.0
         super().__init__(dim=dim, bounds=bounds, name=f"Ackley_{dim}D")
-        self.shift = np.zeros(dim) if shift is None else np.array(shift, dtype=float)
-        self.noise_std = noise_std
-        self.rng = np.random.RandomState(seed)
+        self.shift = np.zeros(dim) if shift is None else np.array(shift, dtype=float).ravel()
+        self.noise_std = float(noise_std)
+        self.rng = rng if rng is not None else np.random.default_rng(42)
 
     def __call__(self, X: np.ndarray) -> np.ndarray:
         X = np.atleast_2d(X)
@@ -231,34 +227,35 @@ class ShiftedAckley(BaseLandscape):
         }]
 
 
-def get_task_suite(dim: int = 2, seed: int = 42) -> Dict[str, Dict]:
+def get_task_suite(dim: int = 2, rng: Optional[np.random.Generator] = None) -> Dict[str, Dict]:
     """
     Returns a dictionary of problem suites for controlled transfer verification.
     Each problem suite contains:
       - target_func: The evaluation landscape
-      - matching_sources: List of historical source tasks with shared or slightly shifted good regions
+      - matching_sources: List of historical source tasks with shared/slightly shifted good regions
       - mismatched_sources: List of source tasks with distinct/conflicting optimal regions
-      - oracle_basins: Exact known optimal basins for benchmark evaluation
+      - bounds: Landscape bounds
     """
-    rng = np.random.RandomState(seed)
+    if rng is None:
+        rng = np.random.default_rng(42)
+        
     suite = {}
     
     # 1. GMM Landscape
-    target_gmm = GaussianMixtureLandscape(dim=dim, seed=seed)
-    # Matching source: same landscape + small center perturbations (std=0.15)
+    target_gmm = GaussianMixtureLandscape(dim=dim, rng=rng)
     matching_gmm = []
     for i in range(3):
         perturbed_centers = [c + rng.normal(0, 0.15, size=dim) for c in target_gmm.centers]
         src = GaussianMixtureLandscape(dim=dim, centers=perturbed_centers, 
-                                       covs=target_gmm.covs, weights=target_gmm.weights, seed=seed+10+i)
+                                       covs=target_gmm.covs, weights=target_gmm.weights, rng=rng)
         matching_gmm.append(src)
-    # Mismatched source: inverted weights or displaced centers (far away)
+        
     mismatched_gmm = []
     for i in range(3):
-        displaced_centers = [c + rng.uniform(2.5, 4.0, size=dim) * (1 if j%2==0 else -1) 
-                             for j, c in enumerate(target_gmm.centers)]
+        # Displaced centers inside bounds and inverted weights (so global basin becomes local)
+        displaced_centers = [-c for c in target_gmm.centers]
         src = GaussianMixtureLandscape(dim=dim, centers=displaced_centers, 
-                                       covs=target_gmm.covs, weights=target_gmm.weights[::-1], seed=seed+20+i)
+                                       covs=target_gmm.covs, weights=target_gmm.weights[::-1], rng=rng)
         mismatched_gmm.append(src)
         
     suite["GMM"] = {
@@ -270,14 +267,14 @@ def get_task_suite(dim: int = 2, seed: int = 42) -> Dict[str, Dict]:
     
     # 2. Shifted Rastrigin Landscape
     target_shift = rng.uniform(-1.5, 1.5, size=dim)
-    target_rastrigin = ShiftedRotatedRastrigin(dim=dim, shift=target_shift, rotation_angle=0.1, seed=seed)
+    target_rastrigin = ShiftedRotatedRastrigin(dim=dim, shift=target_shift, rotation_angle=0.1, rng=rng)
     matching_rastrigin = [
-        ShiftedRotatedRastrigin(dim=dim, shift=target_shift + rng.normal(0, 0.2, size=dim), rotation_angle=0.15, seed=seed+1),
-        ShiftedRotatedRastrigin(dim=dim, shift=target_shift + rng.normal(0, 0.3, size=dim), rotation_angle=0.05, seed=seed+2),
+        ShiftedRotatedRastrigin(dim=dim, shift=target_shift + rng.normal(0, 0.15, size=dim), rotation_angle=0.12, rng=rng),
+        ShiftedRotatedRastrigin(dim=dim, shift=target_shift + rng.normal(0, 0.25, size=dim), rotation_angle=0.08, rng=rng),
     ]
     mismatched_rastrigin = [
-        ShiftedRotatedRastrigin(dim=dim, shift=target_shift + 3.0, rotation_angle=0.8, seed=seed+3),
-        ShiftedRotatedRastrigin(dim=dim, shift=-target_shift - 2.5, rotation_angle=1.2, seed=seed+4),
+        ShiftedRotatedRastrigin(dim=dim, shift=-target_shift, rotation_angle=0.8, rng=rng),
+        ShiftedRotatedRastrigin(dim=dim, shift=np.clip(target_shift + 3.0, -4.5, 4.5), rotation_angle=1.2, rng=rng),
     ]
     suite["Rastrigin"] = {
         "target": target_rastrigin,
@@ -287,16 +284,15 @@ def get_task_suite(dim: int = 2, seed: int = 42) -> Dict[str, Dict]:
     }
     
     # 3. Lunacek Bi-Rastrigin Landscape
-    target_mu1 = rng.uniform(1.8, 2.8, size=dim)
-    target_luna = LunacekBiRastrigin(dim=dim, mu1=target_mu1, seed=seed)
+    target_mu1 = rng.uniform(1.8, 2.5, size=dim)
+    target_luna = LunacekBiRastrigin(dim=dim, mu1=target_mu1, rng=rng)
     matching_luna = [
-        LunacekBiRastrigin(dim=dim, mu1=target_mu1 + rng.normal(0, 0.15, size=dim), seed=seed+1),
-        LunacekBiRastrigin(dim=dim, mu1=target_mu1 + rng.normal(0, 0.25, size=dim), seed=seed+2),
+        LunacekBiRastrigin(dim=dim, mu1=target_mu1 + rng.normal(0, 0.15, size=dim), rng=rng),
+        LunacekBiRastrigin(dim=dim, mu1=target_mu1 + rng.normal(0, 0.25, size=dim), rng=rng),
     ]
-    # Mismatched sources: invert global/local basins (putting global optimum at the deceptive basin) or large offset
     mismatched_luna = [
-        LunacekBiRastrigin(dim=dim, mu1=-target_mu1, mu2=target_mu1, seed=seed+3),
-        LunacekBiRastrigin(dim=dim, mu1=-target_mu1 + rng.normal(0, 0.2, size=dim), seed=seed+4)
+        LunacekBiRastrigin(dim=dim, mu1=-target_mu1, mu2=target_mu1, rng=rng),
+        LunacekBiRastrigin(dim=dim, mu1=-target_mu1 + rng.normal(0, 0.2, size=dim), rng=rng)
     ]
     suite["Lunacek"] = {
         "target": target_luna,
@@ -306,15 +302,15 @@ def get_task_suite(dim: int = 2, seed: int = 42) -> Dict[str, Dict]:
     }
     
     # 4. Shifted Ackley Landscape
-    target_ack_shift = rng.uniform(-1.0, 1.0, size=dim)
-    target_ackley = ShiftedAckley(dim=dim, shift=target_ack_shift, seed=seed)
+    target_ack_shift = rng.uniform(-1.2, 1.2, size=dim)
+    target_ackley = ShiftedAckley(dim=dim, shift=target_ack_shift, rng=rng)
     matching_ackley = [
-        ShiftedAckley(dim=dim, shift=target_ack_shift + rng.normal(0, 0.25, size=dim), seed=seed+1),
-        ShiftedAckley(dim=dim, shift=target_ack_shift + rng.normal(0, 0.25, size=dim), seed=seed+2),
+        ShiftedAckley(dim=dim, shift=target_ack_shift + rng.normal(0, 0.15, size=dim), rng=rng),
+        ShiftedAckley(dim=dim, shift=target_ack_shift + rng.normal(0, 0.25, size=dim), rng=rng),
     ]
     mismatched_ackley = [
-        ShiftedAckley(dim=dim, shift=target_ack_shift + 3.5, seed=seed+3),
-        ShiftedAckley(dim=dim, shift=-target_ack_shift - 3.0, seed=seed+4),
+        ShiftedAckley(dim=dim, shift=-target_ack_shift, rng=rng),
+        ShiftedAckley(dim=dim, shift=np.clip(target_ack_shift + 3.0, -4.5, 4.5), rng=rng),
     ]
     suite["Ackley"] = {
         "target": target_ackley,

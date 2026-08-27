@@ -1,26 +1,12 @@
 # 源局部区域引导的目标候选重排序研究 (Region-Guided Candidate Reranking Study)
 
-## 1. 核心猜想与研究定位
-
-传统昂贵多任务迁移优化往往尝试直接迁移“源最优点”、“源响应表面模型”或“源高阶局部曲率/Hessian”。然而，在少样本（few-shot）目标优化初期，这些高自由度模型迁移极易带来模型失配与严重的负迁移风险。
-
-本研究验证的新猜想：**将候选生成权与源知识解耦**：
-$$
-\boxed{\text{目标代理模型负责“产生可能性”} + \text{源优质区域先验负责“提高命中率”}}
-$$
-
-### 核心可检验条件
-设 $U_t(x)$ 为候选点在目标任务上的真实效用（例如负目标函数值或真实改进量），$\alpha_t(x)$ 为目标代理模型计算的采集得分（Acquisition Score），$r_s(x)$ 为源区域支持得分：
-$$
-\boxed{I(U_t(x); r_s(x) \mid \alpha_t(x)) > 0}
-$$
-即：**在已知目标代理模型打分的条件下，源优质区域得分仍能提供统计显著的增量候选质量信息。**
+本项目为探索**“目标代理模型负责产生候选可能性，源优质局部区域负责提供空间偏好先验进行软重排序”**的机制验证与边界分析原型。
 
 ---
 
-## 2. 形式化与数学定义
+## 1. 核心猜想与形式化定义
 
-### 2.1 源区域库表示 (Source Region Library)
+### 1.1 源区域库表示 (Source Region Library)
 从历史源任务的优质采样点中提取 $K$ 个优质区域 $\mathcal{R}_s = \{R_1, \dots, R_K\}$，每个区域参数化为：
 $$
 R_k = (\mu_k, \Sigma_k, q_k, n_k)
@@ -30,51 +16,95 @@ $$
 - $q_k \in [0, 1]$: 区域平均归一化质量；
 - $n_k \in \mathbb{N}^+$: 区域样本数 / 跨源任务重复出现频次（可信度）。
 
-### 2.2 候选点源区域支持得分 (Source Region Support Score)
+### 1.2 候选点源区域支持得分 (Source Region Support Score)
 对于候选点 $x \in \mathbb{R}^d$：
 $$
-r_s(x) = \max_{k=1,\dots,K} q_k \exp\left( -\frac{1}{2} (x - \mu_k)^\top (\Sigma_k + \epsilon I)^{-1} (x - \mu_k) \right)
+r_s(x) = \max_{k=1,\dots,K} q_k \exp\left( -\frac{1}{2} (x - \mu_k)^\top \Sigma_k^{-1} (x - \mu_k) \right)
 $$
 
-### 2.3 候选池与软重排序融合 (Soft Reranking)
-目标代理模型（如 GP）在目标样本 $\mathcal{D}_t$ 上训练，生成宽候选池：
-$$
-C_t = C_{\text{acq}} \cup C_{\text{global}} \cup C_{\text{diverse}}
-$$
-对 $x \in C_t$，计算其归一化���集得分 $\tilde{\alpha}_t(x)$ 与归一化源得分 $\tilde{r}_s(x)$：
+### 1.3 软重排序融合与低信息安全门控 (Soft Reranking with Safety Gating)
+对 $x \in C_t$，计算其归一化采集得分 $\tilde{\alpha}_t(x)$ 与归一化源得分 $\tilde{r}_s(x)$（使用 `scipy.stats.rankdata` 处理并列值）：
 $$
 J_t(x) = \tilde{\alpha}_t(x) + \lambda_t \tilde{r}_s(x)
 $$
+**安全门控规则**：若源区域得分在候选池上的方差 $\mathrm{Var}(r_s) < \epsilon$（无判别力常数），自动置 $\lambda_t = 0.0$。
 
 ---
 
-## 3. 六组对照基线设计 (Controlled Comparators)
+## 2. 六组对照基线设计 (Controlled Comparators)
 
-所有方法**严格共享**：相同目标初始样本、相同目标代理模型、相同候选池 $C_t$、相同随机种子、相同评测预算。
+所有方法**严格共享相同的��标初始样本、相同的目标 GP 代理模型和相同的排他候选池 $C_t$**（通过 `np.random.SeedSequence` 隔离随机流，候选池严格排除已评测目标点与源数据）。
 
-| 编号 | 方法名称 | 排序依据 / 机制 | 预期作用与检验目的 |
-| :--- | :--- | :--- | :--- |
-| **M1** | **Target-Only** | 仅按目标采集得分 $\tilde{\alpha}_t(x)$ | 零迁移基线（标准 BO 选择） |
-| **M2** | **Source-Region (Ours)** | 目标采集 + 匹配源区域得分 $\tilde{\alpha}_t(x) + \lambda \tilde{r}_s(x)$ | 本文核心方法 |
-| **M3** | **Random-Region** | 目标采集 + 随机位置区域先验 | 检验增益是否仅来自“额外空间正则/散布偏好” |
-| **M4** | **Wrong-Source** | 目标采集 + 明确失配/对抗源区域 | 负迁移压力测试，检验抗干扰能力 |
-| **M5** | **Oracle-Target-Region** | 目标采集 + 真实目标最优盆地区域 | 性能上界（理论最佳区域先验） |
-| **M6** | **Hard-Filter** | 仅保留源区域覆盖内的候选（硬过滤） | 验证软融合对比硬过滤的安全边界 |
+| 编号 | 方法名称 | 机制说明 |
+| :--- | :--- | :--- |
+| **M1** | **Target-Only** | 仅按目标采集得分 $\tilde{\alpha}_t(x)$ 排序（零迁移基线） |
+| **M2** | **Source-Region** | 目标采集 + 匹配源区域得分软融合 $\tilde{\alpha}_t(x) + \lambda \tilde{r}_s(x)$ |
+| **M3** | **Random-Region** | **严格结构匹配随机对照**：保留源区域的真实协方差谱、体积、质量与频次，仅随机平移中心 $\mu_k$ |
+| **M4** | **Wrong-Source** | **对抗/失配源对照**：区域中心指向目标函数的欺骗性局部极小或高损失区域 |
+| **M5** | **Oracle-Target-Region** | 真实目标全局最优盆地先验（理论上界） |
+| **M6** | **Hard-Filter** | **几何卡方置信域过滤**：仅保留位于区域 95% 置信椭球 $(x-\mu)^\top \Sigma^{-1} (x-\mu) \le \chi^2_{d, 0.95}$ 内的候选 |
 
 ---
 
-## 4. 检验指标体系
+## 3. 实验运行与复现指南
 
-1. **条件增量检验 (Conditional Incremental Information)**
-   - 偏相关系数 $\rho(U_t, r_s \mid \alpha_t)$；
-   - 增量可解释方差 $\Delta R^2 = R^2(U_t \sim \alpha_t + r_s) - R^2(U_t \sim \alpha_t)$；
-   - 条件互信息估计 $I(U_t; r_s \mid \alpha_t)$。
-2. **候选决策质量 (Candidate Selection Quality)**
-   - 最终所选 Top-1 / Top-k 候选的真实 Simple Regret；
-   - 单步真实改进量 (One-step Improvement)；
-   - Top-10% 优质解命中率 (Top-k Hit Rate)；
-   - 真实最优候选在重排序前后的排位变化 (Rank Improvement)。
-3. **因果归因判定准则**
-   - 满足 $\text{Source-Region} > \text{Random-Region}$（排除随机伪效应）；
-   - 满足 $\text{Wrong-Source} \le \text{Target-Only}$ 且在自适应下负迁移可控；
-   - 软重排序在目标模型发现新区域时优于 Hard-Filter。
+### 3.1 环境安装
+```bash
+pip install -e .
+```
+
+### 3.2 运行自动化测试
+```bash
+python -m pytest
+```
+
+### 3.3 运行全量三阶段实验
+```bash
+# 阶段一：固定候选池单步重排序机制检验
+python scripts/run_mechanism_experiment.py
+
+# 阶段二：连续空间漂移与有效性边界曲线
+python scripts/run_drift_curve_experiment.py
+
+# 阶段三：闭环序列贝叶斯优化迭代
+python scripts/run_sequential_bo.py
+
+# 生成可视化图表与数据驱动验证报告
+python scripts/plot_and_report.py
+```
+
+---
+
+## 4. 目录结构
+
+```text
+local_trans/
+├── pyproject.toml
+├── requirements.txt
+├── README.md
+├── src/
+│   └── region_guided_reranking_study/
+│       ├── __init__.py
+│       ├── landscapes.py
+│       ├── source_regions.py
+│       ├── surrogate_and_candidates.py
+│       ├── rerankers.py
+│       ├── metrics.py
+│       └── sequential_bo.py
+├── scripts/
+│   ├── run_mechanism_experiment.py
+│   ├── run_drift_curve_experiment.py
+│   ├── run_sequential_bo.py
+│   └── plot_and_report.py
+├── tests/
+│   ├── test_random_isolation.py
+│   ├── test_rank_ties.py
+│   └── test_comparators.py
+└── results/
+    ├── VERIFICATION_REPORT.md
+    ├── mechanism_2d_demonstration.png
+    ├── statistical_hypothesis_validation.png
+    ├── comparator_regret_comparison.png
+    ├── drift_boundary_curve.png
+    └── sequential_bo_convergence.png
+```

@@ -2,36 +2,38 @@
 Candidate Reranking Mechanisms and Policies.
 Implements the 6 controlled comparators under identical candidate pools and surrogate scores:
 1. Target-Only (pure acquisition)
-2. Source-Region (matching source library soft rerank)
-3. Random-Region (random regions baseline)
-4. Wrong-Source (mismatched/adversarial source baseline)
-5. Oracle-Target-Region (ground truth target basin upper bound)
-6. Hard-Filter (strict binary gating baseline)
+2. Source-Region (soft fusion with zero-variance safety gate)
+3. Random-Region (structure-matched random control)
+4. Wrong-Source (adversarial/mismatched source baseline)
+5. Oracle-Target-Region (true target optimum basin)
+6. Hard-Filter (strict chi-square confidence ellipsoid gating)
 """
 
 from typing import Dict, List, Optional, Tuple
 import numpy as np
+from scipy.stats import rankdata
 from .source_regions import SourceRegionLibrary
 
 
 def normalize_scores(scores: np.ndarray, method: str = "rank") -> np.ndarray:
     """
     Normalize score array of length M to [0, 1] where higher is better.
-    method: 'rank' (quantile rank) or 'minmax'
+    Correctly handles tied ranks via average ranking.
+    Constant / zero-variance arrays map safely to uniform zeros.
     """
     scores = np.asarray(scores, dtype=float).ravel()
     M = len(scores)
     if M <= 1:
-        return np.ones(M)
+        return np.zeros_like(scores)
+        
+    if np.ptp(scores) < 1e-12:
+        return np.zeros_like(scores)
         
     if method == "rank":
-        # Tied ranks handled by argsort of argsort
-        ranks = np.argsort(np.argsort(scores))
-        return ranks / (M - 1.0)
+        ranks = rankdata(scores, method="average")
+        return (ranks - 1.0) / (M - 1.0)
     elif method == "minmax":
         s_min, s_max = np.min(scores), np.max(scores)
-        if s_max - s_min < 1e-12:
-            return np.zeros(M)
         return (scores - s_min) / (s_max - s_min)
     else:
         raise ValueError(f"Unknown normalization method: {method}")
@@ -59,58 +61,78 @@ class TargetOnlyReranker(BaseReranker):
 
     def score_and_rank(self, candidates: np.ndarray, acq_scores: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
         combined_scores = normalize_scores(acq_scores, method="rank")
-        ranked_indices = np.argsort(combined_scores)[::-1]
+        ranked_indices = np.argsort(-combined_scores, kind='stable')
         return ranked_indices, combined_scores
 
 
 class SoftRegionReranker(BaseReranker):
     """
-    Soft fusion of target acquisition and region support:
+    Soft fusion of target acquisition and region support with 'No information, no transfer' safety gate:
     J_t(x) = alpha_norm(x) + lambda_t * r_norm(x)
     """
     def __init__(self, region_lib: SourceRegionLibrary, weight_lambda: float = 1.0, 
-                 norm_method: str = "rank", name: str = "Source-Region"):
+                 norm_method: str = "rank", min_source_var: float = 1e-8,
+                 name: str = "Source-Region"):
         super().__init__(name)
         self.region_lib = region_lib
-        self.weight_lambda = weight_lambda
+        self.weight_lambda = float(weight_lambda)
         self.norm_method = norm_method
+        self.min_source_var = float(min_source_var)
 
     def score_and_rank(self, candidates: np.ndarray, acq_scores: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
         alpha_norm = normalize_scores(acq_scores, method=self.norm_method)
         raw_r = self.region_lib.score(candidates)
-        r_norm = normalize_scores(raw_r, method=self.norm_method)
         
-        combined_scores = alpha_norm + self.weight_lambda * r_norm
-        ranked_indices = np.argsort(combined_scores)[::-1]
+        # Zero-variance / Low-information safety gate:
+        # If source region score has no variance across the candidate pool, disable transfer (lambda = 0)
+        if np.ptp(raw_r) < self.min_source_var or np.var(raw_r) < self.min_source_var:
+            effective_lambda = 0.0
+            r_norm = np.zeros_like(raw_r)
+        else:
+            effective_lambda = self.weight_lambda
+            r_norm = normalize_scores(raw_r, method=self.norm_method)
+            
+        combined_scores = alpha_norm + effective_lambda * r_norm
+        ranked_indices = np.argsort(-combined_scores, kind='stable')
         return ranked_indices, combined_scores
 
 
 class HardFilterReranker(BaseReranker):
     """
-    M6: Hard thresholding - only keeps candidates with region support above threshold.
-    Ranks filtered candidates by pure acquisition score.
+    M6: Hard geometric filtering using chi-square confidence ellipsoids.
+    Candidates outside all source region ellipsoids receive heavy penalty.
     """
-    def __init__(self, region_lib: SourceRegionLibrary, threshold_ratio: float = 0.5, 
+    def __init__(self, region_lib: SourceRegionLibrary, confidence: float = 0.95, 
                  name: str = "Hard-Filter"):
         super().__init__(name)
         self.region_lib = region_lib
-        self.threshold_ratio = threshold_ratio
+        self.confidence = float(confidence)
 
     def score_and_rank(self, candidates: np.ndarray, acq_scores: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
-        M = len(candidates)
         alpha_norm = normalize_scores(acq_scores, method="rank")
-        raw_r = self.region_lib.score(candidates)
-        
-        # Binary mask
-        r_thresh = np.quantile(raw_r, self.threshold_ratio)
-        mask = raw_r >= r_thresh
+        inside_mask = self.region_lib.filter_inside_any_region(candidates, confidence=self.confidence)
         
         combined_scores = alpha_norm.copy()
-        if np.sum(mask) > 0:
-            # Penalize candidates outside region
-            combined_scores[~mask] -= 10.0
+        if np.sum(inside_mask) > 0:
+            # Penalize candidates outside the geometric confidence ellipsoid
+            combined_scores[~inside_mask] -= 100.0
             
-        ranked_indices = np.argsort(combined_scores)[::-1]
+        ranked_indices = np.argsort(-combined_scores, kind='stable')
+        return ranked_indices, combined_scores
+
+
+class TrueOracleReranker(BaseReranker):
+    """M5: Oracle baseline using true target global optimum basin or true utility."""
+    def __init__(self, oracle_lib: SourceRegionLibrary, name: str = "Oracle-Target-Region"):
+        super().__init__(name)
+        self.oracle_lib = oracle_lib
+
+    def score_and_rank(self, candidates: np.ndarray, acq_scores: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+        alpha_norm = normalize_scores(acq_scores, method="rank")
+        raw_r = self.oracle_lib.score(candidates)
+        r_norm = normalize_scores(raw_r, method="rank")
+        combined_scores = alpha_norm + 1.0 * r_norm
+        ranked_indices = np.argsort(-combined_scores, kind='stable')
         return ranked_indices, combined_scores
 
 
@@ -119,12 +141,12 @@ def create_comparator_suite(matching_lib: SourceRegionLibrary,
                              wrong_lib: SourceRegionLibrary,
                              oracle_lib: SourceRegionLibrary,
                              weight_lambda: float = 1.0) -> Dict[str, BaseReranker]:
-    """Assemble all 6 comparators for controlled experiment."""
+    """Assemble all 6 comparators."""
     return {
         "Target-Only": TargetOnlyReranker(),
         "Source-Region": SoftRegionReranker(matching_lib, weight_lambda=weight_lambda, name="Source-Region"),
         "Random-Region": SoftRegionReranker(random_lib, weight_lambda=weight_lambda, name="Random-Region"),
         "Wrong-Source": SoftRegionReranker(wrong_lib, weight_lambda=weight_lambda, name="Wrong-Source"),
-        "Oracle-Target-Region": SoftRegionReranker(oracle_lib, weight_lambda=weight_lambda, name="Oracle-Target-Region"),
-        "Hard-Filter": HardFilterReranker(matching_lib, threshold_ratio=0.7, name="Hard-Filter"),
+        "Oracle-Target-Region": TrueOracleReranker(oracle_lib, name="Oracle-Target-Region"),
+        "Hard-Filter": HardFilterReranker(matching_lib, confidence=0.95, name="Hard-Filter"),
     }
