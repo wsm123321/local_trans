@@ -72,8 +72,9 @@ def run_sequential_bo_suite(output_dir: str):
                 mismatched_datasets = []
                 for src in mismatched_sources:
                     s_X = wrong_rng.uniform(bounds[:, 0], bounds[:, 1], size=(50, dim))
-                    matching_datasets.append((s_X, src(s_X)))
+                    mismatched_datasets.append((s_X, src(s_X)))
                 wrong_lib = extractor.extract_from_multi_sources(mismatched_datasets)
+                assert len(wrong_lib.regions) > 0, "Wrong-source library must not be empty"
                 
                 random_lib = create_structure_matched_random_library(matching_lib, bounds=bounds, rng=pool_rng)
                 oracle_basins = target_func.get_oracle_basins()
