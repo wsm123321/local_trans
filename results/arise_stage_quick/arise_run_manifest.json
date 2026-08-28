@@ -1,0 +1,68 @@
+{
+  "config": {
+    "problems": [
+      "GMM",
+      "Rastrigin"
+    ],
+    "dimensions": [
+      2
+    ],
+    "seeds": [
+      42,
+      101
+    ],
+    "scenarios": [
+      "matching",
+      "mixed",
+      "wrong"
+    ],
+    "policies": [
+      "target_only",
+      "fixed",
+      "global_adaptive",
+      "posterior",
+      "arise"
+    ],
+    "source_samples": 50,
+    "budget": 8,
+    "raw_pool_size": 400,
+    "proposal_size": 60,
+    "acquisition": "ei",
+    "ratio_acq": 0.4,
+    "ratio_global": 0.4,
+    "ratio_diverse": 0.2,
+    "proposal_min_distance": 0.0,
+    "gp_noise_level": 0.0001,
+    "top_ratio": 0.2,
+    "max_clusters": 3,
+    "min_samples_per_cluster": 3,
+    "merge_threshold": 0.5,
+    "prior_effect_variance": 1.0,
+    "intercept_prior_variance": 100.0,
+    "credible_z": 1.0,
+    "min_region_coverage": 0.5,
+    "support_update_floor": 0.001,
+    "improvement_xi": 0.01,
+    "residual_variance_floor": 0.05,
+    "residual_clip": 6.0,
+    "guidance_weight": 0.8,
+    "fixed_guidance_weight": 0.8,
+    "probe_weight": 0.25,
+    "exploit_acquisition_gate": 0.5,
+    "probe_acquisition_gate": 0.25,
+    "region_candidate_weight": 1.0,
+    "active_probe": true,
+    "probe_interval": 3,
+    "probe_horizon": 8,
+    "probe_ucb_threshold": 0.0,
+    "global_elite_ratio": 0.3,
+    "global_prior_trust": 0.2,
+    "global_prior_strength": 2.0,
+    "global_evidence_shrinkage": 8.0,
+    "global_activation_threshold": 0.05,
+    "evidence_decay": 0.95
+  },
+  "optimizer_rows": 60,
+  "trace_rows": 480,
+  "identification_rows": 5400
+}

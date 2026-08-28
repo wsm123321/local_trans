@@ -1,5 +1,16 @@
 """Region-guided local transfer optimization package."""
 
+from .arise_transfer import (
+    ARISEConfig,
+    ARISEDecision,
+    ARISERegionTransferBO,
+    ARISEResult,
+    ImprovementMoments,
+    RegionEvidenceModel,
+    RegionTransferPosterior,
+    counterfactual_region_gains,
+    improvement_moments,
+)
 from .local_region_transfer import (
     CandidateDecision,
     LocalRegionTransferConfig,
@@ -20,6 +31,15 @@ from .target_region_screening import (
 )
 
 __all__ = [
+    "ARISEConfig",
+    "ARISEDecision",
+    "ARISERegionTransferBO",
+    "ARISEResult",
+    "ImprovementMoments",
+    "RegionEvidenceModel",
+    "RegionTransferPosterior",
+    "counterfactual_region_gains",
+    "improvement_moments",
     "CandidateDecision",
     "LocalRegionTransferConfig",
     "LocalRegionTransferOptimizer",
@@ -36,4 +56,4 @@ __all__ = [
     "TargetProposalSet",
 ]
 
-__version__ = "0.4.0"
+__version__ = "0.5.0"

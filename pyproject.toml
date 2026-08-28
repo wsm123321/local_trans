@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "region_guided_reranking_study"
-version = "0.4.0"
-description = "Target-surrogate proposal and source-local-region candidate screening for expensive transfer optimization"
+version = "0.5.0"
+description = "Decision-conditional local transferability with active region identification and safe exploitation"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
