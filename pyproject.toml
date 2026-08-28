@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "region_guided_reranking_study"
-version = "0.2.0"
-description = "Source Local Region-Guided Candidate Reranking Study and Empirical Verification"
+version = "0.4.0"
+description = "Target-surrogate proposal and source-local-region candidate screening for expensive transfer optimization"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
@@ -23,4 +23,3 @@ where = ["src"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
-

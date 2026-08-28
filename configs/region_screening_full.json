@@ -1,0 +1,53 @@
+{
+  "output_dir": "results/region_screening",
+  "study": {
+    "problems": ["GMM", "Rastrigin", "Lunacek", "Ackley"],
+    "dimensions": [2, 5],
+    "seeds": [42, 101, 2026, 777, 999, 1234, 5678, 8888],
+    "progress_every": 4,
+
+    "n_init_multiplier": 2,
+    "n_init_offset": 2,
+    "source_samples": 100,
+    "top_ratio": 0.20,
+    "max_clusters": 3,
+    "min_samples_per_cluster": 3,
+    "merge_threshold": 0.50,
+
+    "raw_pool_size": 1500,
+    "proposal_size": 100,
+    "acquisition": "ei",
+    "ratio_acq": 0.40,
+    "ratio_global": 0.40,
+    "ratio_diverse": 0.20,
+    "proposal_min_distance": 0.00,
+    "gp_noise_level": 0.0001,
+
+    "screening_geometry": "quantile",
+    "retain_ratio": 0.25,
+    "ellipsoid_confidence": 0.95,
+    "source_aggregation": "max",
+    "min_source_variation": 1e-10,
+    "min_target_points": 5,
+    "elite_ratio": 0.30,
+    "prior_trust": 0.20,
+    "prior_strength": 2.0,
+    "evidence_shrinkage": 8.0,
+    "activation_threshold": 0.05,
+    "min_retained": 3,
+    "batch_min_distance": 0.02,
+
+    "soft_rerank_weight": 1.0,
+    "soft_rerank_decay": 0.05,
+    "soft_target_nomination_ratio": 0.20,
+    "soft_source_nomination_ratio": 0.20,
+
+    "budget": 20,
+    "batch_size": 1,
+
+    "drift_dimensions": [2, 5],
+    "drift_seeds": [42, 101, 2026, 777, 999, 1234, 5678, 8888],
+    "drift_values": [0.0, 0.25, 0.5, 1.0, 2.0, 4.0],
+    "drift_source_samples": 120
+  }
+}
