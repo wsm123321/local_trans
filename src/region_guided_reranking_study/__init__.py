@@ -17,6 +17,13 @@ from .local_region_transfer import (
     LocalRegionTransferOptimizer,
     LocalRegionTransferResult,
 )
+from .source_local_structure import (
+    LocalStructureConfig,
+    LocalStructureValidation,
+    SourceLocalStructure,
+    SourceLocalStructureExtractor,
+    SourceLocalStructureLibrary,
+)
 from .target_region_screening import (
     CompatibilityEstimate,
     RegionFilteredBOConfig,
@@ -44,6 +51,11 @@ __all__ = [
     "LocalRegionTransferConfig",
     "LocalRegionTransferOptimizer",
     "LocalRegionTransferResult",
+    "LocalStructureConfig",
+    "LocalStructureValidation",
+    "SourceLocalStructure",
+    "SourceLocalStructureExtractor",
+    "SourceLocalStructureLibrary",
     "CompatibilityEstimate",
     "RegionFilteredBOConfig",
     "RegionFilteredBOResult",
@@ -56,4 +68,4 @@ __all__ = [
     "TargetProposalSet",
 ]
 
-__version__ = "0.5.0"
+__version__ = "0.6.0"

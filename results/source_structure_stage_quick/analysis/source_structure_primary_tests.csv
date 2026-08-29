@@ -1,0 +1,7 @@
+method_a,method_b,metric,higher_is_better,n_pairs,mean_advantage,ci_low,ci_high,wilcoxon_one_sided_p,rank_biserial,win_rate,tie_rate,loss_rate,hypothesis,holm_adjusted_p,supported
+Proposed-Local-Structure,Geometry-Only,ndcg_at_top,True,8,0.08033776322226821,0.007840122350119515,0.18335952868812722,0.09765625,0.25,0.625,0.0,0.375,H1_Source_NDCG_Proposed_vs_Geometry,0.125,False
+Proposed-Local-Structure,Geometry-Only,spearman,True,8,0.22968712913388134,0.050912068934016765,0.5030888891170064,0.00390625,1.0,1.0,0.0,0.0,H2_Source_Local_Spearman_Proposed_vs_Geometry,0.0234375,True
+Proposed-Local-Structure,Label-Permutation,ndcg_at_top,True,8,0.19398694270946437,0.08325116050096919,0.30900634282264616,0.0078125,0.75,0.875,0.0,0.125,H3_Source_NDCG_Proposed_vs_Permutation,0.03125,True
+Proposed-Local-Structure,Geometry-Only,ndcg_at_top,True,4,0.12749037501517874,0.042743706288741384,0.2920603157812943,0.0625,1.0,1.0,0.0,0.0,H4_Matching_Target_NDCG_Proposed_vs_Geometry,0.125,False
+Proposed-Local-Structure,Top-Observations,basin_recall,True,8,0.33333333333333337,0.16666666666666669,0.5,0.015625,1.0,0.75,0.25,0.0,H5_Recovery_Recall_Proposed_vs_TopObservations,0.046875,True
+Proposed-Local-Structure,Top-Observations,normalized_center_error,False,8,0.11228230211272672,0.05840313397690433,0.1687483654226421,0.00390625,1.0,1.0,0.0,0.0,H6_Recovery_CenterError_Proposed_vs_TopObservations,0.0234375,True

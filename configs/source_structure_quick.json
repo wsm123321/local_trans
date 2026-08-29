@@ -1,0 +1,47 @@
+{
+  "extraction": {
+    "elite_ratio": 0.2,
+    "max_regions": 3,
+    "min_elite_per_region": 4,
+    "min_context_samples": 16,
+    "max_context_samples": 64,
+    "context_multiplier": 3.0,
+    "min_boundary_fraction": 0.25,
+    "covariance_regularization": 0.001,
+    "gmm_reg_covar": 0.0001,
+    "use_bic_model_selection": true,
+    "model_type": "gp",
+    "gp_restarts": 0,
+    "random_forest_trees": 100,
+    "cv_folds": 3,
+    "validation_top_fraction": 0.1,
+    "quality_floor": 0.1,
+    "reliability_floor": 0.25
+  },
+  "recovery": {
+    "dimensions": [2],
+    "seeds": [42, 101],
+    "sample_sizes": [120, 240],
+    "noise_levels": [0.0, 0.02],
+    "n_basins": 3,
+    "hit_threshold": 2.5
+  },
+  "validation": {
+    "problems": ["GMM", "Rastrigin"],
+    "dimensions": [2],
+    "seeds": [42, 101],
+    "source_scenarios": ["matching", "wrong"],
+    "source_tasks_per_scenario": 1,
+    "source_train_samples": 80,
+    "test_global_samples": 600,
+    "test_local_per_structure": 100,
+    "local_covariance_scale": 2.0,
+    "top_fraction": 0.1,
+    "local_subset_fraction": 0.35
+  },
+  "analysis": {
+    "bootstrap_samples": 5000,
+    "familywise_alpha": 0.05,
+    "multiple_testing": "Holm"
+  }
+}
