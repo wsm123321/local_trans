@@ -33,15 +33,25 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    args.output.mkdir(parents=True, exist_ok=True)
+    config_path = (
+        args.config.resolve()
+        if args.config.is_absolute()
+        else (REPO_ROOT / args.config).resolve()
+    )
+    output_path = (
+        args.output.resolve()
+        if args.output.is_absolute()
+        else (REPO_ROOT / args.output).resolve()
+    )
+    output_path.mkdir(parents=True, exist_ok=True)
     run(
         [
             sys.executable,
             str(CURRENT_DIR / "run_local_surrogate_transfer_pilot.py"),
             "--config",
-            str(args.config),
+            str(config_path),
             "--output",
-            str(args.output),
+            str(output_path),
         ]
     )
     run(
@@ -49,11 +59,11 @@ def main() -> None:
             sys.executable,
             str(CURRENT_DIR / "analyze_local_surrogate_transfer_pilot.py"),
             "--input",
-            str(args.output),
+            str(output_path),
             "--config",
-            str(args.config),
+            str(config_path),
             "--output",
-            str(args.output / "analysis"),
+            str(output_path / "analysis"),
         ]
     )
     run(
@@ -61,9 +71,9 @@ def main() -> None:
             sys.executable,
             str(CURRENT_DIR / "audit_local_surrogate_transfer_pilot.py"),
             "--input",
-            str(args.output),
+            str(output_path),
             "--config",
-            str(args.config),
+            str(config_path),
         ]
     )
 

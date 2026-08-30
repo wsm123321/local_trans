@@ -75,6 +75,7 @@ def make_transfer_config(config: Mapping, seed: int) -> LocalSurrogateTransferCo
 
 
 def run_pilot(config: Mapping, output_dir: Path) -> pd.DataFrame:
+    output_dir = _resolve_repo_path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     pilot = dict(config["pilot"])
     problems = [str(item) for item in pilot["problems"]]
@@ -569,6 +570,11 @@ def _assert_disjoint(first: np.ndarray, second: np.ndarray) -> None:
     second_rows = {tuple(row) for row in np.round(second, 12)}
     if first_rows.intersection(second_rows):
         raise AssertionError("Target context and target test designs overlap.")
+
+
+def _resolve_repo_path(path: Path) -> Path:
+    candidate = Path(path)
+    return candidate.resolve() if candidate.is_absolute() else (REPO_ROOT / candidate).resolve()
 
 
 def _stable_problem_code(problem: str) -> int:
