@@ -32,6 +32,11 @@ METRIC_COLUMNS = [
 ]
 
 
+def _resolve_repo_path(path: Path) -> Path:
+    candidate = Path(path)
+    return candidate.resolve() if candidate.is_absolute() else (REPO_ROOT / candidate).resolve()
+
+
 def load_json(path: Path) -> Dict:
     with path.open("r", encoding="utf-8") as handle:
         value = json.load(handle)
@@ -49,6 +54,8 @@ def file_sha256(path: Path) -> str:
 
 
 def run_audit(input_dir: Path, config_path: Path) -> Dict:
+    input_dir = _resolve_repo_path(input_dir)
+    config_path = _resolve_repo_path(config_path)
     config = load_json(config_path)
     pilot = dict(config["pilot"])
     manifest_path = input_dir / "local_surrogate_transfer_manifest.json"
@@ -61,6 +68,8 @@ def run_audit(input_dir: Path, config_path: Path) -> Dict:
     summary_path = analysis_dir / "local_surrogate_transfer_summary.csv"
     gate_summary_path = analysis_dir / "local_surrogate_transfer_gate_summary.csv"
     report_path = analysis_dir / "LOCAL_SURROGATE_TRANSFER_REPORT.md"
+    decision_path = input_dir / "LOCAL_SURROGATE_TRANSFER_DECISION_CN.md"
+    plot_paths = sorted(analysis_dir.glob("local_surrogate_transfer_*.png"))
 
     required = [
         manifest_path,
@@ -73,6 +82,9 @@ def run_audit(input_dir: Path, config_path: Path) -> Dict:
         gate_summary_path,
         report_path,
     ]
+    if decision_path.exists():
+        required.append(decision_path)
+    required.extend(plot_paths)
     missing = [str(path) for path in required if not path.exists()]
     if missing:
         raise FileNotFoundError(f"Missing required artifacts: {missing}")

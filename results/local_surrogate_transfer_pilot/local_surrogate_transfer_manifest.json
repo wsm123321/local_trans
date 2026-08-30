@@ -1,0 +1,112 @@
+{
+  "stage_id": "local-surrogate-transfer-pilot-v1-full",
+  "config": {
+    "stage_id": "local-surrogate-transfer-pilot-v1-full",
+    "extraction": {
+      "elite_ratio": 0.2,
+      "max_regions": 3,
+      "min_elite_per_region": 4,
+      "min_context_samples": 20,
+      "max_context_samples": 96,
+      "context_multiplier": 3.0,
+      "min_boundary_fraction": 0.25,
+      "covariance_regularization": 0.001,
+      "gmm_reg_covar": 0.0001,
+      "use_bic_model_selection": true,
+      "model_type": "gp",
+      "gp_restarts": 0,
+      "random_forest_trees": 160,
+      "cv_folds": 5,
+      "validation_top_fraction": 0.1,
+      "quality_floor": 0.1,
+      "reliability_floor": 0.25
+    },
+    "transfer_model": {
+      "gp_length_scale": 0.6,
+      "gp_noise": 0.0001,
+      "calibration_ridge": 1.0,
+      "fixed_prior_scale": 1.0,
+      "max_slope_in_target_std": 3.0,
+      "min_expert_std": 1e-06,
+      "cv_folds": 4,
+      "gate_min_relative_rmse_gain": 0.0,
+      "gate_min_pairwise_accuracy": 0.55
+    },
+    "pilot": {
+      "problems": [
+        "GMM",
+        "Rastrigin",
+        "Lunacek",
+        "Ackley"
+      ],
+      "dimensions": [
+        2
+      ],
+      "seeds": [
+        42,
+        101,
+        2026,
+        777,
+        999,
+        1234,
+        5678,
+        8888,
+        31415,
+        27182,
+        13579,
+        24680,
+        11235,
+        44556,
+        77889,
+        90909
+      ],
+      "source_train_samples": 240,
+      "target_context_sizes": [
+        6,
+        12,
+        20
+      ],
+      "primary_context_size": 12,
+      "target_test_samples": 768,
+      "chart_radius_fraction": 0.04,
+      "chart_extent": 1.0,
+      "relations": [
+        "matching",
+        "wrong",
+        "reversed"
+      ],
+      "top_fraction": 0.1,
+      "target_observation_noise_std": 0.0,
+      "harm_margin_srmse": 0.01
+    },
+    "analysis": {
+      "bootstrap_samples": 5000,
+      "familywise_alpha": 0.05,
+      "multiple_testing": "Holm"
+    }
+  },
+  "config_sha256": "d3179431b59ac6a16128bf47e40ad2d6ab232ea6d2ba14c768b217a29f229a1d",
+  "protocol_path": "PROTOCOL_LOCAL_SURROGATE_TRANSFER_PILOT.md",
+  "protocol_sha256": "b548f951b1f22346046cdfe5a5e647053a53cbc311c2f6fe4728567945b454fc",
+  "counts": {
+    "result_rows": 2880,
+    "diagnostic_rows": 192,
+    "target_ledger_rows": 50432,
+    "failure_rows": 0,
+    "independent_instances": 64
+  },
+  "artifact_sha256": {
+    "results\\local_surrogate_transfer_pilot\\local_surrogate_transfer_results.csv": "663871728930fcb89af2f85aad28914d712e21d0fc74765b70fb1e6193f00ecf",
+    "results\\local_surrogate_transfer_pilot\\local_surrogate_transfer_diagnostics.csv": "fdc8fd5e3e0cc1ac3e7955838a786050e98730dc164746f08952c435f257370f",
+    "results\\local_surrogate_transfer_pilot\\local_surrogate_transfer_target_ledger.csv": "cd54d1be4c0f681f424b64654258779e9b28cd8f7c8ebbd43e9cab0eb66a0058",
+    "results\\local_surrogate_transfer_pilot\\local_surrogate_transfer_failures.csv": "1cba120c60350efa5fc22d87c23a24506c0d8292d25777ee122da29b2594dbd2"
+  },
+  "git": {
+    "head": "ad949594c4ff6993a364e5aee43facdbf7f792f3",
+    "status_porcelain": "?? results/local_surrogate_transfer_pilot/"
+  },
+  "python": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.4.3",
+  "pandas": "2.3.3"
+}
