@@ -1,0 +1,53 @@
+{
+  "stage_id": "local-surrogate-transfer-pilot-v1-quick",
+  "extraction": {
+    "elite_ratio": 0.2,
+    "max_regions": 3,
+    "min_elite_per_region": 4,
+    "min_context_samples": 20,
+    "max_context_samples": 80,
+    "context_multiplier": 3.0,
+    "min_boundary_fraction": 0.25,
+    "covariance_regularization": 0.001,
+    "gmm_reg_covar": 0.0001,
+    "use_bic_model_selection": true,
+    "model_type": "gp",
+    "gp_restarts": 0,
+    "random_forest_trees": 120,
+    "cv_folds": 3,
+    "validation_top_fraction": 0.1,
+    "quality_floor": 0.1,
+    "reliability_floor": 0.25
+  },
+  "transfer_model": {
+    "gp_length_scale": 0.6,
+    "gp_noise": 0.0001,
+    "calibration_ridge": 1.0,
+    "fixed_prior_scale": 1.0,
+    "max_slope_in_target_std": 3.0,
+    "min_expert_std": 0.000001,
+    "cv_folds": 4,
+    "gate_min_relative_rmse_gain": 0.0,
+    "gate_min_pairwise_accuracy": 0.55
+  },
+  "pilot": {
+    "problems": ["GMM", "Rastrigin"],
+    "dimensions": [2],
+    "seeds": [42, 101, 2026, 777],
+    "source_train_samples": 160,
+    "target_context_sizes": [6, 12],
+    "primary_context_size": 12,
+    "target_test_samples": 256,
+    "chart_radius_fraction": 0.04,
+    "chart_extent": 1.0,
+    "relations": ["matching", "wrong", "reversed"],
+    "top_fraction": 0.1,
+    "target_observation_noise_std": 0.0,
+    "harm_margin_srmse": 0.01
+  },
+  "analysis": {
+    "bootstrap_samples": 5000,
+    "familywise_alpha": 0.05,
+    "multiple_testing": "Holm"
+  }
+}

@@ -17,6 +17,15 @@ from .local_region_transfer import (
     LocalRegionTransferOptimizer,
     LocalRegionTransferResult,
 )
+from .local_surrogate_transfer import (
+    AffineSourceCalibration,
+    LocalExpertResidualRegressor,
+    LocalSurrogateTransferConfig,
+    TransferEvidence,
+    cross_validated_transfer_evidence,
+    fit_affine_source_calibration,
+    pairwise_order_accuracy,
+)
 from .source_local_structure import (
     LocalStructureConfig,
     LocalStructureValidation,
@@ -51,6 +60,13 @@ __all__ = [
     "LocalRegionTransferConfig",
     "LocalRegionTransferOptimizer",
     "LocalRegionTransferResult",
+    "AffineSourceCalibration",
+    "LocalExpertResidualRegressor",
+    "LocalSurrogateTransferConfig",
+    "TransferEvidence",
+    "cross_validated_transfer_evidence",
+    "fit_affine_source_calibration",
+    "pairwise_order_accuracy",
     "LocalStructureConfig",
     "LocalStructureValidation",
     "SourceLocalStructure",
@@ -68,4 +84,4 @@ __all__ = [
     "TargetProposalSet",
 ]
 
-__version__ = "0.6.0"
+__version__ = "0.7.0"
