@@ -1,0 +1,5 @@
+relation,metric,method_a,method_b,n_pairs,mean_advantage,ci_low,ci_high,wilcoxon_one_sided_p,rank_biserial,win_rate,tie_rate,loss_rate,hypothesis,primary_context_size,holm_adjusted_p,supported
+matching,standardized_rmse,Calibrated-Source+Residual,Target-Only,8,-0.018828970154922964,-0.060780099611432506,0.0037346874506453635,0.5625,0.0,0.25,0.5,0.25,H1_Matching_sRMSE_Calibrated_vs_TargetOnly,12,1.0,False
+matching,ndcg_at_top,Calibrated-Source+Residual,Target-Only,8,-0.004064439502233022,-0.011563430027355368,-2.264100565751992e-06,1.0,-1.0,0.0,0.625,0.375,H2_Matching_NDCG_Calibrated_vs_TargetOnly,12,1.0,False
+reversed,standardized_rmse,Gated-Source+Residual,Fixed-Source+Residual,8,0.19952948118862382,0.1286667484427655,0.28411792132958097,0.00390625,1.0,1.0,0.0,0.0,H3_Reversed_sRMSE_Gated_vs_Fixed,12,0.015625,True
+matching_vs_reversed,gate_accepted,Gated-Source+Residual@matching,Gated-Source+Residual@reversed,8,0.375,0.125,0.75,0.125,1.0,0.375,0.625,0.0,H4_GateAcceptance_Matching_vs_Reversed,12,0.375,False
