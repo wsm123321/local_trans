@@ -1,0 +1,35 @@
+{
+  "stage_id": "local-model-transferability-map-exploratory-v0",
+  "seeds": [11, 23, 37, 53, 71, 89, 107, 131],
+  "source_train_samples": 128,
+  "target_context_samples": 8,
+  "target_test_samples": 384,
+  "relations": [
+    "identity",
+    "output_affine",
+    "scale_0.7",
+    "scale_1.5",
+    "rotate_45",
+    "anisotropy_swap",
+    "roughness",
+    "reversal",
+    "independent_expert"
+  ],
+  "source_expert": {
+    "length_scale": 0.45,
+    "noise": 0.0001
+  },
+  "transfer_model": {
+    "gp_length_scale": 0.6,
+    "gp_noise": 0.0001,
+    "calibration_ridge": 1.0,
+    "fixed_prior_scale": 1.0,
+    "max_slope_in_target_std": 3.0,
+    "min_expert_std": 0.000001,
+    "cv_folds": 4,
+    "gate_min_relative_rmse_gain": 0.0,
+    "gate_min_pairwise_accuracy": 0.55
+  },
+  "top_fraction": 0.1,
+  "harm_margin_srmse": 0.01
+}

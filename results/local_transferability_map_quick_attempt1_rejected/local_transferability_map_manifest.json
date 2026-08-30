@@ -1,0 +1,55 @@
+{
+  "stage_id": "local-model-transferability-map-exploratory-v0",
+  "scope": "exploratory_2d_descriptive_not_online_bo",
+  "config": {
+    "stage_id": "local-model-transferability-map-exploratory-v0",
+    "seeds": [
+      11,
+      23,
+      37,
+      53,
+      71,
+      89,
+      107,
+      131
+    ],
+    "source_train_samples": 128,
+    "target_context_samples": 8,
+    "target_test_samples": 384,
+    "relations": [
+      "identity",
+      "output_affine",
+      "scale_0.7",
+      "scale_1.5",
+      "rotate_45",
+      "anisotropy_swap",
+      "roughness",
+      "reversal",
+      "independent_expert"
+    ],
+    "source_expert": {
+      "length_scale": 0.45,
+      "noise": 0.0001
+    },
+    "transfer_model": {
+      "gp_length_scale": 0.6,
+      "gp_noise": 0.0001,
+      "calibration_ridge": 1.0,
+      "fixed_prior_scale": 1.0,
+      "max_slope_in_target_std": 3.0,
+      "min_expert_std": 1e-06,
+      "cv_folds": 4,
+      "gate_min_relative_rmse_gain": 0.0,
+      "gate_min_pairwise_accuracy": 0.55
+    },
+    "top_fraction": 0.1,
+    "harm_margin_srmse": 0.01
+  },
+  "config_sha256": "02a2fcced2a9a387a5212ef47efb0551faddeb480145f118a74fe9fb4f3d0437",
+  "artifact_sha256": {
+    "results\\local_transferability_map_quick\\local_transferability_map_raw.csv": "00c1f4be011ef17938e7c625646a1cb6adfe3b7f7f1034d0978a182876fadeb9",
+    "results\\local_transferability_map_quick\\local_transferability_map_summary.csv": "ebc752b3ab337d38247005966b5f06918783fdcc012f6bb3084ed0b450de21fc",
+    "results\\local_transferability_map_quick\\local_transferability_map.png": "d35d0bcfa1a25c04fe95e83f83a1a810e1ba30c3b964609589c3c2bde6797ae4",
+    "results\\local_transferability_map_quick\\LOCAL_TRANSFERABILITY_MAP_CONCLUSION_CN.md": "9130479954976f931c8edd339272121fb7c02a7c68d7456a02d6aa314ecfbf63"
+  }
+}

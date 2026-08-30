@@ -1,0 +1,3 @@
+# Rejected exploratory map attempt 1
+
+The run completed technically, but the configured `independent_expert` was not an adequate independent local-model negative control: it retained the same centered quadratic-basin backbone as the target and achieved mean fitted expert-target pairwise agreement 0.756. The attempt is retained for audit history but is excluded from the reported map and conclusions. The negative-control generator was replaced by a phase-shifted oscillatory function without the shared centered quadratic backbone; all other seeds, sample sizes, model settings, relations, and metrics remained unchanged, and the entire exploratory map was rerun from scratch.
