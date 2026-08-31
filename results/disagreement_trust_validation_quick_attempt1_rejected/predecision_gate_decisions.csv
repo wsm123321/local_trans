@@ -1,0 +1,649 @@
+event_id,split,seed,relation,method,prefix,continuous_score,eligible,threshold,actionable,accepted,selected_index
+development__11001__identity,development,11001,identity,Target-Only,target_only,,True,,True,False,0
+development__11001__identity,development,11001,identity,Local Spearman Gate,local_spearman,0.82375149519065749,True,0.78446996094430088,True,True,7
+development__11001__identity,development,11001,identity,Target-Residual Spearman Gate,residual_spearman,0.64807710336424185,True,0.61952861952861293,True,True,7
+development__11001__identity,development,11001,identity,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,7
+development__11001__output_affine,development,11001,output_affine,Target-Only,target_only,,True,,True,False,0
+development__11001__output_affine,development,11001,output_affine,Local Spearman Gate,local_spearman,0.82375149519065749,True,0.78446996094430088,True,True,7
+development__11001__output_affine,development,11001,output_affine,Target-Residual Spearman Gate,residual_spearman,0.64807710336424185,True,0.61952861952861293,True,True,7
+development__11001__output_affine,development,11001,output_affine,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,7
+development__11001__scale_0.7,development,11001,scale_0.7,Target-Only,target_only,,True,,True,False,0
+development__11001__scale_0.7,development,11001,scale_0.7,Local Spearman Gate,local_spearman,0.82492027315163452,True,0.78446996094430088,True,True,3
+development__11001__scale_0.7,development,11001,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.67500021306683122,True,0.61952861952861293,True,True,3
+development__11001__scale_0.7,development,11001,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,3
+development__11001__scale_1.5,development,11001,scale_1.5,Target-Only,target_only,,True,,True,False,0
+development__11001__scale_1.5,development,11001,scale_1.5,Local Spearman Gate,local_spearman,0.8179076053857719,True,0.78446996094430088,True,True,5
+development__11001__scale_1.5,development,11001,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.7019233227694206,True,0.61952861952861293,True,True,5
+development__11001__scale_1.5,development,11001,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,5
+development__11001__rotate_45,development,11001,rotate_45,Target-Only,target_only,,True,,True,False,0
+development__11001__rotate_45,development,11001,rotate_45,Local Spearman Gate,local_spearman,0.7914939105972465,True,0.78446996094430088,True,True,6
+development__11001__rotate_45,development,11001,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.70127939004562245,True,0.61952861952861293,True,True,6
+development__11001__rotate_45,development,11001,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,6
+development__11001__anisotropy_swap,development,11001,anisotropy_swap,Target-Only,target_only,,True,,True,False,0
+development__11001__anisotropy_swap,development,11001,anisotropy_swap,Local Spearman Gate,local_spearman,0.76761248177723118,True,0.78446996094430088,True,False,0
+development__11001__anisotropy_swap,development,11001,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.69518001458969447,True,0.61952861952861293,True,True,5
+development__11001__anisotropy_swap,development,11001,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,5
+development__11001__roughness,development,11001,roughness,Target-Only,target_only,,True,,False,False,0
+development__11001__roughness,development,11001,roughness,Local Spearman Gate,local_spearman,0.76620769184664206,True,0.78446996094430088,False,False,0
+development__11001__roughness,development,11001,roughness,Target-Residual Spearman Gate,residual_spearman,0.67688188822191053,True,0.61952861952861293,False,False,0
+development__11001__roughness,development,11001,roughness,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,False,False,0
+development__11001__reversal,development,11001,reversal,Target-Only,target_only,,True,,True,False,0
+development__11001__reversal,development,11001,reversal,Local Spearman Gate,local_spearman,0.18627450980393462,True,0.78446996094430088,True,False,0
+development__11001__reversal,development,11001,reversal,Target-Residual Spearman Gate,residual_spearman,0.29629629629630766,True,0.61952861952861293,True,False,0
+development__11001__reversal,development,11001,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+development__11001__independent_expert,development,11001,independent_expert,Target-Only,target_only,,True,,True,False,0
+development__11001__independent_expert,development,11001,independent_expert,Local Spearman Gate,local_spearman,0.41764705882353281,True,0.78446996094430088,True,False,0
+development__11001__independent_expert,development,11001,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.50168350168350162,True,0.61952861952861293,True,False,0
+development__11001__independent_expert,development,11001,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+development__11002__identity,development,11002,identity,Target-Only,target_only,,True,,False,False,0
+development__11002__identity,development,11002,identity,Local Spearman Gate,local_spearman,0.80980392156861458,True,0.78446996094430088,False,False,0
+development__11002__identity,development,11002,identity,Target-Residual Spearman Gate,residual_spearman,0.68686868686867641,True,0.61952861952861293,False,False,0
+development__11002__identity,development,11002,identity,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,False,False,0
+development__11002__output_affine,development,11002,output_affine,Target-Only,target_only,,True,,False,False,0
+development__11002__output_affine,development,11002,output_affine,Local Spearman Gate,local_spearman,0.80980392156861458,True,0.78446996094430088,False,False,0
+development__11002__output_affine,development,11002,output_affine,Target-Residual Spearman Gate,residual_spearman,0.68686868686867641,True,0.61952861952861293,False,False,0
+development__11002__output_affine,development,11002,output_affine,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,False,False,0
+development__11002__scale_0.7,development,11002,scale_0.7,Target-Only,target_only,,True,,True,False,0
+development__11002__scale_0.7,development,11002,scale_0.7,Local Spearman Gate,local_spearman,0.77917017791667287,True,0.78446996094430088,True,False,0
+development__11002__scale_0.7,development,11002,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.74366445137297565,True,0.61952861952861293,True,True,1
+development__11002__scale_0.7,development,11002,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,1
+development__11002__scale_1.5,development,11002,scale_1.5,Target-Only,target_only,,True,,True,False,0
+development__11002__scale_1.5,development,11002,scale_1.5,Local Spearman Gate,local_spearman,0.79813664596271994,True,0.78446996094430088,True,True,2
+development__11002__scale_1.5,development,11002,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.65441176470587337,True,0.61952861952861293,True,True,2
+development__11002__scale_1.5,development,11002,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.8125,True,0.890625,True,False,0
+development__11002__rotate_45,development,11002,rotate_45,Target-Only,target_only,,True,,False,False,0
+development__11002__rotate_45,development,11002,rotate_45,Local Spearman Gate,local_spearman,0.76176470588234202,True,0.78446996094430088,False,False,0
+development__11002__rotate_45,development,11002,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.45454545454545708,True,0.61952861952861293,False,False,0
+development__11002__rotate_45,development,11002,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.65625,True,0.890625,False,False,0
+development__11002__anisotropy_swap,development,11002,anisotropy_swap,Target-Only,target_only,,True,,True,False,0
+development__11002__anisotropy_swap,development,11002,anisotropy_swap,Local Spearman Gate,local_spearman,0.78066770186334178,True,0.78446996094430088,True,False,0
+development__11002__anisotropy_swap,development,11002,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.64558823529410914,True,0.61952861952861293,True,True,7
+development__11002__anisotropy_swap,development,11002,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,7
+development__11002__roughness,development,11002,roughness,Target-Only,target_only,,True,,True,False,0
+development__11002__roughness,development,11002,roughness,Local Spearman Gate,local_spearman,0.80196078431371287,True,0.78446996094430088,True,True,5
+development__11002__roughness,development,11002,roughness,Target-Residual Spearman Gate,residual_spearman,0.69696969696968603,True,0.61952861952861293,True,True,5
+development__11002__roughness,development,11002,roughness,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,True,True,5
+development__11002__reversal,development,11002,reversal,Target-Only,target_only,,True,,True,False,0
+development__11002__reversal,development,11002,reversal,Local Spearman Gate,local_spearman,0.18039215686275833,True,0.78446996094430088,True,False,0
+development__11002__reversal,development,11002,reversal,Target-Residual Spearman Gate,residual_spearman,0.36700336700337444,True,0.61952861952861293,True,False,0
+development__11002__reversal,development,11002,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+development__11002__independent_expert,development,11002,independent_expert,Target-Only,target_only,,True,,True,False,0
+development__11002__independent_expert,development,11002,independent_expert,Local Spearman Gate,local_spearman,0.42837869044586296,True,0.78446996094430088,True,False,0
+development__11002__independent_expert,development,11002,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.64859913289956306,True,0.61952861952861293,True,True,5
+development__11002__independent_expert,development,11002,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.65625,True,0.890625,True,False,0
+development__11003__identity,development,11003,identity,Target-Only,target_only,,True,,True,False,0
+development__11003__identity,development,11003,identity,Local Spearman Gate,local_spearman,0.81538461538460116,True,0.78446996094430088,True,True,7
+development__11003__identity,development,11003,identity,Target-Residual Spearman Gate,residual_spearman,0.55357142857142527,True,0.61952861952861293,True,False,0
+development__11003__identity,development,11003,identity,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,7
+development__11003__output_affine,development,11003,output_affine,Target-Only,target_only,,True,,True,False,0
+development__11003__output_affine,development,11003,output_affine,Local Spearman Gate,local_spearman,0.81538461538460116,True,0.78446996094430088,True,True,7
+development__11003__output_affine,development,11003,output_affine,Target-Residual Spearman Gate,residual_spearman,0.55357142857142527,True,0.61952861952861293,True,False,0
+development__11003__output_affine,development,11003,output_affine,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,7
+development__11003__scale_0.7,development,11003,scale_0.7,Target-Only,target_only,,True,,False,False,0
+development__11003__scale_0.7,development,11003,scale_0.7,Local Spearman Gate,local_spearman,0.82259316770184931,True,0.78446996094430088,False,False,0
+development__11003__scale_0.7,development,11003,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.54852941176470305,True,0.61952861952861293,False,False,0
+development__11003__scale_0.7,development,11003,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,False,False,0
+development__11003__scale_1.5,development,11003,scale_1.5,Target-Only,target_only,,True,,False,False,0
+development__11003__scale_1.5,development,11003,scale_1.5,Local Spearman Gate,local_spearman,0.82142857142855741,True,0.78446996094430088,False,False,0
+development__11003__scale_1.5,development,11003,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.54411764705882093,True,0.61952861952861293,False,False,0
+development__11003__scale_1.5,development,11003,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,False,False,0
+development__11003__rotate_45,development,11003,rotate_45,Target-Only,target_only,,True,,False,False,0
+development__11003__rotate_45,development,11003,rotate_45,Local Spearman Gate,local_spearman,0.76552795031054743,True,0.78446996094430088,False,False,0
+development__11003__rotate_45,development,11003,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.62794117647058068,True,0.61952861952861293,False,False,0
+development__11003__rotate_45,development,11003,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,False,False,0
+development__11003__anisotropy_swap,development,11003,anisotropy_swap,Target-Only,target_only,,True,,True,False,0
+development__11003__anisotropy_swap,development,11003,anisotropy_swap,Local Spearman Gate,local_spearman,0.79231366459626051,True,0.78446996094430088,True,True,5
+development__11003__anisotropy_swap,development,11003,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.69411764705881218,True,0.61952861952861293,True,True,5
+development__11003__anisotropy_swap,development,11003,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,5
+development__11003__roughness,development,11003,roughness,Target-Only,target_only,,True,,True,False,0
+development__11003__roughness,development,11003,roughness,Local Spearman Gate,local_spearman,0.70392156862744248,True,0.78446996094430088,True,False,0
+development__11003__roughness,development,11003,roughness,Target-Residual Spearman Gate,residual_spearman,0.61952861952861293,True,0.61952861952861293,True,True,6
+development__11003__roughness,development,11003,roughness,Disagreement-Correction Gate,disagreement_correction,0.890625,True,0.890625,True,True,6
+development__11003__reversal,development,11003,reversal,Target-Only,target_only,,True,,True,False,0
+development__11003__reversal,development,11003,reversal,Local Spearman Gate,local_spearman,0.16862745098040594,True,0.78446996094430088,True,False,0
+development__11003__reversal,development,11003,reversal,Target-Residual Spearman Gate,residual_spearman,0.2861952861952981,True,0.61952861952861293,True,False,0
+development__11003__reversal,development,11003,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+development__11003__independent_expert,development,11003,independent_expert,Target-Only,target_only,,True,,False,False,0
+development__11003__independent_expert,development,11003,independent_expert,Local Spearman Gate,local_spearman,0.51397515527950255,True,0.78446996094430088,False,False,0
+development__11003__independent_expert,development,11003,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.60588235294117021,True,0.61952861952861293,False,False,0
+development__11003__independent_expert,development,11003,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.3125,True,0.890625,False,False,0
+development__11004__identity,development,11004,identity,Target-Only,target_only,,True,,True,False,0
+development__11004__identity,development,11004,identity,Local Spearman Gate,local_spearman,0.8272014621411603,True,0.78446996094430088,True,True,3
+development__11004__identity,development,11004,identity,Target-Residual Spearman Gate,residual_spearman,0.74147359096179,True,0.61952861952861293,True,True,3
+development__11004__identity,development,11004,identity,Disagreement-Correction Gate,disagreement_correction,0.890625,True,0.890625,True,True,3
+development__11004__output_affine,development,11004,output_affine,Target-Only,target_only,,True,,True,False,0
+development__11004__output_affine,development,11004,output_affine,Local Spearman Gate,local_spearman,0.8272014621411603,True,0.78446996094430088,True,True,3
+development__11004__output_affine,development,11004,output_affine,Target-Residual Spearman Gate,residual_spearman,0.74147359096179,True,0.61952861952861293,True,True,3
+development__11004__output_affine,development,11004,output_affine,Disagreement-Correction Gate,disagreement_correction,0.890625,True,0.890625,True,True,3
+development__11004__scale_0.7,development,11004,scale_0.7,Target-Only,target_only,,True,,True,False,0
+development__11004__scale_0.7,development,11004,scale_0.7,Local Spearman Gate,local_spearman,0.79008912066665737,True,0.78446996094430088,True,True,6
+development__11004__scale_0.7,development,11004,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.64638501094227085,True,0.61952861952861293,True,True,6
+development__11004__scale_0.7,development,11004,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.6875,True,0.890625,True,False,0
+development__11004__scale_1.5,development,11004,scale_1.5,Target-Only,target_only,,True,,True,False,0
+development__11004__scale_1.5,development,11004,scale_1.5,Local Spearman Gate,local_spearman,0.81996748992954793,True,0.78446996094430088,True,True,5
+development__11004__scale_1.5,development,11004,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.68385590421779074,True,0.61952861952861293,True,True,5
+development__11004__scale_1.5,development,11004,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.8125,True,0.890625,True,False,0
+development__11004__rotate_45,development,11004,rotate_45,Target-Only,target_only,,True,,False,False,0
+development__11004__rotate_45,development,11004,rotate_45,Local Spearman Gate,local_spearman,0.80279503105588734,True,0.78446996094430088,False,False,0
+development__11004__rotate_45,development,11004,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.64999999999999125,True,0.61952861952861293,False,False,0
+development__11004__rotate_45,development,11004,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.8125,True,0.890625,False,False,0
+development__11004__anisotropy_swap,development,11004,anisotropy_swap,Target-Only,target_only,,True,,False,False,0
+development__11004__anisotropy_swap,development,11004,anisotropy_swap,Local Spearman Gate,local_spearman,0.77323164149958767,True,0.78446996094430088,False,False,0
+development__11004__anisotropy_swap,development,11004,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.66468313731005468,True,0.61952861952861293,False,False,0
+development__11004__anisotropy_swap,development,11004,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,False,False,0
+development__11004__roughness,development,11004,roughness,Target-Only,target_only,,True,,True,False,0
+development__11004__roughness,development,11004,roughness,Local Spearman Gate,local_spearman,0.75622577760989496,True,0.78446996094430088,True,False,0
+development__11004__roughness,development,11004,roughness,Target-Residual Spearman Gate,residual_spearman,0.60479229791740363,True,0.61952861952861293,True,False,0
+development__11004__roughness,development,11004,roughness,Disagreement-Correction Gate,disagreement_correction,0.6875,True,0.890625,True,False,0
+development__11004__reversal,development,11004,reversal,Target-Only,target_only,,True,,True,False,0
+development__11004__reversal,development,11004,reversal,Local Spearman Gate,local_spearman,0.17574187934736601,True,0.78446996094430088,True,False,0
+development__11004__reversal,development,11004,reversal,Target-Residual Spearman Gate,residual_spearman,0.35646674663110378,True,0.61952861952861293,True,False,0
+development__11004__reversal,development,11004,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+development__11004__independent_expert,development,11004,independent_expert,Target-Only,target_only,,True,,True,False,0
+development__11004__independent_expert,development,11004,independent_expert,Local Spearman Gate,local_spearman,0.35544217687075519,True,0.78446996094430088,True,False,0
+development__11004__independent_expert,development,11004,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.28333333333334776,True,0.61952861952861293,True,False,0
+development__11004__independent_expert,development,11004,independent_expert,Disagreement-Correction Gate,disagreement_correction,0,False,0.890625,True,False,0
+development__11005__identity,development,11005,identity,Target-Only,target_only,,True,,True,False,0
+development__11005__identity,development,11005,identity,Local Spearman Gate,local_spearman,0.80351796556883237,True,0.78446996094430088,True,True,2
+development__11005__identity,development,11005,identity,Target-Residual Spearman Gate,residual_spearman,0.60573814617040567,True,0.61952861952861293,True,False,0
+development__11005__identity,development,11005,identity,Disagreement-Correction Gate,disagreement_correction,0,False,0.890625,True,False,0
+development__11005__output_affine,development,11005,output_affine,Target-Only,target_only,,True,,True,False,0
+development__11005__output_affine,development,11005,output_affine,Local Spearman Gate,local_spearman,0.80351796556883237,True,0.78446996094430088,True,True,2
+development__11005__output_affine,development,11005,output_affine,Target-Residual Spearman Gate,residual_spearman,0.60573814617040567,True,0.61952861952861293,True,False,0
+development__11005__output_affine,development,11005,output_affine,Disagreement-Correction Gate,disagreement_correction,0,False,0.890625,True,False,0
+development__11005__scale_0.7,development,11005,scale_0.7,Target-Only,target_only,,True,,False,False,0
+development__11005__scale_0.7,development,11005,scale_0.7,Local Spearman Gate,local_spearman,0.81963694328675829,True,0.78446996094430088,False,False,0
+development__11005__scale_0.7,development,11005,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.57372700722829117,True,0.61952861952861293,False,False,0
+development__11005__scale_0.7,development,11005,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,False,False,0
+development__11005__scale_1.5,development,11005,scale_1.5,Target-Only,target_only,,True,,False,False,0
+development__11005__scale_1.5,development,11005,scale_1.5,Local Spearman Gate,local_spearman,0.81996748992954793,True,0.78446996094430088,False,False,0
+development__11005__scale_1.5,development,11005,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.68164077284167279,True,0.61952861952861293,False,False,0
+development__11005__scale_1.5,development,11005,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,False,False,0
+development__11005__rotate_45,development,11005,rotate_45,Target-Only,target_only,,True,,True,False,0
+development__11005__rotate_45,development,11005,rotate_45,Local Spearman Gate,local_spearman,0.78446996094430088,True,0.78446996094430088,True,True,5
+development__11005__rotate_45,development,11005,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.71957751641340628,True,0.61952861952861293,True,True,5
+development__11005__rotate_45,development,11005,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.6875,True,0.890625,True,False,0
+development__11005__anisotropy_swap,development,11005,anisotropy_swap,Target-Only,target_only,,True,,False,False,0
+development__11005__anisotropy_swap,development,11005,anisotropy_swap,Local Spearman Gate,local_spearman,0.78167548859548164,True,0.78446996094430088,False,False,0
+development__11005__anisotropy_swap,development,11005,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.72435924752157854,True,0.61952861952861293,False,False,0
+development__11005__anisotropy_swap,development,11005,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,False,False,0
+development__11005__roughness,development,11005,roughness,Target-Only,target_only,,True,,True,False,0
+development__11005__roughness,development,11005,roughness,Local Spearman Gate,local_spearman,0.74152429856670432,True,0.78446996094430088,True,False,0
+development__11005__roughness,development,11005,roughness,Target-Residual Spearman Gate,residual_spearman,0.56886351006000813,True,0.61952861952861293,True,False,0
+development__11005__roughness,development,11005,roughness,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,1
+development__11005__reversal,development,11005,reversal,Target-Only,target_only,,True,,True,False,0
+development__11005__reversal,development,11005,reversal,Local Spearman Gate,local_spearman,0.17307745056149243,True,0.78446996094430088,True,False,0
+development__11005__reversal,development,11005,reversal,Target-Residual Spearman Gate,residual_spearman,0.35930628511684526,True,0.61952861952861293,True,False,0
+development__11005__reversal,development,11005,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+development__11005__independent_expert,development,11005,independent_expert,Target-Only,target_only,,True,,True,False,0
+development__11005__independent_expert,development,11005,independent_expert,Local Spearman Gate,local_spearman,0.35294117647059431,True,0.78446996094430088,True,False,0
+development__11005__independent_expert,development,11005,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.30639730639731716,True,0.61952861952861293,True,False,0
+development__11005__independent_expert,development,11005,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+development__11006__identity,development,11006,identity,Target-Only,target_only,,True,,True,False,0
+development__11006__identity,development,11006,identity,Local Spearman Gate,local_spearman,0.82258271722968024,True,0.78446996094430088,True,True,3
+development__11006__identity,development,11006,identity,Target-Residual Spearman Gate,residual_spearman,0.61666680871122082,True,0.61952861952861293,True,False,0
+development__11006__identity,development,11006,identity,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,3
+development__11006__output_affine,development,11006,output_affine,Target-Only,target_only,,True,,True,False,0
+development__11006__output_affine,development,11006,output_affine,Local Spearman Gate,local_spearman,0.82258271722968024,True,0.78446996094430088,True,True,3
+development__11006__output_affine,development,11006,output_affine,Target-Residual Spearman Gate,residual_spearman,0.61666680871122082,True,0.61952861952861293,True,False,0
+development__11006__output_affine,development,11006,output_affine,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,3
+development__11006__scale_0.7,development,11006,scale_0.7,Target-Only,target_only,,True,,True,False,0
+development__11006__scale_0.7,development,11006,scale_0.7,Local Spearman Gate,local_spearman,0.81673882742479487,True,0.78446996094430088,True,True,4
+development__11006__scale_0.7,development,11006,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.74230798732330483,True,0.61952861952861293,True,True,4
+development__11006__scale_0.7,development,11006,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,4
+development__11006__scale_1.5,development,11006,scale_1.5,Target-Only,target_only,,True,,False,False,0
+development__11006__scale_1.5,development,11006,scale_1.5,Local Spearman Gate,local_spearman,0.82579567735995851,True,0.78446996094430088,False,False,0
+development__11006__scale_1.5,development,11006,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.69271642972226255,True,0.61952861952861293,False,False,0
+development__11006__scale_1.5,development,11006,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,False,False,0
+development__11006__rotate_45,development,11006,rotate_45,Target-Only,target_only,,True,,False,False,0
+development__11006__rotate_45,development,11006,rotate_45,Local Spearman Gate,local_spearman,0.79613422686861446,True,0.78446996094430088,False,False,0
+development__11006__rotate_45,development,11006,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.6681897352395394,True,0.61952861952861293,False,False,0
+development__11006__rotate_45,development,11006,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,False,False,0
+development__11006__anisotropy_swap,development,11006,anisotropy_swap,Target-Only,target_only,,True,,True,False,0
+development__11006__anisotropy_swap,development,11006,anisotropy_swap,Local Spearman Gate,local_spearman,0.77800454043059064,True,0.78446996094430088,True,False,0
+development__11006__anisotropy_swap,development,11006,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.55980854715518491,True,0.61952861952861293,True,False,0
+development__11006__anisotropy_swap,development,11006,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.8125,True,0.890625,True,False,0
+development__11006__roughness,development,11006,roughness,Target-Only,target_only,,True,,True,False,0
+development__11006__roughness,development,11006,roughness,Local Spearman Gate,local_spearman,0.65174825174824491,True,0.78446996094430088,True,False,0
+development__11006__roughness,development,11006,roughness,Target-Residual Spearman Gate,residual_spearman,0.55357142857142527,True,0.61952861952861293,True,False,0
+development__11006__roughness,development,11006,roughness,Disagreement-Correction Gate,disagreement_correction,0.6875,True,0.890625,True,False,0
+development__11006__reversal,development,11006,reversal,Target-Only,target_only,,True,,True,False,0
+development__11006__reversal,development,11006,reversal,Local Spearman Gate,local_spearman,0.17525132243261166,True,0.78446996094430088,True,False,0
+development__11006__reversal,development,11006,reversal,Target-Residual Spearman Gate,residual_spearman,0.42907768657066309,True,0.61952861952861293,True,False,0
+development__11006__reversal,development,11006,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+development__11006__independent_expert,development,11006,independent_expert,Target-Only,target_only,,True,,True,False,0
+development__11006__independent_expert,development,11006,independent_expert,Local Spearman Gate,local_spearman,0.35196078431373168,True,0.78446996094430088,True,False,0
+development__11006__independent_expert,development,11006,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.28282828282829486,True,0.61952861952861293,True,False,0
+development__11006__independent_expert,development,11006,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+holdout__12001__identity,holdout,12001,identity,Target-Only,target_only,,True,,True,False,0
+holdout__12001__identity,holdout,12001,identity,Local Spearman Gate,local_spearman,0.82642870872938601,True,0.78446996094430088,True,True,3
+holdout__12001__identity,holdout,12001,identity,Target-Residual Spearman Gate,residual_spearman,0.67716986318619488,True,0.61952861952861293,True,True,3
+holdout__12001__identity,holdout,12001,identity,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,True,True,3
+holdout__12001__output_affine,holdout,12001,output_affine,Target-Only,target_only,,True,,True,False,0
+holdout__12001__output_affine,holdout,12001,output_affine,Local Spearman Gate,local_spearman,0.82642870872938601,True,0.78446996094430088,True,True,3
+holdout__12001__output_affine,holdout,12001,output_affine,Target-Residual Spearman Gate,residual_spearman,0.67716986318619488,True,0.61952861952861293,True,True,3
+holdout__12001__output_affine,holdout,12001,output_affine,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,True,True,3
+holdout__12001__scale_0.7,holdout,12001,scale_0.7,Target-Only,target_only,,True,,False,False,0
+holdout__12001__scale_0.7,holdout,12001,scale_0.7,Local Spearman Gate,local_spearman,0.80973586088065597,True,0.78446996094430088,False,False,0
+holdout__12001__scale_0.7,holdout,12001,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.61077861873357764,True,0.61952861952861293,False,False,0
+holdout__12001__scale_0.7,holdout,12001,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.890625,True,0.890625,False,False,0
+holdout__12001__scale_1.5,holdout,12001,scale_1.5,Target-Only,target_only,,True,,True,False,0
+holdout__12001__scale_1.5,holdout,12001,scale_1.5,Local Spearman Gate,local_spearman,0.8027322300419597,True,0.78446996094430088,True,True,3
+holdout__12001__scale_1.5,holdout,12001,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.54269562819149564,True,0.61952861952861293,True,False,0
+holdout__12001__scale_1.5,holdout,12001,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,3
+holdout__12001__rotate_45,holdout,12001,rotate_45,Target-Only,target_only,,True,,True,False,0
+holdout__12001__rotate_45,holdout,12001,rotate_45,Local Spearman Gate,local_spearman,0.76168561562544079,True,0.78446996094430088,True,False,0
+holdout__12001__rotate_45,holdout,12001,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.68828616697002665,True,0.61952861952861293,True,True,3
+holdout__12001__rotate_45,holdout,12001,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,3
+holdout__12001__anisotropy_swap,holdout,12001,anisotropy_swap,Target-Only,target_only,,True,,True,False,0
+holdout__12001__anisotropy_swap,holdout,12001,anisotropy_swap,Local Spearman Gate,local_spearman,0.79160839160837848,True,0.78446996094430088,True,True,2
+holdout__12001__anisotropy_swap,holdout,12001,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.60119047619046984,True,0.61952861952861293,True,False,0
+holdout__12001__anisotropy_swap,holdout,12001,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,2
+holdout__12001__roughness,holdout,12001,roughness,Target-Only,target_only,,True,,False,False,0
+holdout__12001__roughness,holdout,12001,roughness,Local Spearman Gate,local_spearman,0.75944055944054767,True,0.78446996094430088,False,False,0
+holdout__12001__roughness,holdout,12001,roughness,Target-Residual Spearman Gate,residual_spearman,0.54761904761904467,True,0.61952861952861293,False,False,0
+holdout__12001__roughness,holdout,12001,roughness,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,False,False,0
+holdout__12001__reversal,holdout,12001,reversal,Target-Only,target_only,,True,,True,False,0
+holdout__12001__reversal,holdout,12001,reversal,Local Spearman Gate,local_spearman,0.17058823529413136,True,0.78446996094430088,True,False,0
+holdout__12001__reversal,holdout,12001,reversal,Target-Residual Spearman Gate,residual_spearman,0.2323232323232472,True,0.61952861952861293,True,False,0
+holdout__12001__reversal,holdout,12001,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+holdout__12001__independent_expert,holdout,12001,independent_expert,Target-Only,target_only,,True,,True,False,0
+holdout__12001__independent_expert,holdout,12001,independent_expert,Local Spearman Gate,local_spearman,0.35588235294118242,True,0.78446996094430088,True,False,0
+holdout__12001__independent_expert,holdout,12001,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.4175084175084221,True,0.61952861952861293,True,False,0
+holdout__12001__independent_expert,holdout,12001,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.109375,True,0.890625,True,False,0
+holdout__12002__identity,holdout,12002,identity,Target-Only,target_only,,True,,True,False,0
+holdout__12002__identity,holdout,12002,identity,Local Spearman Gate,local_spearman,0.80383056689260757,True,0.78446996094430088,True,True,5
+holdout__12002__identity,holdout,12002,identity,Target-Residual Spearman Gate,residual_spearman,0.68263800494176063,True,0.61952861952861293,True,True,5
+holdout__12002__identity,holdout,12002,identity,Disagreement-Correction Gate,disagreement_correction,0.6875,True,0.890625,True,False,0
+holdout__12002__output_affine,holdout,12002,output_affine,Target-Only,target_only,,True,,True,False,0
+holdout__12002__output_affine,holdout,12002,output_affine,Local Spearman Gate,local_spearman,0.80383056689260757,True,0.78446996094430088,True,True,5
+holdout__12002__output_affine,holdout,12002,output_affine,Target-Residual Spearman Gate,residual_spearman,0.68263800494176063,True,0.61952861952861293,True,True,5
+holdout__12002__output_affine,holdout,12002,output_affine,Disagreement-Correction Gate,disagreement_correction,0.6875,True,0.890625,True,False,0
+holdout__12002__scale_0.7,holdout,12002,scale_0.7,Target-Only,target_only,,True,,True,False,0
+holdout__12002__scale_0.7,holdout,12002,scale_0.7,Local Spearman Gate,local_spearman,0.79289870052783573,True,0.78446996094430088,True,True,6
+holdout__12002__scale_0.7,holdout,12002,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.57929188092706341,True,0.61952861952861293,True,False,0
+holdout__12002__scale_0.7,holdout,12002,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.6875,True,0.890625,True,False,0
+holdout__12002__scale_1.5,holdout,12002,scale_1.5,Target-Only,target_only,,True,,True,False,0
+holdout__12002__scale_1.5,holdout,12002,scale_1.5,Local Spearman Gate,local_spearman,0.79402958086381381,True,0.78446996094430088,True,True,7
+holdout__12002__scale_1.5,holdout,12002,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.58682790398870588,True,0.61952861952861293,True,False,0
+holdout__12002__scale_1.5,holdout,12002,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.6875,True,0.890625,True,False,0
+holdout__12002__rotate_45,holdout,12002,rotate_45,Target-Only,target_only,,True,,True,False,0
+holdout__12002__rotate_45,holdout,12002,rotate_45,Local Spearman Gate,local_spearman,0.80218305948868762,True,0.78446996094430088,True,True,2
+holdout__12002__rotate_45,holdout,12002,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.56416780738844774,True,0.61952861952861293,True,False,0
+holdout__12002__rotate_45,holdout,12002,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.65625,True,0.890625,True,False,0
+holdout__12002__anisotropy_swap,holdout,12002,anisotropy_swap,Target-Only,target_only,,True,,False,False,0
+holdout__12002__anisotropy_swap,holdout,12002,anisotropy_swap,Local Spearman Gate,local_spearman,0.74012132213292114,True,0.78446996094430088,False,False,0
+holdout__12002__anisotropy_swap,holdout,12002,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.70600721797897037,True,0.61952861952861293,False,False,0
+holdout__12002__anisotropy_swap,holdout,12002,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,False,False,0
+holdout__12002__roughness,holdout,12002,roughness,Target-Only,target_only,,True,,True,False,0
+holdout__12002__roughness,holdout,12002,roughness,Local Spearman Gate,local_spearman,0.77042206163840943,True,0.78446996094430088,True,False,0
+holdout__12002__roughness,holdout,12002,roughness,Target-Residual Spearman Gate,residual_spearman,0.59759000729484724,True,0.61952861952861293,True,False,0
+holdout__12002__roughness,holdout,12002,roughness,Disagreement-Correction Gate,disagreement_correction,0.6875,True,0.890625,True,False,0
+holdout__12002__reversal,holdout,12002,reversal,Target-Only,target_only,,True,,True,False,0
+holdout__12002__reversal,holdout,12002,reversal,Local Spearman Gate,local_spearman,0.16789296871129616,True,0.78446996094430088,True,False,0
+holdout__12002__reversal,holdout,12002,reversal,Target-Residual Spearman Gate,residual_spearman,0.37673026475377153,True,0.61952861952861293,True,False,0
+holdout__12002__reversal,holdout,12002,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+holdout__12002__independent_expert,holdout,12002,independent_expert,Target-Only,target_only,,True,,True,False,0
+holdout__12002__independent_expert,holdout,12002,independent_expert,Local Spearman Gate,local_spearman,0.42254901960784635,True,0.78446996094430088,True,False,0
+holdout__12002__independent_expert,holdout,12002,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.50168350168350162,True,0.61952861952861293,True,False,0
+holdout__12002__independent_expert,holdout,12002,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.34375,True,0.890625,True,False,0
+holdout__12003__identity,holdout,12003,identity,Target-Only,target_only,,True,,True,False,0
+holdout__12003__identity,holdout,12003,identity,Local Spearman Gate,local_spearman,0.80268812401729961,True,0.78446996094430088,True,True,2
+holdout__12003__identity,holdout,12003,identity,Target-Residual Spearman Gate,residual_spearman,0.68919686716605477,True,0.61952861952861293,True,True,2
+holdout__12003__identity,holdout,12003,identity,Disagreement-Correction Gate,disagreement_correction,0,False,0.890625,True,False,0
+holdout__12003__output_affine,holdout,12003,output_affine,Target-Only,target_only,,True,,True,False,0
+holdout__12003__output_affine,holdout,12003,output_affine,Local Spearman Gate,local_spearman,0.80268812401729961,True,0.78446996094430088,True,True,2
+holdout__12003__output_affine,holdout,12003,output_affine,Target-Residual Spearman Gate,residual_spearman,0.68919686716605477,True,0.61952861952861293,True,True,2
+holdout__12003__output_affine,holdout,12003,output_affine,Disagreement-Correction Gate,disagreement_correction,0,False,0.890625,True,False,0
+holdout__12003__scale_0.7,holdout,12003,scale_0.7,Target-Only,target_only,,True,,True,False,0
+holdout__12003__scale_0.7,holdout,12003,scale_0.7,Local Spearman Gate,local_spearman,0.82258271722968024,True,0.78446996094430088,True,True,2
+holdout__12003__scale_0.7,holdout,12003,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.57088420403577478,True,0.61952861952861293,True,False,0
+holdout__12003__scale_0.7,holdout,12003,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,2
+holdout__12003__scale_1.5,holdout,12003,scale_1.5,Target-Only,target_only,,True,,True,False,0
+holdout__12003__scale_1.5,holdout,12003,scale_1.5,Local Spearman Gate,local_spearman,0.83136820671993983,True,0.78446996094430088,True,True,5
+holdout__12003__scale_1.5,holdout,12003,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.52195214463288997,True,0.61952861952861293,True,False,0
+holdout__12003__scale_1.5,holdout,12003,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,True,True,5
+holdout__12003__rotate_45,holdout,12003,rotate_45,Target-Only,target_only,,True,,True,False,0
+holdout__12003__rotate_45,holdout,12003,rotate_45,Local Spearman Gate,local_spearman,0.7958058195968809,True,0.78446996094430088,True,True,1
+holdout__12003__rotate_45,holdout,12003,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.74410774410773062,True,0.61952861952861293,True,True,1
+holdout__12003__rotate_45,holdout,12003,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.890625,True,0.890625,True,True,1
+holdout__12003__anisotropy_swap,holdout,12003,anisotropy_swap,Target-Only,target_only,,True,,True,False,0
+holdout__12003__anisotropy_swap,holdout,12003,anisotropy_swap,Local Spearman Gate,local_spearman,0.81023585671950071,True,0.78446996094430088,True,True,4
+holdout__12003__anisotropy_swap,holdout,12003,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.76025672712503112,True,0.61952861952861293,True,True,4
+holdout__12003__anisotropy_swap,holdout,12003,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,4
+holdout__12003__roughness,holdout,12003,roughness,Target-Only,target_only,,True,,False,False,0
+holdout__12003__roughness,holdout,12003,roughness,Local Spearman Gate,local_spearman,0.72593167701862371,True,0.78446996094430088,False,False,0
+holdout__12003__roughness,holdout,12003,roughness,Target-Residual Spearman Gate,residual_spearman,0.60588235294117021,True,0.61952861952861293,False,False,0
+holdout__12003__roughness,holdout,12003,roughness,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,False,False,0
+holdout__12003__reversal,holdout,12003,reversal,Target-Only,target_only,,True,,True,False,0
+holdout__12003__reversal,holdout,12003,reversal,Local Spearman Gate,local_spearman,0.1911764705882481,True,0.78446996094430088,True,False,0
+holdout__12003__reversal,holdout,12003,reversal,Target-Residual Spearman Gate,residual_spearman,0.34343434343435214,True,0.61952861952861293,True,False,0
+holdout__12003__reversal,holdout,12003,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+holdout__12003__independent_expert,holdout,12003,independent_expert,Target-Only,target_only,,True,,True,False,0
+holdout__12003__independent_expert,holdout,12003,independent_expert,Local Spearman Gate,local_spearman,0.49117647058823566,True,0.78446996094430088,True,False,0
+holdout__12003__independent_expert,holdout,12003,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.44107744107744434,True,0.61952861952861293,True,False,0
+holdout__12003__independent_expert,holdout,12003,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.109375,True,0.890625,True,False,0
+holdout__12004__identity,holdout,12004,identity,Target-Only,target_only,,True,,False,False,0
+holdout__12004__identity,holdout,12004,identity,Local Spearman Gate,local_spearman,0.82492236024843302,True,0.78446996094430088,False,False,0
+holdout__12004__identity,holdout,12004,identity,Target-Residual Spearman Gate,residual_spearman,0.75588235294116146,True,0.61952861952861293,False,False,0
+holdout__12004__identity,holdout,12004,identity,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,False,False,0
+holdout__12004__output_affine,holdout,12004,output_affine,Target-Only,target_only,,True,,False,False,0
+holdout__12004__output_affine,holdout,12004,output_affine,Local Spearman Gate,local_spearman,0.82492236024843302,True,0.78446996094430088,False,False,0
+holdout__12004__output_affine,holdout,12004,output_affine,Target-Residual Spearman Gate,residual_spearman,0.75588235294116146,True,0.61952861952861293,False,False,0
+holdout__12004__output_affine,holdout,12004,output_affine,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,False,False,0
+holdout__12004__scale_0.7,holdout,12004,scale_0.7,Target-Only,target_only,,True,,True,False,0
+holdout__12004__scale_0.7,holdout,12004,scale_0.7,Local Spearman Gate,local_spearman,0.82113312741562994,True,0.78446996094430088,True,True,5
+holdout__12004__scale_0.7,holdout,12004,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.73037366311626783,True,0.61952861952861293,True,True,5
+holdout__12004__scale_0.7,holdout,12004,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,5
+holdout__12004__scale_1.5,holdout,12004,scale_1.5,Target-Only,target_only,,True,,True,False,0
+holdout__12004__scale_1.5,holdout,12004,scale_1.5,Local Spearman Gate,local_spearman,0.81673882742479487,True,0.78446996094430088,True,True,4
+holdout__12004__scale_1.5,holdout,12004,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.75576954217459957,True,0.61952861952861293,True,True,4
+holdout__12004__scale_1.5,holdout,12004,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.8125,True,0.890625,True,False,0
+holdout__12004__rotate_45,holdout,12004,rotate_45,Target-Only,target_only,,True,,True,False,0
+holdout__12004__rotate_45,holdout,12004,rotate_45,Local Spearman Gate,local_spearman,0.78166038108312264,True,0.78446996094430088,True,False,0
+holdout__12004__rotate_45,holdout,12004,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.7134781409574783,True,0.61952861952861293,True,True,2
+holdout__12004__rotate_45,holdout,12004,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,2
+holdout__12004__anisotropy_swap,holdout,12004,anisotropy_swap,Target-Only,target_only,,True,,True,False,0
+holdout__12004__anisotropy_swap,holdout,12004,anisotropy_swap,Local Spearman Gate,local_spearman,0.7715686274509691,True,0.78446996094430088,True,False,0
+holdout__12004__anisotropy_swap,holdout,12004,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.75420875420874012,True,0.61952861952861293,True,True,6
+holdout__12004__anisotropy_swap,holdout,12004,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,True,True,6
+holdout__12004__roughness,holdout,12004,roughness,Target-Only,target_only,,True,,True,False,0
+holdout__12004__roughness,holdout,12004,roughness,Local Spearman Gate,local_spearman,0.51888111888111799,True,0.78446996094430088,True,False,0
+holdout__12004__roughness,holdout,12004,roughness,Target-Residual Spearman Gate,residual_spearman,0.47023809523809712,True,0.61952861952861293,True,False,0
+holdout__12004__roughness,holdout,12004,roughness,Disagreement-Correction Gate,disagreement_correction,0.6875,True,0.890625,True,False,0
+holdout__12004__reversal,holdout,12004,reversal,Target-Only,target_only,,True,,True,False,0
+holdout__12004__reversal,holdout,12004,reversal,Local Spearman Gate,local_spearman,0.17973602484473444,True,0.78446996094430088,True,False,0
+holdout__12004__reversal,holdout,12004,reversal,Target-Residual Spearman Gate,residual_spearman,0.42941176470588649,True,0.61952861952861293,True,False,0
+holdout__12004__reversal,holdout,12004,reversal,Disagreement-Correction Gate,disagreement_correction,0.03125,True,0.890625,True,False,0
+holdout__12004__independent_expert,holdout,12004,independent_expert,Target-Only,target_only,,True,,True,False,0
+holdout__12004__independent_expert,holdout,12004,independent_expert,Local Spearman Gate,local_spearman,0.50294117647058811,True,0.78446996094430088,True,False,0
+holdout__12004__independent_expert,holdout,12004,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.57575757575757158,True,0.61952861952861293,True,False,0
+holdout__12004__independent_expert,holdout,12004,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.65625,True,0.890625,True,False,0
+holdout__12005__identity,holdout,12005,identity,Target-Only,target_only,,True,,False,False,0
+holdout__12005__identity,holdout,12005,identity,Local Spearman Gate,local_spearman,0.80681905259366515,True,0.78446996094430088,False,False,0
+holdout__12005__identity,holdout,12005,identity,Target-Residual Spearman Gate,residual_spearman,0.65684410860710973,True,0.61952861952861293,False,False,0
+holdout__12005__identity,holdout,12005,identity,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,False,False,0
+holdout__12005__output_affine,holdout,12005,output_affine,Target-Only,target_only,,True,,False,False,0
+holdout__12005__output_affine,holdout,12005,output_affine,Local Spearman Gate,local_spearman,0.80681905259366515,True,0.78446996094430088,False,False,0
+holdout__12005__output_affine,holdout,12005,output_affine,Target-Residual Spearman Gate,residual_spearman,0.65684410860710973,True,0.61952861952861293,False,False,0
+holdout__12005__output_affine,holdout,12005,output_affine,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,False,False,0
+holdout__12005__scale_0.7,holdout,12005,scale_0.7,Target-Only,target_only,,True,,False,False,0
+holdout__12005__scale_0.7,holdout,12005,scale_0.7,Local Spearman Gate,local_spearman,0.81113031727903895,True,0.78446996094430088,False,False,0
+holdout__12005__scale_0.7,holdout,12005,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.69659668715482614,True,0.61952861952861293,False,False,0
+holdout__12005__scale_0.7,holdout,12005,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,False,False,0
+holdout__12005__scale_1.5,holdout,12005,scale_1.5,Target-Only,target_only,,True,,True,False,0
+holdout__12005__scale_1.5,holdout,12005,scale_1.5,Local Spearman Gate,local_spearman,0.81493640000312961,True,0.78446996094430088,True,True,5
+holdout__12005__scale_1.5,holdout,12005,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.65436592138423477,True,0.61952861952861293,True,True,5
+holdout__12005__scale_1.5,holdout,12005,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,5
+holdout__12005__rotate_45,holdout,12005,rotate_45,Target-Only,target_only,,True,,True,False,0
+holdout__12005__rotate_45,holdout,12005,rotate_45,Local Spearman Gate,local_spearman,0.80519355823715666,True,0.78446996094430088,True,True,7
+holdout__12005__rotate_45,holdout,12005,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.61985020156713178,True,0.61952861952861293,True,True,7
+holdout__12005__rotate_45,holdout,12005,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,True,True,7
+holdout__12005__anisotropy_swap,holdout,12005,anisotropy_swap,Target-Only,target_only,,True,,True,False,0
+holdout__12005__anisotropy_swap,holdout,12005,anisotropy_swap,Local Spearman Gate,local_spearman,0.79990297640825414,True,0.78446996094430088,True,True,6
+holdout__12005__anisotropy_swap,holdout,12005,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.73348724256154063,True,0.61952861952861293,True,True,6
+holdout__12005__anisotropy_swap,holdout,12005,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,True,True,6
+holdout__12005__roughness,holdout,12005,roughness,Target-Only,target_only,,True,,True,False,0
+holdout__12005__roughness,holdout,12005,roughness,Local Spearman Gate,local_spearman,0.78741258741257436,True,0.78446996094430088,True,True,4
+holdout__12005__roughness,holdout,12005,roughness,Target-Residual Spearman Gate,residual_spearman,0.60714285714285043,True,0.61952861952861293,True,False,0
+holdout__12005__roughness,holdout,12005,roughness,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,4
+holdout__12005__reversal,holdout,12005,reversal,Target-Only,target_only,,True,,True,False,0
+holdout__12005__reversal,holdout,12005,reversal,Local Spearman Gate,local_spearman,0.17254901960785674,True,0.78446996094430088,True,False,0
+holdout__12005__reversal,holdout,12005,reversal,Target-Residual Spearman Gate,residual_spearman,0.28956228956230129,True,0.61952861952861293,True,False,0
+holdout__12005__reversal,holdout,12005,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+holdout__12005__independent_expert,holdout,12005,independent_expert,Target-Only,target_only,,True,,True,False,0
+holdout__12005__independent_expert,holdout,12005,independent_expert,Local Spearman Gate,local_spearman,0.42254901960784635,True,0.78446996094430088,True,False,0
+holdout__12005__independent_expert,holdout,12005,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.39730639730640299,True,0.61952861952861293,True,False,0
+holdout__12005__independent_expert,holdout,12005,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.34375,True,0.890625,True,False,0
+holdout__12006__identity,holdout,12006,identity,Target-Only,target_only,,True,,True,False,0
+holdout__12006__identity,holdout,12006,identity,Local Spearman Gate,local_spearman,0.82259316770184931,True,0.78446996094430088,True,True,6
+holdout__12006__identity,holdout,12006,identity,Target-Residual Spearman Gate,residual_spearman,0.68529411764704795,True,0.61952861952861293,True,True,6
+holdout__12006__identity,holdout,12006,identity,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,6
+holdout__12006__output_affine,holdout,12006,output_affine,Target-Only,target_only,,True,,True,False,0
+holdout__12006__output_affine,holdout,12006,output_affine,Local Spearman Gate,local_spearman,0.82259316770184931,True,0.78446996094430088,True,True,6
+holdout__12006__output_affine,holdout,12006,output_affine,Target-Residual Spearman Gate,residual_spearman,0.68529411764704795,True,0.61952861952861293,True,True,6
+holdout__12006__output_affine,holdout,12006,output_affine,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,6
+holdout__12006__scale_0.7,holdout,12006,scale_0.7,Target-Only,target_only,,True,,True,False,0
+holdout__12006__scale_0.7,holdout,12006,scale_0.7,Local Spearman Gate,local_spearman,0.80782312925168609,True,0.78446996094430088,True,True,4
+holdout__12006__scale_0.7,holdout,12006,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.69999999999998663,True,0.61952861952861293,True,True,4
+holdout__12006__scale_0.7,holdout,12006,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0,False,0.890625,True,False,0
+holdout__12006__scale_1.5,holdout,12006,scale_1.5,Target-Only,target_only,,True,,True,False,0
+holdout__12006__scale_1.5,holdout,12006,scale_1.5,Local Spearman Gate,local_spearman,0.81118881118879704,True,0.78446996094430088,True,True,3
+holdout__12006__scale_1.5,holdout,12006,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.73214285714284266,True,0.61952861952861293,True,True,3
+holdout__12006__scale_1.5,holdout,12006,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,3
+holdout__12006__rotate_45,holdout,12006,rotate_45,Target-Only,target_only,,True,,True,False,0
+holdout__12006__rotate_45,holdout,12006,rotate_45,Local Spearman Gate,local_spearman,0.81176470588234007,True,0.78446996094430088,True,True,7
+holdout__12006__rotate_45,holdout,12006,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.71043771043769866,True,0.61952861952861293,True,True,7
+holdout__12006__rotate_45,holdout,12006,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,True,True,7
+holdout__12006__anisotropy_swap,holdout,12006,anisotropy_swap,Target-Only,target_only,,True,,False,False,0
+holdout__12006__anisotropy_swap,holdout,12006,anisotropy_swap,Local Spearman Gate,local_spearman,0.79705882352939939,True,0.78446996094430088,False,False,0
+holdout__12006__anisotropy_swap,holdout,12006,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.65656565656564791,True,0.61952861952861293,False,False,0
+holdout__12006__anisotropy_swap,holdout,12006,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.65625,True,0.890625,False,False,0
+holdout__12006__roughness,holdout,12006,roughness,Target-Only,target_only,,True,,True,False,0
+holdout__12006__roughness,holdout,12006,roughness,Local Spearman Gate,local_spearman,0.76319875776396373,True,0.78446996094430088,True,False,0
+holdout__12006__roughness,holdout,12006,roughness,Target-Residual Spearman Gate,residual_spearman,0.73823529411763311,True,0.61952861952861293,True,True,2
+holdout__12006__roughness,holdout,12006,roughness,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,2
+holdout__12006__reversal,holdout,12006,reversal,Target-Only,target_only,,True,,False,False,0
+holdout__12006__reversal,holdout,12006,reversal,Local Spearman Gate,local_spearman,0.16960784313726862,True,0.78446996094430088,False,False,0
+holdout__12006__reversal,holdout,12006,reversal,Target-Residual Spearman Gate,residual_spearman,0.37037037037037757,True,0.61952861952861293,False,False,0
+holdout__12006__reversal,holdout,12006,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,False,False,0
+holdout__12006__independent_expert,holdout,12006,independent_expert,Target-Only,target_only,,True,,True,False,0
+holdout__12006__independent_expert,holdout,12006,independent_expert,Local Spearman Gate,local_spearman,0.38004658385093693,True,0.78446996094430088,True,False,0
+holdout__12006__independent_expert,holdout,12006,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.41176470588235814,True,0.61952861952861293,True,False,0
+holdout__12006__independent_expert,holdout,12006,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.1875,True,0.890625,True,False,0
+holdout__12007__identity,holdout,12007,identity,Target-Only,target_only,,True,,False,False,0
+holdout__12007__identity,holdout,12007,identity,Local Spearman Gate,local_spearman,0.82156862745096704,True,0.78446996094430088,False,False,0
+holdout__12007__identity,holdout,12007,identity,Target-Residual Spearman Gate,residual_spearman,0.76094276094274638,True,0.61952861952861293,False,False,0
+holdout__12007__identity,holdout,12007,identity,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,False,False,0
+holdout__12007__output_affine,holdout,12007,output_affine,Target-Only,target_only,,True,,False,False,0
+holdout__12007__output_affine,holdout,12007,output_affine,Local Spearman Gate,local_spearman,0.82156862745096704,True,0.78446996094430088,False,False,0
+holdout__12007__output_affine,holdout,12007,output_affine,Target-Residual Spearman Gate,residual_spearman,0.76094276094274638,True,0.61952861952861293,False,False,0
+holdout__12007__output_affine,holdout,12007,output_affine,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,False,False,0
+holdout__12007__scale_0.7,holdout,12007,scale_0.7,Target-Only,target_only,,True,,True,False,0
+holdout__12007__scale_0.7,holdout,12007,scale_0.7,Local Spearman Gate,local_spearman,0.79761904761903346,True,0.78446996094430088,True,True,1
+holdout__12007__scale_0.7,holdout,12007,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.73333333333331774,True,0.61952861952861293,True,True,1
+holdout__12007__scale_0.7,holdout,12007,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0,False,0.890625,True,False,0
+holdout__12007__scale_1.5,holdout,12007,scale_1.5,Target-Only,target_only,,True,,True,False,0
+holdout__12007__scale_1.5,holdout,12007,scale_1.5,Local Spearman Gate,local_spearman,0.80559440559439177,True,0.78446996094430088,True,True,2
+holdout__12007__scale_1.5,holdout,12007,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.66071428571427571,True,0.61952861952861293,True,True,2
+holdout__12007__scale_1.5,holdout,12007,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,2
+holdout__12007__rotate_45,holdout,12007,rotate_45,Target-Only,target_only,,True,,True,False,0
+holdout__12007__rotate_45,holdout,12007,rotate_45,Local Spearman Gate,local_spearman,0.77717391304346617,True,0.78446996094430088,True,False,0
+holdout__12007__rotate_45,holdout,12007,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.64117647058822702,True,0.61952861952861293,True,True,5
+holdout__12007__rotate_45,holdout,12007,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,5
+holdout__12007__anisotropy_swap,holdout,12007,anisotropy_swap,Target-Only,target_only,,True,,True,False,0
+holdout__12007__anisotropy_swap,holdout,12007,anisotropy_swap,Local Spearman Gate,local_spearman,0.76274509803920476,True,0.78446996094430088,True,False,0
+holdout__12007__anisotropy_swap,holdout,12007,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.7138047138047019,True,0.61952861952861293,True,True,5
+holdout__12007__anisotropy_swap,holdout,12007,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,True,True,5
+holdout__12007__roughness,holdout,12007,roughness,Target-Only,target_only,,True,,True,False,0
+holdout__12007__roughness,holdout,12007,roughness,Local Spearman Gate,local_spearman,0.75384615384614229,True,0.78446996094430088,True,False,0
+holdout__12007__roughness,holdout,12007,roughness,Target-Residual Spearman Gate,residual_spearman,0.6666666666666563,True,0.61952861952861293,True,True,7
+holdout__12007__roughness,holdout,12007,roughness,Disagreement-Correction Gate,disagreement_correction,0.3125,True,0.890625,True,False,0
+holdout__12007__reversal,holdout,12007,reversal,Target-Only,target_only,,True,,True,False,0
+holdout__12007__reversal,holdout,12007,reversal,Local Spearman Gate,local_spearman,0.17843137254903296,True,0.78446996094430088,True,False,0
+holdout__12007__reversal,holdout,12007,reversal,Target-Residual Spearman Gate,residual_spearman,0.38047138047138712,True,0.61952861952861293,True,False,0
+holdout__12007__reversal,holdout,12007,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+holdout__12007__independent_expert,holdout,12007,independent_expert,Target-Only,target_only,,True,,True,False,0
+holdout__12007__independent_expert,holdout,12007,independent_expert,Local Spearman Gate,local_spearman,0.56372549019607576,True,0.78446996094430088,True,False,0
+holdout__12007__independent_expert,holdout,12007,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.47811447811447932,True,0.61952861952861293,True,False,0
+holdout__12007__independent_expert,holdout,12007,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.65625,True,0.890625,True,False,0
+holdout__12008__identity,holdout,12008,identity,Target-Only,target_only,,True,,True,False,0
+holdout__12008__identity,holdout,12008,identity,Local Spearman Gate,local_spearman,0.7958477144349877,True,0.78446996094430088,True,True,4
+holdout__12008__identity,holdout,12008,identity,Target-Residual Spearman Gate,residual_spearman,0.62107072172130517,True,0.61952861952861293,True,True,4
+holdout__12008__identity,holdout,12008,identity,Disagreement-Correction Gate,disagreement_correction,0,False,0.890625,True,False,0
+holdout__12008__output_affine,holdout,12008,output_affine,Target-Only,target_only,,True,,True,False,0
+holdout__12008__output_affine,holdout,12008,output_affine,Local Spearman Gate,local_spearman,0.7958477144349877,True,0.78446996094430088,True,True,4
+holdout__12008__output_affine,holdout,12008,output_affine,Target-Residual Spearman Gate,residual_spearman,0.62107072172130517,True,0.61952861952861293,True,True,4
+holdout__12008__output_affine,holdout,12008,output_affine,Disagreement-Correction Gate,disagreement_correction,0,False,0.890625,True,False,0
+holdout__12008__scale_0.7,holdout,12008,scale_0.7,Target-Only,target_only,,True,,True,False,0
+holdout__12008__scale_0.7,holdout,12008,scale_0.7,Local Spearman Gate,local_spearman,0.7958477144349877,True,0.78446996094430088,True,True,5
+holdout__12008__scale_0.7,holdout,12008,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.46540836522248424,True,0.61952861952861293,True,False,0
+holdout__12008__scale_0.7,holdout,12008,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0,False,0.890625,True,False,0
+holdout__12008__scale_1.5,holdout,12008,scale_1.5,Target-Only,target_only,,True,,True,False,0
+holdout__12008__scale_1.5,holdout,12008,scale_1.5,Local Spearman Gate,local_spearman,0.80132744011137058,True,0.78446996094430088,True,True,6
+holdout__12008__scale_1.5,holdout,12008,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.64638501094227085,True,0.61952861952861293,True,True,6
+holdout__12008__scale_1.5,holdout,12008,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,6
+holdout__12008__rotate_45,holdout,12008,rotate_45,Target-Only,target_only,,True,,True,False,0
+holdout__12008__rotate_45,holdout,12008,rotate_45,Local Spearman Gate,local_spearman,0.80861801242234677,True,0.78446996094430088,True,True,4
+holdout__12008__rotate_45,holdout,12008,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.64999999999999125,True,0.61952861952861293,True,True,4
+holdout__12008__rotate_45,holdout,12008,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.8125,True,0.890625,True,False,0
+holdout__12008__anisotropy_swap,holdout,12008,anisotropy_swap,Target-Only,target_only,,True,,True,False,0
+holdout__12008__anisotropy_swap,holdout,12008,anisotropy_swap,Local Spearman Gate,local_spearman,0.77874669047920808,True,0.78446996094430088,True,False,0
+holdout__12008__anisotropy_swap,holdout,12008,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.71619771735947335,True,0.61952861952861293,True,True,6
+holdout__12008__anisotropy_swap,holdout,12008,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0,False,0.890625,True,False,0
+holdout__12008__roughness,holdout,12008,roughness,Target-Only,target_only,,True,,True,False,0
+holdout__12008__roughness,holdout,12008,roughness,Local Spearman Gate,local_spearman,0.65034965034964354,True,0.78446996094430088,True,False,0
+holdout__12008__roughness,holdout,12008,roughness,Target-Residual Spearman Gate,residual_spearman,0.36309523809524663,True,0.61952861952861293,True,False,0
+holdout__12008__roughness,holdout,12008,roughness,Disagreement-Correction Gate,disagreement_correction,0,False,0.890625,True,False,0
+holdout__12008__reversal,holdout,12008,reversal,Target-Only,target_only,,True,,True,False,0
+holdout__12008__reversal,holdout,12008,reversal,Local Spearman Gate,local_spearman,0.16862745098040594,True,0.78446996094430088,True,False,0
+holdout__12008__reversal,holdout,12008,reversal,Target-Residual Spearman Gate,residual_spearman,0.3636363636363712,True,0.61952861952861293,True,False,0
+holdout__12008__reversal,holdout,12008,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+holdout__12008__independent_expert,holdout,12008,independent_expert,Target-Only,target_only,,True,,True,False,0
+holdout__12008__independent_expert,holdout,12008,independent_expert,Local Spearman Gate,local_spearman,0.48137254901960863,True,0.78446996094430088,True,False,0
+holdout__12008__independent_expert,holdout,12008,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.56902356902356521,True,0.61952861952861293,True,False,0
+holdout__12008__independent_expert,holdout,12008,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.890625,True,0.890625,True,True,3
+holdout__12009__identity,holdout,12009,identity,Target-Only,target_only,,True,,True,False,0
+holdout__12009__identity,holdout,12009,identity,Local Spearman Gate,local_spearman,0.81325166035139596,True,0.78446996094430088,True,True,4
+holdout__12009__identity,holdout,12009,identity,Target-Residual Spearman Gate,residual_spearman,0.70293851577272382,True,0.61952861952861293,True,True,4
+holdout__12009__identity,holdout,12009,identity,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,4
+holdout__12009__output_affine,holdout,12009,output_affine,Target-Only,target_only,,True,,True,False,0
+holdout__12009__output_affine,holdout,12009,output_affine,Local Spearman Gate,local_spearman,0.81325166035139596,True,0.78446996094430088,True,True,4
+holdout__12009__output_affine,holdout,12009,output_affine,Target-Residual Spearman Gate,residual_spearman,0.70293851577272382,True,0.61952861952861293,True,True,4
+holdout__12009__output_affine,holdout,12009,output_affine,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,4
+holdout__12009__scale_0.7,holdout,12009,scale_0.7,Target-Only,target_only,,True,,True,False,0
+holdout__12009__scale_0.7,holdout,12009,scale_0.7,Local Spearman Gate,local_spearman,0.81673882742479487,True,0.78446996094430088,True,True,2
+holdout__12009__scale_0.7,holdout,12009,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.75576954217459957,True,0.61952861952861293,True,True,2
+holdout__12009__scale_0.7,holdout,12009,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,2
+holdout__12009__scale_1.5,holdout,12009,scale_1.5,Target-Only,target_only,,True,,True,False,0
+holdout__12009__scale_1.5,holdout,12009,scale_1.5,Local Spearman Gate,local_spearman,0.79992265018078146,True,0.78446996094430088,True,True,7
+holdout__12009__scale_1.5,holdout,12009,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.70737876550155043,True,0.61952861952861293,True,True,7
+holdout__12009__scale_1.5,holdout,12009,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,7
+holdout__12009__rotate_45,holdout,12009,rotate_45,Target-Only,target_only,,True,,True,False,0
+holdout__12009__rotate_45,holdout,12009,rotate_45,Local Spearman Gate,local_spearman,0.79910937320234876,True,0.78446996094430088,True,True,5
+holdout__12009__rotate_45,holdout,12009,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.62049474374005475,True,0.61952861952861293,True,True,5
+holdout__12009__rotate_45,holdout,12009,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,5
+holdout__12009__anisotropy_swap,holdout,12009,anisotropy_swap,Target-Only,target_only,,True,,False,False,0
+holdout__12009__anisotropy_swap,holdout,12009,anisotropy_swap,Local Spearman Gate,local_spearman,0.78318213519168078,True,0.78446996094430088,False,False,0
+holdout__12009__anisotropy_swap,holdout,12009,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.71259595515091545,True,0.61952861952861293,False,False,0
+holdout__12009__anisotropy_swap,holdout,12009,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,False,False,0
+holdout__12009__roughness,holdout,12009,roughness,Target-Only,target_only,,True,,True,False,0
+holdout__12009__roughness,holdout,12009,roughness,Local Spearman Gate,local_spearman,0.73021340350122288,True,0.78446996094430088,True,False,0
+holdout__12009__roughness,holdout,12009,roughness,Target-Residual Spearman Gate,residual_spearman,0.71486774348344218,True,0.61952861952861293,True,True,2
+holdout__12009__roughness,holdout,12009,roughness,Disagreement-Correction Gate,disagreement_correction,0.8125,True,0.890625,True,False,0
+holdout__12009__reversal,holdout,12009,reversal,Target-Only,target_only,,True,,True,False,0
+holdout__12009__reversal,holdout,12009,reversal,Local Spearman Gate,local_spearman,0.17476076551785724,True,0.78446996094430088,True,False,0
+holdout__12009__reversal,holdout,12009,reversal,Target-Residual Spearman Gate,residual_spearman,0.45947296375466462,True,0.61952861952861293,True,False,0
+holdout__12009__reversal,holdout,12009,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+holdout__12009__independent_expert,holdout,12009,independent_expert,Target-Only,target_only,,True,,True,False,0
+holdout__12009__independent_expert,holdout,12009,independent_expert,Local Spearman Gate,local_spearman,0.35980392156863328,True,0.78446996094430088,True,False,0
+holdout__12009__independent_expert,holdout,12009,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.46127946127946345,True,0.61952861952861293,True,False,0
+holdout__12009__independent_expert,holdout,12009,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.34375,True,0.890625,True,False,0
+holdout__12010__identity,holdout,12010,identity,Target-Only,target_only,,True,,True,False,0
+holdout__12010__identity,holdout,12010,identity,Local Spearman Gate,local_spearman,0.82492027315163452,True,0.78446996094430088,True,True,6
+holdout__12010__identity,holdout,12010,identity,Target-Residual Spearman Gate,residual_spearman,0.6256411786120839,True,0.61952861952861293,True,True,6
+holdout__12010__identity,holdout,12010,identity,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,6
+holdout__12010__output_affine,holdout,12010,output_affine,Target-Only,target_only,,True,,True,False,0
+holdout__12010__output_affine,holdout,12010,output_affine,Local Spearman Gate,local_spearman,0.82492027315163452,True,0.78446996094430088,True,True,6
+holdout__12010__output_affine,holdout,12010,output_affine,Target-Residual Spearman Gate,residual_spearman,0.6256411786120839,True,0.61952861952861293,True,True,6
+holdout__12010__output_affine,holdout,12010,output_affine,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,6
+holdout__12010__scale_0.7,holdout,12010,scale_0.7,Target-Only,target_only,,True,,False,False,0
+holdout__12010__scale_0.7,holdout,12010,scale_0.7,Local Spearman Gate,local_spearman,0.80694659983372707,True,0.78446996094430088,False,False,0
+holdout__12010__scale_0.7,holdout,12010,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.51829812636778383,True,0.61952861952861293,False,False,0
+holdout__12010__scale_0.7,holdout,12010,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,False,False,0
+holdout__12010__scale_1.5,holdout,12010,scale_1.5,Target-Only,target_only,,True,,False,False,0
+holdout__12010__scale_1.5,holdout,12010,scale_1.5,Local Spearman Gate,local_spearman,0.81643183464391389,True,0.78446996094430088,False,False,0
+holdout__12010__scale_1.5,holdout,12010,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.51796439392869775,True,0.61952861952861293,False,False,0
+holdout__12010__scale_1.5,holdout,12010,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,False,False,0
+holdout__12010__rotate_45,holdout,12010,rotate_45,Target-Only,target_only,,True,,False,False,0
+holdout__12010__rotate_45,holdout,12010,rotate_45,Local Spearman Gate,local_spearman,0.78567420041075398,True,0.78446996094430088,False,False,0
+holdout__12010__rotate_45,holdout,12010,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.62366565804900354,True,0.61952861952861293,False,False,0
+holdout__12010__rotate_45,holdout,12010,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.6875,True,0.890625,False,False,0
+holdout__12010__anisotropy_swap,holdout,12010,anisotropy_swap,Target-Only,target_only,,True,,True,False,0
+holdout__12010__anisotropy_swap,holdout,12010,anisotropy_swap,Local Spearman Gate,local_spearman,0.79105338038309259,True,0.78446996094430088,True,True,6
+holdout__12010__anisotropy_swap,holdout,12010,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.68235864929988943,True,0.61952861952861293,True,True,6
+holdout__12010__anisotropy_swap,holdout,12010,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.984375,True,0.890625,True,True,6
+holdout__12010__roughness,holdout,12010,roughness,Target-Only,target_only,,True,,False,False,0
+holdout__12010__roughness,holdout,12010,roughness,Local Spearman Gate,local_spearman,0.70784313725489334,True,0.78446996094430088,False,False,0
+holdout__12010__roughness,holdout,12010,roughness,Target-Residual Spearman Gate,residual_spearman,0.6464646464646383,True,0.61952861952861293,False,False,0
+holdout__12010__roughness,holdout,12010,roughness,Disagreement-Correction Gate,disagreement_correction,0.890625,True,0.890625,False,False,0
+holdout__12010__reversal,holdout,12010,reversal,Target-Only,target_only,,True,,True,False,0
+holdout__12010__reversal,holdout,12010,reversal,Local Spearman Gate,local_spearman,0.17058823529413136,True,0.78446996094430088,True,False,0
+holdout__12010__reversal,holdout,12010,reversal,Target-Residual Spearman Gate,residual_spearman,0.3535353535353617,True,0.61952861952861293,True,False,0
+holdout__12010__reversal,holdout,12010,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+holdout__12010__independent_expert,holdout,12010,independent_expert,Target-Only,target_only,,True,,True,False,0
+holdout__12010__independent_expert,holdout,12010,independent_expert,Local Spearman Gate,local_spearman,0.61645962732918747,True,0.78446996094430088,True,False,0
+holdout__12010__independent_expert,holdout,12010,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.52647058823529258,True,0.61952861952861293,True,False,0
+holdout__12010__independent_expert,holdout,12010,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.5,True,0.890625,True,False,0
+holdout__12011__identity,holdout,12011,identity,Target-Only,target_only,,True,,True,False,0
+holdout__12011__identity,holdout,12011,identity,Local Spearman Gate,local_spearman,0.82492236024843302,True,0.78446996094430088,True,True,3
+holdout__12011__identity,holdout,12011,identity,Target-Residual Spearman Gate,residual_spearman,0.6676470588235196,True,0.61952861952861293,True,True,3
+holdout__12011__identity,holdout,12011,identity,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,3
+holdout__12011__output_affine,holdout,12011,output_affine,Target-Only,target_only,,True,,True,False,0
+holdout__12011__output_affine,holdout,12011,output_affine,Local Spearman Gate,local_spearman,0.82492236024843302,True,0.78446996094430088,True,True,3
+holdout__12011__output_affine,holdout,12011,output_affine,Target-Residual Spearman Gate,residual_spearman,0.6676470588235196,True,0.61952861952861293,True,True,3
+holdout__12011__output_affine,holdout,12011,output_affine,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,3
+holdout__12011__scale_0.7,holdout,12011,scale_0.7,Target-Only,target_only,,True,,True,False,0
+holdout__12011__scale_0.7,holdout,12011,scale_0.7,Local Spearman Gate,local_spearman,0.8156055900620981,True,0.78446996094430088,True,True,2
+holdout__12011__scale_0.7,holdout,12011,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.59705882352940609,True,0.61952861952861293,True,False,0
+holdout__12011__scale_0.7,holdout,12011,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.8125,True,0.890625,True,False,0
+holdout__12011__scale_1.5,holdout,12011,scale_1.5,Target-Only,target_only,,True,,True,False,0
+holdout__12011__scale_1.5,holdout,12011,scale_1.5,Local Spearman Gate,local_spearman,0.8094311303376327,True,0.78446996094430088,True,True,5
+holdout__12011__scale_1.5,holdout,12011,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.58682790398870588,True,0.61952861952861293,True,False,0
+holdout__12011__scale_1.5,holdout,12011,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,True,True,5
+holdout__12011__rotate_45,holdout,12011,rotate_45,Target-Only,target_only,,True,,True,False,0
+holdout__12011__rotate_45,holdout,12011,rotate_45,Local Spearman Gate,local_spearman,0.8078431372548891,True,0.78446996094430088,True,True,1
+holdout__12011__rotate_45,holdout,12011,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.6464646464646383,True,0.61952861952861293,True,True,1
+holdout__12011__rotate_45,holdout,12011,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.34375,True,0.890625,True,False,0
+holdout__12011__anisotropy_swap,holdout,12011,anisotropy_swap,Target-Only,target_only,,True,,True,False,0
+holdout__12011__anisotropy_swap,holdout,12011,anisotropy_swap,Local Spearman Gate,local_spearman,0.78416149068321739,True,0.78446996094430088,True,False,0
+holdout__12011__anisotropy_swap,holdout,12011,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.71617647058822254,True,0.61952861952861293,True,True,2
+holdout__12011__anisotropy_swap,holdout,12011,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.96875,True,0.890625,True,True,2
+holdout__12011__roughness,holdout,12011,roughness,Target-Only,target_only,,True,,True,False,0
+holdout__12011__roughness,holdout,12011,roughness,Local Spearman Gate,local_spearman,0.67468944099378114,True,0.78446996094430088,True,False,0
+holdout__12011__roughness,holdout,12011,roughness,Target-Residual Spearman Gate,residual_spearman,0.67205882352940161,True,0.61952861952861293,True,True,5
+holdout__12011__roughness,holdout,12011,roughness,Disagreement-Correction Gate,disagreement_correction,0.8125,True,0.890625,True,False,0
+holdout__12011__reversal,holdout,12011,reversal,Target-Only,target_only,,True,,True,False,0
+holdout__12011__reversal,holdout,12011,reversal,Local Spearman Gate,local_spearman,0.17254901960785674,True,0.78446996094430088,True,False,0
+holdout__12011__reversal,holdout,12011,reversal,Target-Residual Spearman Gate,residual_spearman,0.42424242424242847,True,0.61952861952861293,True,False,0
+holdout__12011__reversal,holdout,12011,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+holdout__12011__independent_expert,holdout,12011,independent_expert,Target-Only,target_only,,True,,True,False,0
+holdout__12011__independent_expert,holdout,12011,independent_expert,Local Spearman Gate,local_spearman,0.54891304347825876,True,0.78446996094430088,True,False,0
+holdout__12011__independent_expert,holdout,12011,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.59705882352940609,True,0.61952861952861293,True,False,0
+holdout__12011__independent_expert,holdout,12011,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.1875,True,0.890625,True,False,0
+holdout__12012__identity,holdout,12012,identity,Target-Only,target_only,,True,,False,False,0
+holdout__12012__identity,holdout,12012,identity,Local Spearman Gate,local_spearman,0.8090607208985936,True,0.78446996094430088,False,False,0
+holdout__12012__identity,holdout,12012,identity,Target-Residual Spearman Gate,residual_spearman,0.69814133192603267,True,0.61952861952861293,False,False,0
+holdout__12012__identity,holdout,12012,identity,Disagreement-Correction Gate,disagreement_correction,0.5,True,0.890625,False,False,0
+holdout__12012__output_affine,holdout,12012,output_affine,Target-Only,target_only,,True,,False,False,0
+holdout__12012__output_affine,holdout,12012,output_affine,Local Spearman Gate,local_spearman,0.8090607208985936,True,0.78446996094430088,False,False,0
+holdout__12012__output_affine,holdout,12012,output_affine,Target-Residual Spearman Gate,residual_spearman,0.69814133192603267,True,0.61952861952861293,False,False,0
+holdout__12012__output_affine,holdout,12012,output_affine,Disagreement-Correction Gate,disagreement_correction,0.5,True,0.890625,False,False,0
+holdout__12012__scale_0.7,holdout,12012,scale_0.7,Target-Only,target_only,,True,,False,False,0
+holdout__12012__scale_0.7,holdout,12012,scale_0.7,Local Spearman Gate,local_spearman,0.81466588906630077,True,0.78446996094430088,False,False,0
+holdout__12012__scale_0.7,holdout,12012,scale_0.7,Target-Residual Spearman Gate,residual_spearman,0.63000748666690121,True,0.61952861952861293,False,False,0
+holdout__12012__scale_0.7,holdout,12012,scale_0.7,Disagreement-Correction Gate,disagreement_correction,0.9375,True,0.890625,False,False,0
+holdout__12012__scale_1.5,holdout,12012,scale_1.5,Target-Only,target_only,,True,,False,False,0
+holdout__12012__scale_1.5,holdout,12012,scale_1.5,Local Spearman Gate,local_spearman,0.81082342462995438,True,0.78446996094430088,False,False,0
+holdout__12012__scale_1.5,holdout,12012,scale_1.5,Target-Residual Spearman Gate,residual_spearman,0.67740561114307574,True,0.61952861952861293,False,False,0
+holdout__12012__scale_1.5,holdout,12012,scale_1.5,Disagreement-Correction Gate,disagreement_correction,0.6875,True,0.890625,False,False,0
+holdout__12012__rotate_45,holdout,12012,rotate_45,Target-Only,target_only,,True,,True,False,0
+holdout__12012__rotate_45,holdout,12012,rotate_45,Local Spearman Gate,local_spearman,0.79102571228329843,True,0.78446996094430088,True,True,7
+holdout__12012__rotate_45,holdout,12012,rotate_45,Target-Residual Spearman Gate,residual_spearman,0.64358991841381019,True,0.61952861952861293,True,True,7
+holdout__12012__rotate_45,holdout,12012,rotate_45,Disagreement-Correction Gate,disagreement_correction,0.8125,True,0.890625,True,False,0
+holdout__12012__anisotropy_swap,holdout,12012,anisotropy_swap,Target-Only,target_only,,True,,True,False,0
+holdout__12012__anisotropy_swap,holdout,12012,anisotropy_swap,Local Spearman Gate,local_spearman,0.72713963131248105,True,0.78446996094430088,True,False,0
+holdout__12012__anisotropy_swap,holdout,12012,anisotropy_swap,Target-Residual Spearman Gate,residual_spearman,0.76075582563442135,True,0.61952861952861293,True,True,6
+holdout__12012__anisotropy_swap,holdout,12012,anisotropy_swap,Disagreement-Correction Gate,disagreement_correction,0.890625,True,0.890625,True,True,6
+holdout__12012__roughness,holdout,12012,roughness,Target-Only,target_only,,True,,True,False,0
+holdout__12012__roughness,holdout,12012,roughness,Local Spearman Gate,local_spearman,0.63137254901960238,True,0.78446996094430088,True,False,0
+holdout__12012__roughness,holdout,12012,roughness,Target-Residual Spearman Gate,residual_spearman,0.57239057239056834,True,0.61952861952861293,True,False,0
+holdout__12012__roughness,holdout,12012,roughness,Disagreement-Correction Gate,disagreement_correction,0.65625,True,0.890625,True,False,0
+holdout__12012__reversal,holdout,12012,reversal,Target-Only,target_only,,True,,True,False,0
+holdout__12012__reversal,holdout,12012,reversal,Local Spearman Gate,local_spearman,0.19313725490197353,True,0.78446996094430088,True,False,0
+holdout__12012__reversal,holdout,12012,reversal,Target-Residual Spearman Gate,residual_spearman,0.51178451178451112,True,0.61952861952861293,True,False,0
+holdout__12012__reversal,holdout,12012,reversal,Disagreement-Correction Gate,disagreement_correction,0.015625,True,0.890625,True,False,0
+holdout__12012__independent_expert,holdout,12012,independent_expert,Target-Only,target_only,,True,,True,False,0
+holdout__12012__independent_expert,holdout,12012,independent_expert,Local Spearman Gate,local_spearman,0.33039215686275214,True,0.78446996094430088,True,False,0
+holdout__12012__independent_expert,holdout,12012,independent_expert,Target-Residual Spearman Gate,residual_spearman,0.41077441077441573,True,0.61952861952861293,True,False,0
+holdout__12012__independent_expert,holdout,12012,independent_expert,Disagreement-Correction Gate,disagreement_correction,0.109375,True,0.890625,True,False,0

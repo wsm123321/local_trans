@@ -11,6 +11,14 @@ from .arise_transfer import (
     counterfactual_region_gains,
     improvement_moments,
 )
+from .disagreement_trust import (
+    FrozenGateThreshold,
+    TrustScore,
+    disagreement_correction_trust,
+    freeze_coverage_threshold,
+    local_spearman_trust,
+    residual_spearman_trust,
+)
 from .local_region_transfer import (
     CandidateDecision,
     LocalRegionTransferConfig,
@@ -47,6 +55,12 @@ from .target_region_screening import (
 )
 
 __all__ = [
+    "FrozenGateThreshold",
+    "TrustScore",
+    "disagreement_correction_trust",
+    "freeze_coverage_threshold",
+    "local_spearman_trust",
+    "residual_spearman_trust",
     "ARISEConfig",
     "ARISEDecision",
     "ARISERegionTransferBO",
@@ -84,4 +98,4 @@ __all__ = [
     "TargetProposalSet",
 ]
 
-__version__ = "0.7.0"
+__version__ = "0.8.0"

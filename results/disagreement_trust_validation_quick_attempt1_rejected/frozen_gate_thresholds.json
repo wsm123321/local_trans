@@ -1,0 +1,32 @@
+{
+  "Local Spearman Gate": {
+    "prefix": "local_spearman",
+    "threshold": 0.7844699609443009,
+    "target_coverage": 0.5,
+    "achieved_actionable_coverage": 0.5128205128205128,
+    "actionable_events": 39,
+    "eligible_actionable_events": 39,
+    "accepted_actionable_events": 20,
+    "label_free_rule": "development score/eligibility/actionable coverage only; no final candidate truth"
+  },
+  "Target-Residual Spearman Gate": {
+    "prefix": "residual_spearman",
+    "threshold": 0.6195286195286129,
+    "target_coverage": 0.5,
+    "achieved_actionable_coverage": 0.48717948717948717,
+    "actionable_events": 39,
+    "eligible_actionable_events": 39,
+    "accepted_actionable_events": 19,
+    "label_free_rule": "development score/eligibility/actionable coverage only; no final candidate truth"
+  },
+  "Disagreement-Correction Gate": {
+    "prefix": "disagreement_correction",
+    "threshold": 0.890625,
+    "target_coverage": 0.5,
+    "achieved_actionable_coverage": 0.48717948717948717,
+    "actionable_events": 39,
+    "eligible_actionable_events": 36,
+    "accepted_actionable_events": 19,
+    "label_free_rule": "development score/eligibility/actionable coverage only; no final candidate truth"
+  }
+}

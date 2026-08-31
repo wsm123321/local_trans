@@ -1,0 +1,65 @@
+{
+  "stage_id": "disagreement-conditioned-trust-pilot-v1-r-full",
+  "scope": "revised_heldout_controlled_mechanism_validation",
+  "development_seed_start": 21001,
+  "development_seed_count": 32,
+  "holdout_seed_start": 22001,
+  "holdout_seed_count": 96,
+  "relations": [
+    "identity",
+    "output_affine",
+    "scale_0.7",
+    "scale_1.5",
+    "rotate_45",
+    "anisotropy_swap",
+    "roughness",
+    "reversal",
+    "independent_expert"
+  ],
+  "source_train_samples": 128,
+  "target_initial_samples": 6,
+  "feedback_rounds": 12,
+  "diagnostic_alternative_rank": 5,
+  "feedback_raw_pool_size": 256,
+  "final_raw_pool_size": 512,
+  "proposal_size": 64,
+  "advice_top_k": 10,
+  "source_expert": {
+    "length_scale": 0.45,
+    "noise": 0.0001
+  },
+  "target_model": {
+    "gp_length_scale": 0.6,
+    "gp_noise": 0.0001,
+    "calibration_ridge": 1.0,
+    "fixed_prior_scale": 1.0,
+    "max_slope_in_target_std": 3.0,
+    "min_expert_std": 0.000001,
+    "cv_folds": 4,
+    "gate_min_relative_rmse_gain": 0.0,
+    "gate_min_pairwise_accuracy": 0.55
+  },
+  "gate": {
+    "spearman_min_points": 8,
+    "residual_min_points": 8,
+    "spearman_shrinkage": 8.0,
+    "correction_min_events": 3,
+    "minimum_positive_score": 0.5,
+    "development_target_actionable_coverage": 0.5,
+    "outcome_tolerance_fraction": 0.001,
+    "outcome_tolerance_absolute": 1e-12
+  },
+  "analysis": {
+    "bootstrap_samples": 3000,
+    "bootstrap_seed": 20260831,
+    "practical_normalized_regret_margin": 0.01,
+    "minimum_actionable_events": 100,
+    "minimum_positive_events": 30,
+    "minimum_accepted_events": 30,
+    "coverage_comparability_tolerance": 0.10,
+    "top10_noninferiority_margin": 0.02,
+    "harm_rate_noninferiority_margin": 0.05,
+    "minimum_oracle_normalized_regret_headroom": 0.01,
+    "minimum_finite_bootstrap_fraction": 0.95
+  }
+}

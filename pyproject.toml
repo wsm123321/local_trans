@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "region_guided_reranking_study"
-version = "0.7.0"
+version = "0.8.0"
 description = "Source local-structure extraction, target-calibrated local-surrogate transfer, and region-guided expensive optimization"
 readme = "README.md"
 requires-python = ">=3.9"

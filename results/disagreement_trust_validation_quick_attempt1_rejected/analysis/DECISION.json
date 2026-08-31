@@ -1,0 +1,36 @@
+{
+  "verdict": "do_not_advance_complex_disagreement_trust",
+  "checks": {
+    "sufficient_effective_events": true,
+    "correction_auprc_superior": false,
+    "correction_regret_superior_by_margin": false,
+    "coverage_comparable": false,
+    "top10_noninferior": false,
+    "accepted_harm_noninferior": false,
+    "correction_improves_target_only": true,
+    "oracle_has_nontrivial_headroom": true
+  },
+  "sparse_reasons": [],
+  "counts": {
+    "holdout_events": 108,
+    "actionable_events": 86,
+    "positive_benefit_events": 57,
+    "correction_acceptances": 39,
+    "local_spearman_acceptances": 47
+  },
+  "thresholds": {
+    "practical_normalized_regret_margin": 0.01,
+    "minimum_actionable_events": 20,
+    "minimum_positive_events": 8,
+    "minimum_accepted_events": 8,
+    "coverage_comparability_tolerance": 0.1,
+    "top10_noninferiority_margin": 0.02,
+    "harm_rate_noninferiority_margin": 0.05,
+    "minimum_oracle_normalized_regret_headroom": 0.01
+  },
+  "headline": {
+    "correction_auprc": 0.869034887913491,
+    "local_spearman_auprc": 0.9058152744491943,
+    "positive_prevalence": 0.6627906976744186
+  }
+}

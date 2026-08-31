@@ -1,0 +1,96 @@
+{
+  "stage_id": "disagreement-conditioned-trust-pilot-v1-quick",
+  "scope": "code_validation_only_not_confirmatory",
+  "protocol": "PROTOCOL_DISAGREEMENT_TRUST_VALIDATION.md",
+  "config": {
+    "stage_id": "disagreement-conditioned-trust-pilot-v1-quick",
+    "scope": "code_validation_only_not_confirmatory",
+    "development_seed_start": 11001,
+    "development_seed_count": 6,
+    "holdout_seed_start": 12001,
+    "holdout_seed_count": 12,
+    "relations": [
+      "identity",
+      "output_affine",
+      "scale_0.7",
+      "scale_1.5",
+      "rotate_45",
+      "anisotropy_swap",
+      "roughness",
+      "reversal",
+      "independent_expert"
+    ],
+    "source_train_samples": 96,
+    "target_initial_samples": 6,
+    "feedback_rounds": 5,
+    "feedback_raw_pool_size": 160,
+    "final_raw_pool_size": 320,
+    "proposal_size": 40,
+    "advice_top_k": 8,
+    "source_expert": {
+      "length_scale": 0.45,
+      "noise": 0.0001
+    },
+    "target_model": {
+      "gp_length_scale": 0.6,
+      "gp_noise": 0.0001,
+      "calibration_ridge": 1.0,
+      "fixed_prior_scale": 1.0,
+      "max_slope_in_target_std": 3.0,
+      "min_expert_std": 1e-06,
+      "cv_folds": 4,
+      "gate_min_relative_rmse_gain": 0.0,
+      "gate_min_pairwise_accuracy": 0.55
+    },
+    "gate": {
+      "spearman_min_points": 8,
+      "residual_min_points": 6,
+      "spearman_shrinkage": 8.0,
+      "correction_min_events": 3,
+      "minimum_positive_score": 0.5,
+      "development_target_actionable_coverage": 0.5,
+      "outcome_tolerance_fraction": 0.001,
+      "outcome_tolerance_absolute": 1e-12
+    },
+    "analysis": {
+      "bootstrap_samples": 500,
+      "bootstrap_seed": 20260831,
+      "practical_normalized_regret_margin": 0.01,
+      "minimum_actionable_events": 20,
+      "minimum_positive_events": 8,
+      "minimum_accepted_events": 8,
+      "coverage_comparability_tolerance": 0.1,
+      "top10_noninferiority_margin": 0.02,
+      "harm_rate_noninferiority_margin": 0.05,
+      "minimum_oracle_normalized_regret_headroom": 0.01
+    }
+  },
+  "config_sha256": "779699bc443b559dc33332c56a32516e6b460e89b515be1cf6f2451ea7a7e177",
+  "implementation_sha256": {
+    "scripts/run_disagreement_trust_validation.py": "551646b7b58040a06dc56d8136d1ae9ca9fbad21aa991e43381f35bbb07b6fd8",
+    "src/region_guided_reranking_study/disagreement_trust.py": "1a68bc1baabb4e84d2a33f5a2f366ee7f8109427305c274142cea215dfa0e6d7"
+  },
+  "environment": {
+    "python": "3.12.13",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "artifact_sha256": {
+    "results\\disagreement_trust_validation_quick\\predecision_events.csv": "55f95b9a49fc09abc05dbb29228671b79832f696999e8a0a473bca3908fb162d",
+    "results\\disagreement_trust_validation_quick\\predecision_history.csv": "0dbd9dfd92013e86ebea255920f6feff14f3db3db5bfeefaed42c652d1436531",
+    "results\\disagreement_trust_validation_quick\\predecision_candidate_panel.csv": "552dde79779977c772308de13c8dd204cc915ac045a85c1e50a7e74583b85896",
+    "results\\disagreement_trust_validation_quick\\frozen_gate_thresholds.json": "6a3e41e157dc2cf9eb37fed8dd9a59a8c9fc14437eacfd5594cb34704d8520e8",
+    "results\\disagreement_trust_validation_quick\\predecision_gate_decisions.csv": "aa6bcc4406b6bfa34911c710c644550643d5df265edbc0f9b7a988195f38fcef",
+    "results\\disagreement_trust_validation_quick\\revealed_candidate_panel.csv": "eeeeba40549a69e0ca3be2cd8a70429568524b060d6a83345448d317bbac3d82",
+    "results\\disagreement_trust_validation_quick\\revealed_event_outcomes.csv": "9b8a86005373062ca095e4b7fd66904199d1ac7448b8b0895e701e9790cd0b08",
+    "results\\disagreement_trust_validation_quick\\method_outcomes.csv": "8c0494f3a3197065a13ab10943a625e232aaf47b9312e9d40bfdbd71b95d56dc",
+    "results\\disagreement_trust_validation_quick\\AUDIT.json": "e48092b92583091c58f79d34fd7bb363a07fa4e4147eb256f3477cd4195f018d"
+  },
+  "phase_order": [
+    "persist predecision events/history/candidates",
+    "freeze thresholds and persist non-oracle decisions",
+    "reveal candidate-panel truth",
+    "evaluate five methods"
+  ]
+}

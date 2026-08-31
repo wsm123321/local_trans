@@ -1,0 +1,5 @@
+method,actionable_events,positive_events,positive_prevalence,auprc,eligible_prediction_coverage
+Local Spearman Gate,86,57,0.6627906976744186,0.9058152744491943,1.0
+Target-Residual Spearman Gate,86,57,0.6627906976744186,0.9344375780210421,1.0
+Disagreement-Correction Gate,86,57,0.6627906976744186,0.869034887913491,0.8953488372093024
+Oracle Gate (tautological ceiling),86,57,0.6627906976744186,1.0,1.0

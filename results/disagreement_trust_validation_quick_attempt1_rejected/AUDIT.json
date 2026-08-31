@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "errors": [],
+  "expected_events": 162,
+  "observed_events": 162,
+  "predecision_history_rows": 2426,
+  "predecision_candidate_rows": 6480,
+  "predecision_decision_rows": 648,
+  "method_outcome_rows": 810,
+  "development_seed_count": 6,
+  "holdout_seed_count": 12,
+  "methods": [
+    "Target-Only",
+    "Local Spearman Gate",
+    "Target-Residual Spearman Gate",
+    "Disagreement-Correction Gate",
+    "Oracle Gate"
+  ],
+  "truth_absent_from_predecision_candidate_panel": true,
+  "selection_interface": "accept fixed x_S or exact x_T fallback"
+}
