@@ -1,0 +1,111 @@
+{
+  "stage_id": "disagreement-conditioned-trust-pilot-v1-r-full",
+  "scope": "revised_heldout_controlled_mechanism_validation",
+  "protocol": "PROTOCOL_DISAGREEMENT_TRUST_VALIDATION.md",
+  "config": {
+    "stage_id": "disagreement-conditioned-trust-pilot-v1-r-full",
+    "scope": "revised_heldout_controlled_mechanism_validation",
+    "development_seed_start": 21001,
+    "development_seed_count": 32,
+    "holdout_seed_start": 22001,
+    "holdout_seed_count": 96,
+    "relations": [
+      "identity",
+      "output_affine",
+      "scale_0.7",
+      "scale_1.5",
+      "rotate_45",
+      "anisotropy_swap",
+      "roughness",
+      "reversal",
+      "independent_expert"
+    ],
+    "source_train_samples": 128,
+    "target_initial_samples": 6,
+    "feedback_rounds": 12,
+    "diagnostic_alternative_rank": 5,
+    "feedback_raw_pool_size": 256,
+    "final_raw_pool_size": 512,
+    "proposal_size": 64,
+    "advice_top_k": 10,
+    "source_expert": {
+      "length_scale": 0.45,
+      "noise": 0.0001
+    },
+    "target_model": {
+      "gp_length_scale": 0.6,
+      "gp_noise": 0.0001,
+      "calibration_ridge": 1.0,
+      "fixed_prior_scale": 1.0,
+      "max_slope_in_target_std": 3.0,
+      "min_expert_std": 1e-06,
+      "cv_folds": 4,
+      "gate_min_relative_rmse_gain": 0.0,
+      "gate_min_pairwise_accuracy": 0.55
+    },
+    "gate": {
+      "spearman_min_points": 8,
+      "residual_min_points": 8,
+      "spearman_shrinkage": 8.0,
+      "correction_min_events": 3,
+      "minimum_positive_score": 0.5,
+      "development_target_actionable_coverage": 0.5,
+      "outcome_tolerance_fraction": 0.001,
+      "outcome_tolerance_absolute": 1e-12
+    },
+    "analysis": {
+      "bootstrap_samples": 3000,
+      "bootstrap_seed": 20260831,
+      "practical_normalized_regret_margin": 0.01,
+      "minimum_actionable_events": 100,
+      "minimum_positive_events": 30,
+      "minimum_accepted_events": 30,
+      "coverage_comparability_tolerance": 0.1,
+      "top10_noninferiority_margin": 0.02,
+      "harm_rate_noninferiority_margin": 0.05,
+      "minimum_oracle_normalized_regret_headroom": 0.01,
+      "minimum_finite_bootstrap_fraction": 0.95
+    }
+  },
+  "config_sha256": "565d029523b02c9fc50bc0f293f62667224909377aedf396fdbed84afc559dd7",
+  "implementation_sha256": {
+    "PROTOCOL_DISAGREEMENT_TRUST_VALIDATION.md": "844042c4745b075aef0ca308b226fa49bfa2dea459760b30b61e0f60576514cb",
+    "scripts/run_disagreement_trust_validation.py": "69a5d5e6cf84a4d3455f95af4955b3baf8a8d8c2f20e1f965cd603f80869f49d",
+    "scripts/analyze_disagreement_trust_validation.py": "57d68a63065628d0ad5a7c3890a922f3ea52be60092a48b08e4538cdce16b942",
+    "src/region_guided_reranking_study/disagreement_trust.py": "66f6f6dbf6598e02f06d8a9779790ab12873a1b6cc9d53611a0506a0623922dd",
+    "src/region_guided_reranking_study/local_surrogate_transfer.py": "2453fc78aa0d58f745cea138583301e3b16f68e4188865471825330181b92472",
+    "src/region_guided_reranking_study/local_surrogate_transfer_research.py": "993bb01a67deccd793db936ca8de83b68988cfa99526f0475311630b87d78053",
+    "tests/test_disagreement_trust.py": "a5a22eb3ed7766befd958f251d71d9db9fff510534d51ebb74b5cd5e0e4bac05"
+  },
+  "git": {
+    "available": true,
+    "head": "dbc46a0ccf6d00e86f58301cc7f03efd81c04e10",
+    "branch": "main",
+    "status_before_output": "",
+    "clean_before_output": true
+  },
+  "environment": {
+    "python": "3.12.13",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "artifact_path_base": "run_output_directory",
+  "artifact_sha256": {
+    "predecision_events.csv": "c64df092ecec24f6b04726cb49dbf189fb513587d7cc35e36c1814a2e2a01c5f",
+    "predecision_history.csv": "13146b956e7264c19742374b106fd1748681094256af9a9ba82aaab4c3e0f66a",
+    "predecision_candidate_panel.csv": "a005b1e04c5a87444158b8b98a3ff378c13efeaca459f086d483fb668d0facbc",
+    "frozen_gate_thresholds.json": "cb08ecc52618948a44f3a64e31c9845de4ba598e047b86966dcb6da09df1bbeb",
+    "predecision_gate_decisions.csv": "5b7de997c195c2ee9f4bf28c72cceb5f2f7b668c7b57bf85f8aba2683324ddb7",
+    "revealed_candidate_panel.csv": "e4d80c187760f1939d30b14224c00b63c23b23c009f4a5388de3e3e9ce010b3d",
+    "revealed_event_outcomes.csv": "08780e324eb6b05a6bb51375c91679a278f2c071db452536ea8305683e34eb32",
+    "method_outcomes.csv": "0dd2aeb66aaf7f05a8bc0048e764e650bb44f33575e0fc396dfd3fb3e15683ee",
+    "AUDIT.json": "7d048919c5147f2452ed219d43157a778f77cb72cd9f0ddac641c31b2ff92dcf"
+  },
+  "phase_order": [
+    "persist predecision events/history/candidates",
+    "freeze thresholds and persist non-oracle decisions",
+    "reveal candidate-panel truth",
+    "evaluate five methods"
+  ]
+}

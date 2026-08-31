@@ -1,0 +1,10 @@
+metric,description,estimate,cluster_bootstrap_ci_low,cluster_bootstrap_ci_high,finite_bootstrap_replicates,finite_bootstrap_fraction,positive_favors_correction
+regret_advantage_correction_vs_local,Local regret - Correction regret,0.00034397061453729505,-0.008605943073713351,0.009067328409224697,3000,1.0,True
+regret_advantage_correction_vs_target,Target regret - Correction regret,0.04686433400841185,0.027242920709209865,0.06912577097954474,3000,1.0,True
+oracle_regret_headroom,Target regret - Oracle regret,0.06673625447916849,0.04743308885669038,0.08886533020876229,3000,1.0,True
+top10_advantage_correction_vs_local,Correction Top10 - Local Top10,0.0,-0.010445601851851914,0.010445601851852029,3000,1.0,True
+top10_advantage_correction_vs_target,Correction Top10 - Target Top10,0.04166666666666663,0.01851851851851849,0.06828703703703709,3000,1.0,True
+coverage_difference_correction_vs_local,Correction coverage - Local coverage,-0.02298850574712641,-0.06150429297354126,0.0152298118059096,3000,1.0,False
+harm_rate_advantage_correction_vs_local,Local harm rate - Correction harm rate,0.02832766408297549,-0.010549158659956264,0.06889119582482416,3000,1.0,True
+auprc_advantage_correction_vs_local,Correction AUPRC - Local AUPRC,0.007373489534340749,-0.04418308758226603,0.05004927132619901,3000,1.0,True
+correction_auprc_above_prevalence,Correction AUPRC - prevalence,0.12242015650879712,0.07631953527281304,0.1939362867836894,3000,1.0,True

@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "errors": [],
+  "expected_events": 1152,
+  "observed_events": 1152,
+  "predecision_history_rows": 34560,
+  "predecision_candidate_rows": 73728,
+  "predecision_decision_rows": 4608,
+  "method_outcome_rows": 5760,
+  "development_seed_count": 32,
+  "holdout_seed_count": 96,
+  "methods": [
+    "Target-Only",
+    "Local Spearman Gate",
+    "Target-Residual Spearman Gate",
+    "Disagreement-Correction Gate",
+    "Oracle Gate"
+  ],
+  "final_panel_truth_absent_from_all_predecision_ledgers": true,
+  "candidate_and_history_hashes_recomputed": true,
+  "thresholds_and_decisions_reconstructed": true,
+  "selection_interface": "accept fixed x_S or exact x_T fallback",
+  "feedback_interface": "paid source-blind target-acquisition diagnostic pair"
+}
