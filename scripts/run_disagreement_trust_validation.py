@@ -1001,10 +1001,19 @@ def run(config_path: Path, output: Path) -> pd.DataFrame:
 
     # Read the persisted artifacts back before truth reveal.  This makes the phase
     # boundary explicit and ensures Phase B evaluates the actual frozen files.
-    frozen_events = pd.read_csv(predecision_paths["events"])
-    frozen_history = pd.read_csv(predecision_paths["history"])
-    frozen_candidates = pd.read_csv(predecision_paths["candidates"])
-    frozen_decisions = pd.read_csv(output / "predecision_gate_decisions.csv")
+    frozen_events = pd.read_csv(
+        predecision_paths["events"], float_precision="round_trip"
+    )
+    frozen_history = pd.read_csv(
+        predecision_paths["history"], float_precision="round_trip"
+    )
+    frozen_candidates = pd.read_csv(
+        predecision_paths["candidates"], float_precision="round_trip"
+    )
+    frozen_decisions = pd.read_csv(
+        output / "predecision_gate_decisions.csv",
+        float_precision="round_trip",
+    )
 
     print("Phase B: revealing the common target candidate panels")
     revealed_candidates, _, method_outcomes = reveal_and_evaluate(

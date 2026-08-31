@@ -737,8 +737,12 @@ def analyze(input_dir: Path, config_path: Path, output: Path) -> Dict[str, Any]:
         artifact = REPO_ROOT / relative_path
         if not artifact.exists() or file_hash(artifact) != expected_hash:
             raise RuntimeError(f"Run artifact hash mismatch: {relative_path}")
-    method_outcomes = pd.read_csv(input_dir / "method_outcomes.csv")
-    revealed_events = pd.read_csv(input_dir / "revealed_event_outcomes.csv")
+    method_outcomes = pd.read_csv(
+        input_dir / "method_outcomes.csv", float_precision="round_trip"
+    )
+    revealed_events = pd.read_csv(
+        input_dir / "revealed_event_outcomes.csv", float_precision="round_trip"
+    )
     thresholds = load_json(input_dir / "frozen_gate_thresholds.json")
     holdout = method_outcomes[method_outcomes["split"] == "holdout"]
 
