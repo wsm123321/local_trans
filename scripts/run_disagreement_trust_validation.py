@@ -26,6 +26,7 @@ if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
 from region_guided_reranking_study.disagreement_trust import (  # noqa: E402
+    FrozenGateThreshold,
     TrustScore,
     disagreement_correction_trust,
     expected_improvement,
@@ -839,6 +840,42 @@ def audit_artifacts(
             errors.append(f"predecision {name} ledger contains final-panel truth fields")
     if len(decisions) != len(events) * 4:
         errors.append("predecision decision ledger must contain four non-oracle methods")
+
+    threshold_payload = json.loads(
+        (output / "frozen_gate_thresholds.json").read_text(encoding="utf-8")
+    )
+    development = events[events["split"] == "development"]
+    reconstructed_thresholds: Dict[str, FrozenGateThreshold] = {}
+    for method, prefix in DEPLOYABLE_GATES.items():
+        reconstructed = freeze_coverage_threshold(
+            development[f"{prefix}_score"].to_numpy(dtype=float),
+            development[f"{prefix}_eligible"].to_numpy(dtype=bool),
+            development["actionable"].to_numpy(dtype=bool),
+            target_coverage=float(
+                config["gate"]["development_target_actionable_coverage"]
+            ),
+            minimum_positive_score=float(
+                config["gate"]["minimum_positive_score"]
+            ),
+        )
+        reconstructed_thresholds[method] = reconstructed
+        stored = threshold_payload.get(method, {})
+        for field, expected_value in reconstructed.__dict__.items():
+            stored_value = stored.get(field)
+            if isinstance(expected_value, float):
+                matches = stored_value is not None and np.isclose(
+                    float(stored_value),
+                    expected_value,
+                    rtol=0.0,
+                    atol=1e-15,
+                )
+            else:
+                matches = stored_value == expected_value
+            if not matches:
+                errors.append(
+                    f"threshold reconstruction mismatch for {method}:{field}"
+                )
+                break
     if len(method_outcomes) != len(events) * len(METHODS):
         errors.append("method outcome ledger does not contain exactly five methods")
     method_counts = method_outcomes.groupby("event_id")["method"].nunique()
@@ -881,7 +918,30 @@ def audit_artifacts(
         if selected not in {target_index, source_index}:
             errors.append("a gate selected outside the fixed target/source nominations")
             break
-        expected = source_index if bool(decision["accepted"]) else target_index
+        method = str(decision["method"])
+        if method == "Target-Only":
+            reconstructed_accepted = False
+            expected_threshold = np.nan
+        else:
+            prefix = DEPLOYABLE_GATES[method]
+            expected_threshold = reconstructed_thresholds[method].threshold
+            reconstructed_accepted = bool(
+                event["actionable"]
+                and event[f"{prefix}_eligible"]
+                and event[f"{prefix}_score"] >= expected_threshold
+            )
+        if bool(decision["accepted"]) != reconstructed_accepted:
+            errors.append(f"accepted flag reconstruction mismatch for {method}")
+            break
+        if method != "Target-Only" and not np.isclose(
+            float(decision["threshold"]),
+            expected_threshold,
+            rtol=0.0,
+            atol=1e-15,
+        ):
+            errors.append(f"decision threshold mismatch for {method}")
+            break
+        expected = source_index if reconstructed_accepted else target_index
         if selected != expected:
             errors.append("predecision fallback/acceptance selection is inconsistent")
             break
@@ -912,6 +972,12 @@ def audit_artifacts(
         ),
         "candidate_and_history_hashes_recomputed": not any(
             "hash mismatch" in error for error in errors
+        ),
+        "thresholds_and_decisions_reconstructed": not any(
+            "threshold" in error
+            or "accepted flag" in error
+            or "fallback/acceptance" in error
+            for error in errors
         ),
         "selection_interface": "accept fixed x_S or exact x_T fallback",
         "feedback_interface": "paid source-blind target-acquisition diagnostic pair",
@@ -968,8 +1034,9 @@ def write_manifest(
             "pandas": pd.__version__,
             "platform": platform.platform(),
         },
+        "artifact_path_base": "run_output_directory",
         "artifact_sha256": {
-            str(path.relative_to(REPO_ROOT)): file_hash(path) for path in artifacts
+            str(path.relative_to(output)): file_hash(path) for path in artifacts
         },
         "phase_order": [
             "persist predecision events/history/candidates",

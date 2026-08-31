@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Mapping, Tuple
 
@@ -52,6 +53,17 @@ def canonical_config_hash(config: Mapping[str, Any]) -> str:
         ensure_ascii=False,
     ).encode("utf-8")
     return hashlib.sha256(payload).hexdigest()
+
+
+def current_git_head() -> str:
+    completed = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=REPO_ROOT,
+        check=True,
+        text=True,
+        capture_output=True,
+    )
+    return completed.stdout.strip()
 
 
 def finite_average_precision(labels: np.ndarray, scores: np.ndarray) -> float:
@@ -427,8 +439,19 @@ def evaluate_decision(
     if local_accepts < int(analysis["minimum_accepted_events"]):
         sparse_reasons.append("too_few_local_spearman_acceptances")
 
-    auprc_supported = bool(
+    auprc_bootstrap_defined = bool(
         comparison.loc[
+            "auprc_advantage_correction_vs_local", "finite_bootstrap_fraction"
+        ]
+        >= float(analysis["minimum_finite_bootstrap_fraction"])
+        and comparison.loc[
+            "correction_auprc_above_prevalence", "finite_bootstrap_fraction"
+        ]
+        >= float(analysis["minimum_finite_bootstrap_fraction"])
+    )
+    auprc_supported = bool(
+        auprc_bootstrap_defined
+        and comparison.loc[
             "auprc_advantage_correction_vs_local", "cluster_bootstrap_ci_low"
         ]
         > 0.0
@@ -494,8 +517,18 @@ def evaluate_decision(
         ]
         > 0.0
     )
+    inconclusive_reasons = list(sparse_reasons)
+    if not auprc_bootstrap_defined:
+        inconclusive_reasons.append(
+            "insufficient_finite_auprc_bootstrap_replicates"
+        )
+    if not harm_bootstrap_defined:
+        inconclusive_reasons.append(
+            "insufficient_finite_harm_bootstrap_replicates"
+        )
     checks = {
         "sufficient_effective_events": not sparse_reasons,
+        "auprc_bootstrap_defined": auprc_bootstrap_defined,
         "correction_auprc_superior": auprc_supported,
         "correction_regret_superior_by_margin": regret_supported,
         "coverage_comparable": coverage_supported,
@@ -505,8 +538,8 @@ def evaluate_decision(
         "correction_improves_target_only": actual_utility_supported,
         "oracle_has_nontrivial_headroom": oracle_headroom_supported,
     }
-    if sparse_reasons:
-        verdict = "inconclusive_sparse_evidence"
+    if inconclusive_reasons:
+        verdict = "inconclusive_evidence"
     elif all(checks.values()):
         verdict = "advance_disagreement_conditioned_trust"
     else:
@@ -515,6 +548,7 @@ def evaluate_decision(
         "verdict": verdict,
         "checks": checks,
         "sparse_reasons": sparse_reasons,
+        "inconclusive_reasons": inconclusive_reasons,
         "counts": {
             "holdout_events": int(len(holdout_events)),
             "actionable_events": actionable_events,
@@ -678,9 +712,9 @@ def write_report(
     )
     for check, passed in decision["checks"].items():
         lines.append(f"- {'PASS' if passed else 'FAIL'} — `{check}`")
-    if decision["sparse_reasons"]:
+    if decision["inconclusive_reasons"]:
         lines.append(
-            "- 稀疏证据原因：" + ", ".join(decision["sparse_reasons"])
+            "- 不确定原因：" + ", ".join(decision["inconclusive_reasons"])
         )
 
     lines.extend(
@@ -709,8 +743,10 @@ def write_report(
             "",
             "## 六、结论边界",
             "",
-            "本实验只判断是否值得继续设计这层信任机制。即使通过，也不证明实际区域检索、"
-            "未知对齐、多源调度、闭环 BO 预算收益、高维泛化或普遍无负迁移。",
+            "本实验只判断是否值得继续设计这层信任机制。预测比较严格条件化在三个冻结估计器共同 "
+            "eligible 的最终事件支持集上，并依赖额外付费的 source-blind 成对诊断反馈；它不证明自然 "
+            "单点反馈下可学，也不证明实际区域检索、未知对齐、多源调度、闭环 BO 预算收益、高维泛化 "
+            "或普遍无负迁移。",
         ]
     )
     (output / "DISAGREEMENT_TRUST_VALIDATION_REPORT_CN.md").write_text(
@@ -733,10 +769,57 @@ def analyze(input_dir: Path, config_path: Path, output: Path) -> Dict[str, Any]:
         manifest_config
     ) != expected_config_hash:
         raise RuntimeError("Embedded run-manifest config is missing or inconsistent.")
+    if manifest.get("artifact_path_base") != "run_output_directory":
+        raise RuntimeError("Run manifest does not bind artifacts to its output directory.")
     for relative_path, expected_hash in manifest.get("artifact_sha256", {}).items():
-        artifact = REPO_ROOT / relative_path
+        artifact = input_dir / relative_path
         if not artifact.exists() or file_hash(artifact) != expected_hash:
             raise RuntimeError(f"Run artifact hash mismatch: {relative_path}")
+
+    implementation_paths = {
+        "PROTOCOL_DISAGREEMENT_TRUST_VALIDATION.md": (
+            REPO_ROOT / "PROTOCOL_DISAGREEMENT_TRUST_VALIDATION.md"
+        ),
+        "scripts/run_disagreement_trust_validation.py": (
+            REPO_ROOT / "scripts" / "run_disagreement_trust_validation.py"
+        ),
+        "scripts/analyze_disagreement_trust_validation.py": Path(__file__),
+        "src/region_guided_reranking_study/disagreement_trust.py": (
+            REPO_ROOT
+            / "src"
+            / "region_guided_reranking_study"
+            / "disagreement_trust.py"
+        ),
+        "src/region_guided_reranking_study/local_surrogate_transfer.py": (
+            REPO_ROOT
+            / "src"
+            / "region_guided_reranking_study"
+            / "local_surrogate_transfer.py"
+        ),
+        "src/region_guided_reranking_study/local_surrogate_transfer_research.py": (
+            REPO_ROOT
+            / "src"
+            / "region_guided_reranking_study"
+            / "local_surrogate_transfer_research.py"
+        ),
+        "tests/test_disagreement_trust.py": (
+            REPO_ROOT / "tests" / "test_disagreement_trust.py"
+        ),
+    }
+    recorded_implementation = manifest.get("implementation_sha256", {})
+    if set(recorded_implementation) != set(implementation_paths):
+        raise RuntimeError("Run implementation manifest is incomplete or unexpected.")
+    for name, path in implementation_paths.items():
+        if file_hash(path) != recorded_implementation[name]:
+            raise RuntimeError(f"Implementation hash mismatch: {name}")
+    git_record = manifest.get("git", {})
+    if not git_record.get("available", False):
+        raise RuntimeError("Run manifest lacks Git provenance.")
+    if not git_record.get("clean_before_output", False):
+        raise RuntimeError("Run was not produced from a clean working tree.")
+    if git_record.get("head") != current_git_head():
+        raise RuntimeError("Current Git HEAD differs from the frozen run identity.")
+
     method_outcomes = pd.read_csv(
         input_dir / "method_outcomes.csv", float_precision="round_trip"
     )
@@ -804,7 +887,11 @@ def analyze(input_dir: Path, config_path: Path, output: Path) -> Dict[str, Any]:
         "input_audit_ok": bool(audit.get("ok", False)),
         "stage_id": config["stage_id"],
         "run_manifest_config_hash_verified": True,
-        "run_artifact_hashes_verified": True,
+        "run_artifact_hashes_verified_against_input_directory": True,
+        "implementation_hashes_verified": True,
+        "git_head_verified": True,
+        "run_clean_before_output": bool(git_record.get("clean_before_output", False)),
+        "run_git_head": str(git_record.get("head")),
         "config_sha256": expected_config_hash,
         "holdout_method_rows": int(len(holdout)),
         "expected_holdout_method_rows": int(
