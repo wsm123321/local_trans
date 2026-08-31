@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "input_audit_ok": true,
+  "stage_id": "disagreement-conditioned-trust-pilot-v1-r-quick",
+  "run_manifest_config_hash_verified": true,
+  "run_artifact_hashes_verified_against_input_directory": true,
+  "implementation_hashes_verified": true,
+  "git_head_verified": true,
+  "run_clean_before_output": true,
+  "run_git_head": "f5e48bba7967822001597508987c5a93b5666847",
+  "config_sha256": "040f3e162540af323e293197479f9d91ffee156ac77fe937c30fb405fc1fefe6",
+  "holdout_method_rows": 540,
+  "expected_holdout_method_rows": 540,
+  "bootstrap_samples": 500,
+  "expected_bootstrap_samples": 500,
+  "artifact_sha256": {
+    "holdout_method_summary.csv": "f1c233308acef08cd3e6ef8092523b11961fd6815a5f94db27258799417f2049",
+    "holdout_prediction_metrics.csv": "76dc0e4c5405edc3202ae307381154d4a647e6a49ea656582dfc57db8ccab01c",
+    "paired_comparisons.csv": "20779faf9edbb6b4447bf90c650b95292e75529cc7acc9bf0606f797e17e3891",
+    "holdout_relation_summary.csv": "a64cfeec90a0f040801b7a829a72c0f75d187d004b5876f6141c749b7ef86cdf",
+    "cluster_bootstrap_samples.csv": "8143e07cb6f3b2a80f63f5ba2d510de21315ef8b3e4bb8e8503d1400b408301d",
+    "DECISION.json": "d6003b283214a5d505f00f1f968369f5471d5485249bcb60062e701e3e0f6545",
+    "trust_validation_summary.png": "80c131fb15db38370372fc3c060490b1a73aad43a837413e68f10e10e8d98797",
+    "DISAGREEMENT_TRUST_VALIDATION_REPORT_CN.md": "fb95960bf203e2f1e0c6c154b71e85f020098e47352f908d4aa698180eeaf891"
+  }
+}
