@@ -1,0 +1,103 @@
+{
+  "protocol_id": "oracle-benchmark-transfer-pilot-v1",
+  "stage_id": "oracle-benchmark-transfer-pilot-v1",
+  "scope": "benchmark_oracle_local_model_transfer_pilot",
+  "output_dir": "results/oracle_benchmark_transfer_pilot",
+  "problems": [
+    "GMM",
+    "Rastrigin",
+    "Lunacek",
+    "Ackley"
+  ],
+  "dimension": 2,
+  "dimensions": [
+    2
+  ],
+  "seeds": [
+    42,
+    101,
+    2026,
+    777,
+    999,
+    1234,
+    5678,
+    8888,
+    31415,
+    27182,
+    13579,
+    24680,
+    11235,
+    44556,
+    77889,
+    90909
+  ],
+  "source_train_samples": 128,
+  "source_samples": 128,
+  "target_context_samples": [
+    6,
+    12,
+    20
+  ],
+  "context_sizes": [
+    6,
+    12,
+    20
+  ],
+  "primary_context_size": 12,
+  "primary_context_sample": 12,
+  "target_test_samples": 512,
+  "test_samples": 512,
+  "chart_radius_fraction": 0.04,
+  "chart_extent": 1.0,
+  "relations": [
+    "matching",
+    "reversed",
+    "label_permutation"
+  ],
+  "controls": [
+    "reversed",
+    "label_permutation"
+  ],
+  "methods": [
+    "Target-Only",
+    "Geometry-Prior+Residual",
+    "Oracle-Rank+Residual",
+    "Oracle-Value+Residual",
+    "Oracle-Rank+Value+Residual"
+  ],
+  "source_expert": {
+    "length_scale": 0.45,
+    "noise": 0.0001
+  },
+  "transfer_model": {
+    "gp_length_scale": 0.6,
+    "gp_noise": 0.0001,
+    "calibration_ridge": 1.0,
+    "fixed_prior_scale": 1.0
+  },
+  "top_fraction": 0.1,
+  "harm_margin_srmse": 0.01,
+  "harm_margin": 0.01,
+  "analysis": {
+    "bootstrap_samples": 5000,
+    "bootstrap_seed": 20260902,
+    "alpha": 0.05,
+    "familywise_alpha": 0.05,
+    "multiple_testing": "Holm"
+  },
+  "context_sample_sizes": [
+    6,
+    12,
+    20
+  ],
+  "conditions": [
+    "matching",
+    "reversed",
+    "label_permutation"
+  ],
+  "shells": [
+    0.35,
+    0.7,
+    1.0
+  ]
+}

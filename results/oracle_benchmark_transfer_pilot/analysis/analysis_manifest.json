@@ -1,0 +1,78 @@
+{
+  "stage_id": "oracle-benchmark-transfer-pilot-v1",
+  "timestamp_utc": "2026-09-02T08:52:49.723642+00:00",
+  "analyzer": {
+    "script": "E:\\study\\\u6691\u5047\u5de5\u4f5c\\region_guided_reranking_study\\scripts\\analyze_oracle_benchmark_transfer_pilot.py",
+    "sha256": "e78f72a6b9a66dd56fa8c8cea58ba00b648186ac7dd823406f53dc2edb68c283"
+  },
+  "inputs": {
+    "results": {
+      "path": "E:\\study\\\u6691\u5047\u5de5\u4f5c\\region_guided_reranking_study\\results\\oracle_benchmark_transfer_pilot\\results.csv",
+      "sha256": "b88667ffdb19d9650eef5831347d77eaa0eed9dfec35f6a4e820597f1f3a8f1d"
+    },
+    "diagnostics": {
+      "path": "E:\\study\\\u6691\u5047\u5de5\u4f5c\\region_guided_reranking_study\\results\\oracle_benchmark_transfer_pilot\\source_expert_diagnostics.csv",
+      "sha256": "c3c7c39459f0866bb42cdfb7d97877c4f80d8f412057b8fe214937c96f9a7174"
+    },
+    "failures": {
+      "path": "E:\\study\\\u6691\u5047\u5de5\u4f5c\\region_guided_reranking_study\\results\\oracle_benchmark_transfer_pilot\\failures.csv",
+      "sha256": "e7e006afd6b1da7846163626fefb875a4c97b4aa02d2fe487bdd5ecfa8b1ac8d"
+    },
+    "config": {
+      "path": "E:\\study\\\u6691\u5047\u5de5\u4f5c\\region_guided_reranking_study\\results\\oracle_benchmark_transfer_pilot\\config.json",
+      "sha256": "78b6d19be9e0275bbfa9236241d984f3d943aed566091e7c1e376b108c340992"
+    },
+    "manifest": {
+      "path": "E:\\study\\\u6691\u5047\u5de5\u4f5c\\region_guided_reranking_study\\results\\oracle_benchmark_transfer_pilot\\run_manifest.json",
+      "sha256": "c4b5115a857b1572e0ea29b9d1986995bc63dd0b9c917ada18acd8c16724a3de"
+    },
+    "ledger": {
+      "path": "E:\\study\\\u6691\u5047\u5de5\u4f5c\\region_guided_reranking_study\\results\\oracle_benchmark_transfer_pilot\\prediction_ledger.csv",
+      "sha256": "584d0d2d226a6cff3a0c823c55b45006ebeff4e9e365ef8ef98a0ff73492284d"
+    }
+  },
+  "parameters": {
+    "primary_relation": "matching",
+    "primary_context_size": 12,
+    "bootstrap_samples": 5000,
+    "bootstrap_seed": 20260902,
+    "familywise_alpha": 0.05,
+    "multiple_testing": "Holm"
+  },
+  "summary": {
+    "n_hypotheses_tested": 6,
+    "n_supported": 6,
+    "n_significant_fwer": 6,
+    "all_hypotheses_supported": true
+  },
+  "outputs": {
+    "primary_tests.csv": {
+      "size_bytes": 2521,
+      "sha256": "0d5034142e23edfa9f0a0abde349a5e8f41755fba2fc5b5c2e13ce639e381d2f"
+    },
+    "summary.csv": {
+      "size_bytes": 13664,
+      "sha256": "e130e7e1ff850be33fdd811a4a897b2550909d47640bfd8e30b737636b8ebdf0"
+    },
+    "problem_summary.csv": {
+      "size_bytes": 54925,
+      "sha256": "ccdd4671389a36146f1497261aecc29b1afdcc8f74a012e3ef6720dc61ac98f1"
+    },
+    "figure1_primary_hypothesis_contrasts.png": {
+      "size_bytes": 321165,
+      "sha256": "d56e2cef35f0eebf00e303b7a2a47b08f8374e1bf27ae445370296d88f578c83"
+    },
+    "figure2_context_scaling_and_controls.png": {
+      "size_bytes": 388103,
+      "sha256": "8d49e73298acdb942c396bb09c1ebea3501d78aa0ddc6acb42bd0150e01d15e6"
+    },
+    "report.md": {
+      "size_bytes": 8470,
+      "sha256": "3d9224705e78ee37b227bb10bf7dfb1a0f26770ab73866656b6b33224fcd1103"
+    },
+    "oracle_benchmark_transfer_pilot_report.md": {
+      "size_bytes": 8470,
+      "sha256": "3d9224705e78ee37b227bb10bf7dfb1a0f26770ab73866656b6b33224fcd1103"
+    }
+  }
+}

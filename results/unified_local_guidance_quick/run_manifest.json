@@ -1,0 +1,120 @@
+{
+  "protocol_id": "unified-local-guidance-v1",
+  "stage_id": "unified-local-guidance-quick",
+  "config": {
+    "protocol_id": "unified-local-guidance-v1",
+    "stage_id": "unified-local-guidance-quick",
+    "output_dir": "results/unified_local_guidance_quick",
+    "study": {
+      "problems": [
+        "GMM",
+        "Ackley"
+      ],
+      "dimensions": [
+        2
+      ],
+      "seeds": [
+        42,
+        101
+      ],
+      "source_samples": 80,
+      "raw_pool_size": 300,
+      "proposal_size": 40,
+      "budget": 5,
+      "target_init_multiplier": 2,
+      "target_init_offset": 2,
+      "n_init_formula": "2d+2",
+      "methods": [
+        "Target-Only",
+        "Geometry-Only",
+        "Local-Rank-No-Reliability",
+        "Local-Rank+Reliability"
+      ],
+      "acquisition": "ei",
+      "batch_size": 1,
+      "target_noise_std": 0.0,
+      "top_fraction": 0.1,
+      "relations": [
+        "matching",
+        "reversed"
+      ],
+      "safety_diagnostics": [
+        "Reversed-Local-Rank"
+      ],
+      "progress_every": 1
+    },
+    "extraction": {
+      "elite_ratio": 0.2,
+      "max_regions": 3,
+      "min_elite_per_region": 4,
+      "min_context_samples": 16,
+      "max_context_samples": 64,
+      "context_multiplier": 3.0,
+      "min_boundary_fraction": 0.25,
+      "covariance_regularization": 0.001,
+      "gmm_reg_covar": 0.0001,
+      "use_bic_model_selection": true,
+      "model_type": "gp",
+      "gp_restarts": 0,
+      "random_forest_trees": 100,
+      "cv_folds": 3,
+      "validation_top_fraction": 0.1,
+      "quality_floor": 0.1,
+      "reliability_floor": 0.25
+    },
+    "guidance": {
+      "source_weight": 1.0,
+      "target_nomination_ratio": 0.2,
+      "source_nomination_ratio": 0.2,
+      "aggregation": "max"
+    },
+    "analysis": {
+      "bootstrap_samples": 500,
+      "bootstrap_seed": 20260901,
+      "harm_margin": 0.01
+    }
+  },
+  "config_sha256": "74928eb1ed255df219c81c21589f350d66d87d8b7c7c540e12023237636eebea",
+  "protocol_path": "PROTOCOL_UNIFIED_LOCAL_GUIDANCE.md",
+  "protocol_sha256": "c9b59a142c5541cb2bfd5155bc56eb6b7e7460f1e88d52ce953e8dd86db6350b",
+  "runner_path": "scripts\\run_unified_local_guidance_study.py",
+  "runner_sha256": "8575595d67cd6f113190f9d02ff7a875baed3bbb96beb8597f192232a0f33c61",
+  "companion_path": "src\\region_guided_reranking_study\\local_structure_guidance.py",
+  "companion_sha256": "8733dc6d59534ede550f431d2d33fc929c1e446cecf9f047f6dd3fed2fc4eea4",
+  "code_identity": {
+    "runner": "scripts\\run_unified_local_guidance_study.py",
+    "companion": "src\\region_guided_reranking_study\\local_structure_guidance.py",
+    "protocol": "PROTOCOL_UNIFIED_LOCAL_GUIDANCE.md"
+  },
+  "counts": {
+    "instances": 4,
+    "mechanism_rows": 20,
+    "mechanism_candidate_rows": 160,
+    "sequential_summary_rows": 16,
+    "sequential_trace_rows": 96,
+    "source_structure_rows": 9,
+    "failure_rows": 0
+  },
+  "artifact_sha256": {
+    "results\\unified_local_guidance_quick\\mechanism_results.csv": "daedd31b897fad42478acf7e7559040684d87358fd7a6e73cdc6d3e44252781f",
+    "results\\unified_local_guidance_quick\\mechanism_candidate_panel.csv": "bcaa6849243cdb63c0acead38681c76cc1e76a0b8d8ed383b5b8eaee287c250e",
+    "results\\unified_local_guidance_quick\\sequential_summary.csv": "d0c0cc2adab04cbca07f1881f1a31204074d5bee683d624d405b298725c95ab6",
+    "results\\unified_local_guidance_quick\\sequential_traces.csv": "1e2f75eb4f2f35340655e778dd0e74d677e86240c242f65edd26c680bafa5e95",
+    "results\\unified_local_guidance_quick\\source_structure_diagnostics.csv": "72338fb8f273e88714d394fdc3e5867e285cc325e9a7760c084a1118c033ce5a",
+    "results\\unified_local_guidance_quick\\failures.csv": "1cba120c60350efa5fc22d87c23a24506c0d8292d25777ee122da29b2594dbd2",
+    "results\\unified_local_guidance_quick\\config.json": "cbb5f43362c6af6770c7cd65c8f29d05870f49eb732c35725876bc57a983a575"
+  },
+  "git": {
+    "head": "62f53ea7d38ddf859e283b5053431ad1cc597dfa",
+    "status_porcelain": "M README.md\n M src/region_guided_reranking_study/__init__.py\n?? PROTOCOL_UNIFIED_LOCAL_GUIDANCE.md\n?? README_UNIFIED_LOCAL_GUIDANCE.md\n?? configs/unified_local_guidance_full.json\n?? configs/unified_local_guidance_quick.json\n?? results/unified_local_guidance_quick/\n?? scripts/analyze_unified_local_guidance_study.py\n?? scripts/audit_unified_local_guidance_study.py\n?? scripts/run_unified_local_guidance_study.py\n?? src/region_guided_reranking_study/local_structure_guidance.py\n?? tests/test_local_structure_guidance.py\n?? tests/test_unified_local_guidance_analysis.py\n?? tests/test_unified_local_guidance_audit.py\n?? tests/test_unified_local_guidance_runner.py",
+    "dirty": true
+  },
+  "python": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "scikit_learn": "1.8.0"
+  }
+}

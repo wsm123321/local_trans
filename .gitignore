@@ -6,3 +6,6 @@ __pycache__/
 *.egg-info/
 .DS_Store
 Thumbs.db
+
+# Regenerable per-candidate benchmark ledger exceeds GitHub's 100 MB file limit.
+results/oracle_benchmark_transfer_pilot/prediction_ledger.csv

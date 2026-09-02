@@ -1,0 +1,220 @@
+{
+  "ok": true,
+  "stage_id": "unified-local-guidance-quick",
+  "checks": [
+    {
+      "name": "approved_artifact_paths",
+      "passed": true,
+      "detail": "all canonical files present"
+    },
+    {
+      "name": "json_readable",
+      "passed": true,
+      "detail": "config and manifest parse as objects"
+    },
+    {
+      "name": "csv_readable",
+      "passed": true,
+      "detail": "['failures', 'mechanism', 'panel', 'sequential_summary', 'sequential_traces', 'source_diagnostics']"
+    },
+    {
+      "name": "expected_cartesian_instances_from_config",
+      "passed": true,
+      "detail": "instances=4"
+    },
+    {
+      "name": "config_hash",
+      "passed": true,
+      "detail": "expected=74928eb1ed255df219c81c21589f350d66d87d8b7c7c540e12023237636eebea, observed=74928eb1ed255df219c81c21589f350d66d87d8b7c7c540e12023237636eebea"
+    },
+    {
+      "name": "stage_identity",
+      "passed": true,
+      "detail": "config=unified-local-guidance-quick, manifest=unified-local-guidance-quick"
+    },
+    {
+      "name": "protocol_hash",
+      "passed": true,
+      "detail": "E:\\study\\暑假工作\\region_guided_reranking_study\\PROTOCOL_UNIFIED_LOCAL_GUIDANCE.md"
+    },
+    {
+      "name": "runner_hash",
+      "passed": true,
+      "detail": "E:\\study\\暑假工作\\region_guided_reranking_study\\scripts\\run_unified_local_guidance_study.py"
+    },
+    {
+      "name": "companion_hash",
+      "passed": true,
+      "detail": "E:\\study\\暑假工作\\region_guided_reranking_study\\src\\region_guided_reranking_study\\local_structure_guidance.py"
+    },
+    {
+      "name": "canonical_artifact_declarations",
+      "passed": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "artifact_hashes",
+      "passed": true,
+      "detail": "all declared hashes match"
+    },
+    {
+      "name": "mechanism_method_set",
+      "passed": true,
+      "detail": "expected=['Geometry-Only', 'Local-Rank+Reliability', 'Local-Rank-No-Reliability', 'Reversed-Local-Rank', 'Target-Only'], observed=['Geometry-Only', 'Local-Rank+Reliability', 'Local-Rank-No-Reliability', 'Reversed-Local-Rank', 'Target-Only']"
+    },
+    {
+      "name": "sequential_method_set",
+      "passed": true,
+      "detail": "expected=['Geometry-Only', 'Local-Rank+Reliability', 'Local-Rank-No-Reliability', 'Target-Only'], observed=['Geometry-Only', 'Local-Rank+Reliability', 'Local-Rank-No-Reliability', 'Target-Only']"
+    },
+    {
+      "name": "trace_method_set",
+      "passed": true,
+      "detail": "expected=['Geometry-Only', 'Local-Rank+Reliability', 'Local-Rank-No-Reliability', 'Target-Only'], observed=['Geometry-Only', 'Local-Rank+Reliability', 'Local-Rank-No-Reliability', 'Target-Only']"
+    },
+    {
+      "name": "mechanism_instance_set",
+      "passed": true,
+      "detail": "missing=[], extra=[]"
+    },
+    {
+      "name": "panel_instance_set",
+      "passed": true,
+      "detail": "missing=[], extra=[]"
+    },
+    {
+      "name": "sequential_summary_instance_set",
+      "passed": true,
+      "detail": "missing=[], extra=[]"
+    },
+    {
+      "name": "sequential_trace_instance_set",
+      "passed": true,
+      "detail": "missing=[], extra=[]"
+    },
+    {
+      "name": "mechanism_unique_keys",
+      "passed": true,
+      "detail": "duplicates=0"
+    },
+    {
+      "name": "sequential_summary_unique_keys",
+      "passed": true,
+      "detail": "duplicates=0"
+    },
+    {
+      "name": "sequential_trace_unique_keys",
+      "passed": true,
+      "detail": "duplicates=0"
+    },
+    {
+      "name": "mechanism_row_count",
+      "passed": true,
+      "detail": "expected=20, observed=20"
+    },
+    {
+      "name": "mechanism_panel_row_count",
+      "passed": true,
+      "detail": "expected=160, observed=160"
+    },
+    {
+      "name": "sequential_summary_row_count",
+      "passed": true,
+      "detail": "expected=16, observed=16"
+    },
+    {
+      "name": "sequential_trace_row_count",
+      "passed": true,
+      "detail": "expected_paid=80, observed_paid=80, initial_rows=16, total=96"
+    },
+    {
+      "name": "finite_mechanism_values",
+      "passed": true,
+      "detail": "{'selected_y': 0, 'truth_min': 0, 'truth_q90': 0, 'raw_regret': 0, 'normalized_regret': 0}"
+    },
+    {
+      "name": "finite_summary_values",
+      "passed": true,
+      "detail": "{'initial_best_y': 0, 'final_best_y': 0, 'known_optimum_y': 0, 'final_normalized_regret': 0, 'auc_normalized_regret': 0, 'total_improvement': 0}"
+    },
+    {
+      "name": "zero_failures",
+      "passed": true,
+      "detail": "failure_rows=0"
+    },
+    {
+      "name": "mechanism_panel_semantics",
+      "passed": true,
+      "detail": "all panel-derived mechanism fields match"
+    },
+    {
+      "name": "trace_and_summary_semantics",
+      "passed": true,
+      "detail": "all trace and summary fields match"
+    },
+    {
+      "name": "mechanism_candidate_hashes_shared_across_five_methods",
+      "passed": true,
+      "detail": "columns=['raw_pool_hash', 'proposal_hash', 'truth_hash'], violations=0"
+    },
+    {
+      "name": "source_structure_diagnostics_present",
+      "passed": true,
+      "detail": "rows=9, missing=[], extra=[]"
+    },
+    {
+      "name": "target_only_zero_based_acquisition_rank",
+      "passed": true,
+      "detail": "runner uses zero-based rank; observed=[0]"
+    },
+    {
+      "name": "fallback_consistency",
+      "passed": true,
+      "detail": "all fallback selections equal Target-Only"
+    },
+    {
+      "name": "analysis_exists",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "name": "primary_semantics",
+      "passed": true,
+      "detail": "five PRIMARY contrasts and Holm/support status match analyzer"
+    }
+  ],
+  "warnings": [
+    "target_noise_std=0: runner noise stream bug is documented and does not affect this full run",
+    "known optimum is a declared oracle basin-center approximation, not a separately verified global optimum"
+  ],
+  "counts": {
+    "instances": 4,
+    "mechanism_rows": 20,
+    "mechanism_candidate_rows": 160,
+    "sequential_summary_rows": 16,
+    "sequential_trace_rows": 80,
+    "sequential_initial_rows": 16,
+    "sequential_trace_rows_total": 96,
+    "budget": 5,
+    "proposal_size": 40,
+    "mechanism_rows_observed": 20,
+    "mechanism_panel_rows_observed": 160,
+    "sequential_summary_rows_observed": 16,
+    "sequential_trace_rows_observed": 96
+  },
+  "artifact_sha256": {
+    "results\\unified_local_guidance_quick\\mechanism_results.csv": "daedd31b897fad42478acf7e7559040684d87358fd7a6e73cdc6d3e44252781f",
+    "results\\unified_local_guidance_quick\\mechanism_candidate_panel.csv": "bcaa6849243cdb63c0acead38681c76cc1e76a0b8d8ed383b5b8eaee287c250e",
+    "results\\unified_local_guidance_quick\\source_structure_diagnostics.csv": "72338fb8f273e88714d394fdc3e5867e285cc325e9a7760c084a1118c033ce5a",
+    "results\\unified_local_guidance_quick\\sequential_summary.csv": "d0c0cc2adab04cbca07f1881f1a31204074d5bee683d624d405b298725c95ab6",
+    "results\\unified_local_guidance_quick\\sequential_traces.csv": "1e2f75eb4f2f35340655e778dd0e74d677e86240c242f65edd26c680bafa5e95",
+    "results\\unified_local_guidance_quick\\failures.csv": "1cba120c60350efa5fc22d87c23a24506c0d8292d25777ee122da29b2594dbd2",
+    "results\\unified_local_guidance_quick\\config.json": "cbb5f43362c6af6770c7cd65c8f29d05870f49eb732c35725876bc57a983a575",
+    "results\\unified_local_guidance_quick\\analysis\\PRIMARY_TESTS.csv": "e8ed40968a608c1adf9fe188713cbfa318857cca911cb1330b86671aca1dc3fb",
+    "results\\unified_local_guidance_quick\\analysis\\METHOD_SUMMARY.csv": "7dcc1444e49e32d827eaa751e756f1703c9302db5de388c3b2058a750906701a",
+    "results\\unified_local_guidance_quick\\analysis\\SECONDARY_CONTRASTS.csv": "6325433e1a8892c43f7d53ece05a86cf23e28d06b9f407db0c2dd26d5b9d98d4",
+    "results\\unified_local_guidance_quick\\analysis\\mechanism_regret.png": "f0c8a6d3d023e88f5036094fe2f79caff6ca98b488fb63bd077a322a907f144d",
+    "results\\unified_local_guidance_quick\\analysis\\sequential_final.png": "e4ec67e17ac74b2109ae054ae12ca83bdb3ecb8945f9509df87b3e60c699d96b",
+    "results\\unified_local_guidance_quick\\analysis\\sequential_auc.png": "36fef314c831d810e7652e90db14506225fdd8edcdb79653bfeb25a63487794f"
+  }
+}

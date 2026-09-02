@@ -1,0 +1,543 @@
+{
+  "label": "promising_rank_transfer",
+  "selected_head": "rank",
+  "head_evaluations": {
+    "rank": {
+      "head": "rank",
+      "decision_metrics": [
+        "pairwise_accuracy",
+        "ndcg_at_top",
+        "normalized_top1_regret"
+      ],
+      "threshold": 0.0,
+      "positive_metric_detail": {
+        "pairwise_accuracy": {
+          "mean_delta": 0.04713644192913386,
+          "ci_low": 0.019454803867290028,
+          "ci_high": 0.07618126255946521,
+          "seed_win_rate": 0.875,
+          "n_seed_units": 8,
+          "passes": true
+        },
+        "ndcg_at_top": {
+          "mean_delta": 0.05333121402697558,
+          "ci_low": 0.02643311093909303,
+          "ci_high": 0.07714638136654683,
+          "seed_win_rate": 0.875,
+          "n_seed_units": 8,
+          "passes": true
+        },
+        "normalized_top1_regret": {
+          "mean_delta": 0.07659479303401509,
+          "ci_low": 0.022680217189689253,
+          "ci_high": 0.1321625346174531,
+          "seed_win_rate": 0.75,
+          "n_seed_units": 8,
+          "passes": true
+        }
+      },
+      "positive_metrics_passed": 3,
+      "positive_shell_detail": {
+        "0.35": {
+          "metric_passes": {
+            "pairwise_accuracy": true,
+            "ndcg_at_top": true,
+            "normalized_top1_regret": true
+          },
+          "metric_seed_detail": {
+            "pairwise_accuracy": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.10282741756889767,
+              "n_seeds": 8
+            },
+            "ndcg_at_top": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.0876631149507188,
+              "n_seeds": 8
+            },
+            "normalized_top1_regret": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.10729804725430941,
+              "n_seeds": 8
+            }
+          },
+          "metrics_passed": 3,
+          "passes_shell": true
+        },
+        "0.7": {
+          "metric_passes": {
+            "pairwise_accuracy": true,
+            "ndcg_at_top": true,
+            "normalized_top1_regret": true
+          },
+          "metric_seed_detail": {
+            "pairwise_accuracy": {
+              "seed_win_rate": 0.75,
+              "mean_delta": 0.033183901328740134,
+              "n_seeds": 8
+            },
+            "ndcg_at_top": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.07160545762208888,
+              "n_seeds": 8
+            },
+            "normalized_top1_regret": {
+              "seed_win_rate": 0.75,
+              "mean_delta": 0.12801730367230427,
+              "n_seeds": 8
+            }
+          },
+          "metrics_passed": 3,
+          "passes_shell": true
+        },
+        "1.0": {
+          "metric_passes": {
+            "pairwise_accuracy": true,
+            "ndcg_at_top": true,
+            "normalized_top1_regret": false
+          },
+          "metric_seed_detail": {
+            "pairwise_accuracy": {
+              "seed_win_rate": 0.625,
+              "mean_delta": 0.00539800688976378,
+              "n_seeds": 8
+            },
+            "ndcg_at_top": {
+              "seed_win_rate": 0.5,
+              "mean_delta": 0.0007250695081190799,
+              "n_seeds": 8
+            },
+            "normalized_top1_regret": {
+              "seed_win_rate": 0.375,
+              "mean_delta": -0.0055309718245684265,
+              "n_seeds": 8
+            }
+          },
+          "metrics_passed": 2,
+          "passes_shell": true
+        }
+      },
+      "positive_shells_passed": 3,
+      "identity_observed_vs_permuted": {
+        "pairwise_accuracy": {
+          "n_pairs": 24,
+          "mean_identity_minus_permuted": 0.16181204888451445,
+          "passes": true
+        },
+        "ndcg_at_top": {
+          "n_pairs": 24,
+          "mean_identity_minus_permuted": 0.2566298892103429,
+          "passes": true
+        },
+        "normalized_top1_regret": {
+          "n_pairs": 24,
+          "mean_identity_minus_permuted": 0.3811122654114742,
+          "passes": true
+        }
+      },
+      "identity_metrics_passed": 3,
+      "negative_detail": {
+        "pairwise_accuracy": {
+          "mean_delta": -0.06723842136920384,
+          "seed_win_rate": 0.05555555555555555,
+          "replicates": false
+        },
+        "ndcg_at_top": {
+          "mean_delta": -0.10571303167590618,
+          "seed_win_rate": 0.08333333333333333,
+          "replicates": false
+        },
+        "normalized_top1_regret": {
+          "mean_delta": -0.1675066069200125,
+          "seed_win_rate": 0.041666666666666664,
+          "replicates": false
+        }
+      },
+      "negative_metrics_replicating": 0,
+      "negative_replication": false,
+      "positive_rule_pass": true,
+      "identity_rule_pass": true,
+      "negative_rule_pass": true,
+      "passes": true,
+      "selection_score": [
+        3,
+        3,
+        3
+      ]
+    },
+    "value": {
+      "head": "value",
+      "decision_metrics": [
+        "pairwise_accuracy",
+        "ndcg_at_top",
+        "normalized_top1_regret"
+      ],
+      "threshold": 0.0,
+      "positive_metric_detail": {
+        "pairwise_accuracy": {
+          "mean_delta": 0.12571896530511809,
+          "ci_low": 0.10050215433275918,
+          "ci_high": 0.1548443971969324,
+          "seed_win_rate": 1.0,
+          "n_seed_units": 8,
+          "passes": true
+        },
+        "ndcg_at_top": {
+          "mean_delta": 0.08010163330131842,
+          "ci_low": 0.055808284190280805,
+          "ci_high": 0.10077030187479272,
+          "seed_win_rate": 1.0,
+          "n_seed_units": 8,
+          "passes": true
+        },
+        "normalized_top1_regret": {
+          "mean_delta": 0.09025188392707209,
+          "ci_low": 0.04939669139500583,
+          "ci_high": 0.12942815862511442,
+          "seed_win_rate": 0.875,
+          "n_seed_units": 8,
+          "passes": true
+        }
+      },
+      "positive_metrics_passed": 3,
+      "positive_shell_detail": {
+        "0.35": {
+          "metric_passes": {
+            "pairwise_accuracy": true,
+            "ndcg_at_top": true,
+            "normalized_top1_regret": true
+          },
+          "metric_seed_detail": {
+            "pairwise_accuracy": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.1738627276082677,
+              "n_seeds": 8
+            },
+            "ndcg_at_top": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.11531066616828352,
+              "n_seeds": 8
+            },
+            "normalized_top1_regret": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.09906240758329993,
+              "n_seeds": 8
+            }
+          },
+          "metrics_passed": 3,
+          "passes_shell": true
+        },
+        "0.7": {
+          "metric_passes": {
+            "pairwise_accuracy": true,
+            "ndcg_at_top": true,
+            "normalized_top1_regret": true
+          },
+          "metric_seed_detail": {
+            "pairwise_accuracy": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.11034002829724407,
+              "n_seeds": 8
+            },
+            "ndcg_at_top": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.08329434411144572,
+              "n_seeds": 8
+            },
+            "normalized_top1_regret": {
+              "seed_win_rate": 0.875,
+              "mean_delta": 0.13733704444607736,
+              "n_seeds": 8
+            }
+          },
+          "metrics_passed": 3,
+          "passes_shell": true
+        },
+        "1.0": {
+          "metric_passes": {
+            "pairwise_accuracy": true,
+            "ndcg_at_top": true,
+            "normalized_top1_regret": true
+          },
+          "metric_seed_detail": {
+            "pairwise_accuracy": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.09295414000984252,
+              "n_seeds": 8
+            },
+            "ndcg_at_top": {
+              "seed_win_rate": 0.75,
+              "mean_delta": 0.04169988962422601,
+              "n_seeds": 8
+            },
+            "normalized_top1_regret": {
+              "seed_win_rate": 0.625,
+              "mean_delta": 0.03435619975183899,
+              "n_seeds": 8
+            }
+          },
+          "metrics_passed": 3,
+          "passes_shell": true
+        }
+      },
+      "positive_shells_passed": 3,
+      "identity_observed_vs_permuted": {
+        "pairwise_accuracy": {
+          "n_pairs": 24,
+          "mean_identity_minus_permuted": 0.2557671013779527,
+          "passes": true
+        },
+        "ndcg_at_top": {
+          "n_pairs": 24,
+          "mean_identity_minus_permuted": 0.2988298501618762,
+          "passes": true
+        },
+        "normalized_top1_regret": {
+          "n_pairs": 24,
+          "mean_identity_minus_permuted": 0.43808259546241635,
+          "passes": true
+        }
+      },
+      "identity_metrics_passed": 3,
+      "negative_detail": {
+        "pairwise_accuracy": {
+          "mean_delta": -0.06597222222222222,
+          "seed_win_rate": 0.05555555555555555,
+          "replicates": false
+        },
+        "ndcg_at_top": {
+          "mean_delta": -0.1104496168806808,
+          "seed_win_rate": 0.05555555555555555,
+          "replicates": false
+        },
+        "normalized_top1_regret": {
+          "mean_delta": -0.17903888059654413,
+          "seed_win_rate": 0.05555555555555555,
+          "replicates": false
+        }
+      },
+      "negative_metrics_replicating": 0,
+      "negative_replication": false,
+      "positive_rule_pass": true,
+      "identity_rule_pass": true,
+      "negative_rule_pass": true,
+      "passes": true,
+      "selection_score": [
+        3,
+        3,
+        3
+      ]
+    },
+    "dual": {
+      "head": "dual",
+      "decision_metrics": [
+        "pairwise_accuracy",
+        "ndcg_at_top",
+        "normalized_top1_regret"
+      ],
+      "threshold": 0.0,
+      "positive_metric_detail": {
+        "pairwise_accuracy": {
+          "mean_delta": 0.09619268782808399,
+          "ci_low": 0.06892384606709316,
+          "ci_high": 0.1256439929872047,
+          "seed_win_rate": 1.0,
+          "n_seed_units": 8,
+          "passes": true
+        },
+        "ndcg_at_top": {
+          "mean_delta": 0.07460524544591293,
+          "ci_low": 0.051630955528839916,
+          "ci_high": 0.09395757216793041,
+          "seed_win_rate": 1.0,
+          "n_seed_units": 8,
+          "passes": true
+        },
+        "normalized_top1_regret": {
+          "mean_delta": 0.08862846069051752,
+          "ci_low": 0.04828954054163373,
+          "ci_high": 0.12701383587761542,
+          "seed_win_rate": 0.875,
+          "n_seed_units": 8,
+          "passes": true
+        }
+      },
+      "positive_metrics_passed": 3,
+      "positive_shell_detail": {
+        "0.35": {
+          "metric_passes": {
+            "pairwise_accuracy": true,
+            "ndcg_at_top": true,
+            "normalized_top1_regret": true
+          },
+          "metric_seed_detail": {
+            "pairwise_accuracy": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.14566929133858264,
+              "n_seeds": 8
+            },
+            "ndcg_at_top": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.10419022205309665,
+              "n_seeds": 8
+            },
+            "normalized_top1_regret": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.09863536451467914,
+              "n_seeds": 8
+            }
+          },
+          "metrics_passed": 3,
+          "passes_shell": true
+        },
+        "0.7": {
+          "metric_passes": {
+            "pairwise_accuracy": true,
+            "ndcg_at_top": true,
+            "normalized_top1_regret": true
+          },
+          "metric_seed_detail": {
+            "pairwise_accuracy": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.07712921382874016,
+              "n_seeds": 8
+            },
+            "ndcg_at_top": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.08091932752006033,
+              "n_seeds": 8
+            },
+            "normalized_top1_regret": {
+              "seed_win_rate": 0.875,
+              "mean_delta": 0.1350720654719496,
+              "n_seeds": 8
+            }
+          },
+          "metrics_passed": 3,
+          "passes_shell": true
+        },
+        "1.0": {
+          "metric_passes": {
+            "pairwise_accuracy": true,
+            "ndcg_at_top": true,
+            "normalized_top1_regret": true
+          },
+          "metric_seed_detail": {
+            "pairwise_accuracy": {
+              "seed_win_rate": 1.0,
+              "mean_delta": 0.06577955831692915,
+              "n_seeds": 8
+            },
+            "ndcg_at_top": {
+              "seed_win_rate": 0.75,
+              "mean_delta": 0.03870618676458182,
+              "n_seeds": 8
+            },
+            "normalized_top1_regret": {
+              "seed_win_rate": 0.625,
+              "mean_delta": 0.03217795208492387,
+              "n_seeds": 8
+            }
+          },
+          "metrics_passed": 3,
+          "passes_shell": true
+        }
+      },
+      "positive_shells_passed": 3,
+      "identity_observed_vs_permuted": {
+        "pairwise_accuracy": {
+          "n_pairs": 24,
+          "mean_identity_minus_permuted": 0.2206211040026247,
+          "passes": true
+        },
+        "ndcg_at_top": {
+          "n_pairs": 24,
+          "mean_identity_minus_permuted": 0.2922401237696709,
+          "passes": true
+        },
+        "normalized_top1_regret": {
+          "n_pairs": 24,
+          "mean_identity_minus_permuted": 0.434119569417266,
+          "passes": true
+        }
+      },
+      "identity_metrics_passed": 3,
+      "negative_detail": {
+        "pairwise_accuracy": {
+          "mean_delta": -0.07015700185914261,
+          "seed_win_rate": 0.05555555555555555,
+          "replicates": false
+        },
+        "ndcg_at_top": {
+          "mean_delta": -0.1115969665107131,
+          "seed_win_rate": 0.08333333333333333,
+          "replicates": false
+        },
+        "normalized_top1_regret": {
+          "mean_delta": -0.181546544276312,
+          "seed_win_rate": 0.041666666666666664,
+          "replicates": false
+        }
+      },
+      "negative_metrics_replicating": 0,
+      "negative_replication": false,
+      "positive_rule_pass": true,
+      "identity_rule_pass": true,
+      "negative_rule_pass": true,
+      "passes": true,
+      "selection_score": [
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "rules": {
+    "positive_relations": [
+      "identity",
+      "output_affine",
+      "scale_0.7",
+      "scale_1.5"
+    ],
+    "negative_relations": [
+      "reversal",
+      "independent_expert",
+      "identity_label_permutation"
+    ],
+    "boundary_relations": [
+      "rotate_45",
+      "roughness"
+    ],
+    "canonical_methods": [
+      "target_only",
+      "geometry",
+      "rank",
+      "value",
+      "dual"
+    ],
+    "baseline_for_decision": "geometry",
+    "secondary_baseline": "target_only",
+    "decision_metrics": [
+      "pairwise_accuracy",
+      "ndcg_at_top",
+      "normalized_top1_regret"
+    ],
+    "delta_convention": "positive means transfer is better; regret delta = Geometry regret - head regret",
+    "paired_unit": "seed × relation_or_control × shell × method × baseline",
+    "bootstrap": "descriptive percentile CI over seed means; never candidate rows",
+    "positive_rule": "for one head, at least 2/3 positive shells pass at least 2/3 metrics; each metric requires seed-level win rate >= 0.5 and mean delta > 0; at least 2 metrics pass overall",
+    "identity_rule": "identity observed Geometry-relative delta exceeds identity_label_permutation on at least 2/3 decision metrics",
+    "negative_rule": "negative conditions may not replicate positive decision deltas on at least 2/3 metrics; exact target-only fallback is acceptable",
+    "shell_rule": "benefit cannot be confined to shell .35; at least 2 of 3 shells must pass",
+    "selection_rule": "value/dual replaces rank only when its separate rule score is strictly better; rank wins ties; no metric values are mixed",
+    "srmse_role": "secondary only; never used for decision",
+    "quick_informal": true
+  },
+  "quick_informal": true,
+  "input_rows": {
+    "results": 1080,
+    "ledger": 138240,
+    "diagnostics": 216
+  },
+  "conclusion_sha256": "f91f14864a42557a2fe64a74fd01c214df725fe077457adfcfa02ecf9d695de0"
+}

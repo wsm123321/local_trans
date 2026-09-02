@@ -1,0 +1,88 @@
+{
+  "stage_id": "gate-0-oracle-local-model-transfer-quick-v0",
+  "scope": "gate_0_controlled_2d_static_held_out",
+  "config": {
+    "stage_id": "gate-0-oracle-local-model-transfer-quick-v0",
+    "scope": "gate_0_controlled_2d_static_held_out",
+    "dimension": 2,
+    "seeds": [
+      11,
+      23,
+      37,
+      53,
+      71,
+      89,
+      107,
+      131
+    ],
+    "source_train_samples": 128,
+    "target_context_samples": 12,
+    "target_test_samples_per_shell": 128,
+    "shells": [
+      0.35,
+      0.7,
+      1.0
+    ],
+    "relations": [
+      "identity",
+      "output_affine",
+      "scale_0.7",
+      "scale_1.5",
+      "rotate_45",
+      "roughness",
+      "reversal",
+      "independent_expert"
+    ],
+    "controls": [
+      "identity_label_permutation"
+    ],
+    "methods": [
+      "Target-Only",
+      "Geometry-Prior+Residual",
+      "Oracle-Rank+Residual",
+      "Oracle-Value+Residual",
+      "Oracle-Rank+Value+Residual"
+    ],
+    "source_expert": {
+      "length_scale": 0.45,
+      "noise": 0.0001
+    },
+    "transfer_model": {
+      "gp_length_scale": 0.6,
+      "gp_noise": 0.0001,
+      "calibration_ridge": 1.0
+    },
+    "top_fraction": 0.1,
+    "harm_margin_srmse": 0.01
+  },
+  "config_sha256": "e68d4f1ed6aba776bdee048e65b12ceadbf2e4be7297915c29a714ade750c975",
+  "counts": {
+    "result_rows": 1080,
+    "ledger_rows": 138240,
+    "diagnostic_rows": 216,
+    "failure_rows": 0
+  },
+  "artifacts": {
+    "results": "88f0629d9ccddcb722036e49a5f314d90bb74ab9977a9f0d3c38572620934af5",
+    "prediction_ledger": "f784b76ffa50cc5fdf5e7bba5c07da9f2b8cab1eda4244da00cb80a687168ae5",
+    "source_expert_diagnostics": "8ea67f055f4266a44d5963bb6d610160dc42d596ec6a96f91072e5aca7a13fb1",
+    "failures": "a3519ffb17c8019e4fe855e45ea1537105be813775520cdf5dc05e7e093e40ac"
+  },
+  "runner_sha256": "abce733ccbdeec7603b935415467212016ba369333f23ce7fc54d1bff8b5d96d",
+  "runner_path": "scripts\\run_oracle_local_model_transfer_quick.py",
+  "core_sha256": "0c2bfdd5077d5f3abd193dd5bbf861b28ff2c4e0fcf31db6b672a975eeb63d40",
+  "core_path": "src\\region_guided_reranking_study\\oracle_local_model_transfer.py",
+  "runner_core_sha256": {
+    "runner": "abce733ccbdeec7603b935415467212016ba369333f23ce7fc54d1bff8b5d96d",
+    "core": "0c2bfdd5077d5f3abd193dd5bbf861b28ff2c4e0fcf31db6b672a975eeb63d40"
+  },
+  "git": {
+    "head": "62f53ea7d38ddf859e283b5053431ad1cc597dfa",
+    "status_porcelain": "M README.md\n M src/region_guided_reranking_study/__init__.py\n?? PROTOCOL_UNIFIED_LOCAL_GUIDANCE.md\n?? README_ORACLE_LOCAL_MODEL_TRANSFER_QUICK.md\n?? README_UNIFIED_LOCAL_GUIDANCE.md\n?? configs/oracle_local_model_transfer_quick.json\n?? configs/unified_local_guidance_full.json\n?? configs/unified_local_guidance_quick.json\n?? results/oracle_local_model_transfer_quick/\n?? results/unified_local_guidance_full/\n?? results/unified_local_guidance_quick/\n?? scripts/analyze_oracle_local_model_transfer_quick.py\n?? scripts/analyze_unified_local_guidance_study.py\n?? scripts/audit_oracle_local_model_transfer_quick.py\n?? scripts/audit_unified_local_guidance_study.py\n?? scripts/run_oracle_local_model_transfer_quick.py\n?? scripts/run_unified_local_guidance_study.py\n?? src/region_guided_reranking_study/local_structure_guidance.py\n?? src/region_guided_reranking_study/oracle_local_model_transfer.py\n?? tests/test_local_structure_guidance.py\n?? tests/test_oracle_local_model_transfer.py\n?? tests/test_oracle_local_model_transfer_analysis.py\n?? tests/test_oracle_local_model_transfer_audit.py\n?? tests/test_oracle_local_model_transfer_runner.py\n?? tests/test_unified_local_guidance_analysis.py\n?? tests/test_unified_local_guidance_audit.py\n?? tests/test_unified_local_guidance_runner.py",
+    "dirty": true
+  },
+  "python": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.4.3",
+  "pandas": "2.3.3"
+}

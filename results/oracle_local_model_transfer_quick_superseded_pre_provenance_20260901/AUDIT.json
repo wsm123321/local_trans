@@ -1,0 +1,161 @@
+{
+  "ok": true,
+  "stage_id": "gate-0-oracle-local-model-transfer-quick-v0",
+  "checks": [
+    {
+      "name": "required_manifest",
+      "passed": true,
+      "detail": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\run_manifest.json"
+    },
+    {
+      "name": "required_config",
+      "passed": true,
+      "detail": "embedded/missing"
+    },
+    {
+      "name": "required_diagnostics",
+      "passed": true,
+      "detail": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\source_expert_diagnostics.csv"
+    },
+    {
+      "name": "required_failures",
+      "passed": true,
+      "detail": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\failures.csv"
+    },
+    {
+      "name": "stage_identity",
+      "passed": true,
+      "detail": "manifest=gate-0-oracle-local-model-transfer-quick-v0, config=gate-0-oracle-local-model-transfer-quick-v0"
+    },
+    {
+      "name": "artifact_hashes",
+      "passed": true,
+      "detail": "all manifest artifacts match"
+    },
+    {
+      "name": "config_hash",
+      "passed": true,
+      "detail": "expected=e68d4f1ed6aba776bdee048e65b12ceadbf2e4be7297915c29a714ade750c975, observed=e68d4f1ed6aba776bdee048e65b12ceadbf2e4be7297915c29a714ade750c975"
+    },
+    {
+      "name": "runner_sha256",
+      "passed": true,
+      "detail": "E:\\study\\暑假工作\\region_guided_reranking_study\\scripts\\run_oracle_local_model_transfer_quick.py"
+    },
+    {
+      "name": "core_sha256",
+      "passed": true,
+      "detail": "E:\\study\\暑假工作\\region_guided_reranking_study\\src\\region_guided_reranking_study\\oracle_local_model_transfer.py"
+    },
+    {
+      "name": "strict_rowcounts",
+      "passed": true,
+      "detail": "expected={'result_rows': 1080, 'ledger_rows': 138240, 'diagnostic_rows': 216}, observed={'result_rows': 1080, 'ledger_rows': 138240, 'diagnostic_rows': 216}"
+    },
+    {
+      "name": "manifest_rowcounts",
+      "passed": true,
+      "detail": "{'result_rows': 1080, 'ledger_rows': 138240, 'diagnostic_rows': 216, 'failure_rows': 0}"
+    },
+    {
+      "name": "zero_failures",
+      "passed": true,
+      "detail": "failure_rows=0"
+    },
+    {
+      "name": "collision_free_condition_key",
+      "passed": true,
+      "detail": "relation_or_control required"
+    },
+    {
+      "name": "result_keyset_unique",
+      "passed": true,
+      "detail": "key=['dimension', 'seed', 'relation_or_control', 'control', 'shell', 'panel', 'method'], duplicates=0"
+    },
+    {
+      "name": "ledger_keyset_unique",
+      "passed": true,
+      "detail": "key=['dimension', 'seed', 'relation_or_control', 'control', 'shell', 'panel', 'candidate_index', 'method'], duplicates=0"
+    },
+    {
+      "name": "panel_sets",
+      "passed": true,
+      "detail": "frozen seed/condition/shell/method panel"
+    },
+    {
+      "name": "finite_required",
+      "passed": true,
+      "detail": "all required numeric values finite"
+    },
+    {
+      "name": "shared_context_test_truth_hashes",
+      "passed": true,
+      "detail": "violations=0"
+    },
+    {
+      "name": "diagnostic_hash_agreement",
+      "passed": true,
+      "detail": "violations=0"
+    },
+    {
+      "name": "truth_consistency_across_methods",
+      "passed": true,
+      "detail": "bad_panels=0"
+    },
+    {
+      "name": "ledger_metrics_recomputed",
+      "passed": true,
+      "detail": "compared=8640, max_abs_diff=1.631e-12, errors=[]"
+    },
+    {
+      "name": "target_only_fallback_exact",
+      "passed": true,
+      "detail": "mismatches=0"
+    },
+    {
+      "name": "coefficients_nonnegative",
+      "passed": true,
+      "detail": "bad_rows=0"
+    },
+    {
+      "name": "source_permutation_relation",
+      "passed": true,
+      "detail": "bad_rows_or_panels=0"
+    },
+    {
+      "name": "analysis_required_files",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "name": "analysis_summary_recomputed",
+      "passed": true,
+      "detail": "observed=(1080, 16), expected=(1080, 16)"
+    },
+    {
+      "name": "analysis_contrasts_recomputed",
+      "passed": true,
+      "detail": "observed=(12096, 17), expected=(12096, 17)"
+    },
+    {
+      "name": "analysis_decision_recomputed",
+      "passed": true,
+      "detail": "expected=promising_rank_transfer, observed=promising_rank_transfer"
+    },
+    {
+      "name": "conclusion_recomputed",
+      "passed": true,
+      "detail": "label=promising_rank_transfer"
+    },
+    {
+      "name": "conclusion_hash",
+      "passed": true,
+      "detail": "expected=f91f14864a42557a2fe64a74fd01c214df725fe077457adfcfa02ecf9d695de0, observed=f91f14864a42557a2fe64a74fd01c214df725fe077457adfcfa02ecf9d695de0"
+    }
+  ],
+  "counts": {
+    "result_rows": 1080,
+    "ledger_rows": 138240,
+    "diagnostic_rows": 216
+  }
+}

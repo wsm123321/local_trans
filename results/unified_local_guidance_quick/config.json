@@ -1,0 +1,73 @@
+{
+  "analysis": {
+    "bootstrap_samples": 500,
+    "bootstrap_seed": 20260901,
+    "harm_margin": 0.01
+  },
+  "extraction": {
+    "context_multiplier": 3.0,
+    "covariance_regularization": 0.001,
+    "cv_folds": 3,
+    "elite_ratio": 0.2,
+    "gmm_reg_covar": 0.0001,
+    "gp_restarts": 0,
+    "max_context_samples": 64,
+    "max_regions": 3,
+    "min_boundary_fraction": 0.25,
+    "min_context_samples": 16,
+    "min_elite_per_region": 4,
+    "model_type": "gp",
+    "quality_floor": 0.1,
+    "random_forest_trees": 100,
+    "reliability_floor": 0.25,
+    "use_bic_model_selection": true,
+    "validation_top_fraction": 0.1
+  },
+  "guidance": {
+    "aggregation": "max",
+    "source_nomination_ratio": 0.2,
+    "source_weight": 1.0,
+    "target_nomination_ratio": 0.2
+  },
+  "output_dir": "results/unified_local_guidance_quick",
+  "protocol_id": "unified-local-guidance-v1",
+  "stage_id": "unified-local-guidance-quick",
+  "study": {
+    "acquisition": "ei",
+    "batch_size": 1,
+    "budget": 5,
+    "dimensions": [
+      2
+    ],
+    "methods": [
+      "Target-Only",
+      "Geometry-Only",
+      "Local-Rank-No-Reliability",
+      "Local-Rank+Reliability"
+    ],
+    "n_init_formula": "2d+2",
+    "problems": [
+      "GMM",
+      "Ackley"
+    ],
+    "progress_every": 1,
+    "proposal_size": 40,
+    "raw_pool_size": 300,
+    "relations": [
+      "matching",
+      "reversed"
+    ],
+    "safety_diagnostics": [
+      "Reversed-Local-Rank"
+    ],
+    "seeds": [
+      42,
+      101
+    ],
+    "source_samples": 80,
+    "target_init_multiplier": 2,
+    "target_init_offset": 2,
+    "target_noise_std": 0.0,
+    "top_fraction": 0.1
+  }
+}

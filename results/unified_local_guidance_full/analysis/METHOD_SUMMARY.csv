@@ -1,0 +1,10 @@
+dataset,method,n_instances,mean_normalized_regret,mean_top10_hit,mean_final_normalized_regret,mean_auc_normalized_regret,mean_total_improvement
+mechanism,Target-Only,64,0.63782600331004,0.078125,,,
+mechanism,Geometry-Only,64,0.4457718543014507,0.296875,,,
+mechanism,Local-Rank-No-Reliability,64,0.45207067326856576,0.328125,,,
+mechanism,Local-Rank+Reliability,64,0.45207067326856576,0.328125,,,
+mechanism,Reversed-Local-Rank,64,0.5323717487212526,0.15625,,,
+sequential,Target-Only,64,,,0.4738452573127696,14.016413086277907,7.492181963560053
+sequential,Geometry-Only,64,,,0.4048687734100619,12.003246168425374,8.694952899428706
+sequential,Local-Rank-No-Reliability,64,,,0.43952514682615684,12.151684498305997,7.9809989047569845
+sequential,Local-Rank+Reliability,64,,,0.43952514682615684,12.151684498305997,7.9809989047569845

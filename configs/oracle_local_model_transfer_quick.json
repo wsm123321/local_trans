@@ -1,0 +1,39 @@
+{
+  "stage_id": "gate-0-oracle-local-model-transfer-quick-v0",
+  "scope": "gate_0_controlled_2d_static_held_out",
+  "dimension": 2,
+  "seeds": [11, 23, 37, 53, 71, 89, 107, 131],
+  "source_train_samples": 128,
+  "target_context_samples": 12,
+  "target_test_samples_per_shell": 128,
+  "shells": [0.35, 0.7, 1.0],
+  "relations": [
+    "identity",
+    "output_affine",
+    "scale_0.7",
+    "scale_1.5",
+    "rotate_45",
+    "roughness",
+    "reversal",
+    "independent_expert"
+  ],
+  "controls": ["identity_label_permutation"],
+  "methods": [
+    "Target-Only",
+    "Geometry-Prior+Residual",
+    "Oracle-Rank+Residual",
+    "Oracle-Value+Residual",
+    "Oracle-Rank+Value+Residual"
+  ],
+  "source_expert": {
+    "length_scale": 0.45,
+    "noise": 0.0001
+  },
+  "transfer_model": {
+    "gp_length_scale": 0.6,
+    "gp_noise": 0.0001,
+    "calibration_ridge": 1.0
+  },
+  "top_fraction": 0.1,
+  "harm_margin_srmse": 0.01
+}

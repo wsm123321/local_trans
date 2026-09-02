@@ -1,0 +1,58 @@
+{
+  "analyzer": {
+    "path": "E:\\study\\暑假工作\\region_guided_reranking_study\\scripts\\analyze_oracle_local_model_transfer_quick.py",
+    "sha256": "d34f4020b4f827b5222bf93d94dcda55088eff1480a17fa86efba3f8c560e2eb"
+  },
+  "source_inputs": {
+    "results.csv": {
+      "path": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\results.csv",
+      "sha256": "5944607803e8e407a2f7625a928c80ecfd1779d1ce91212cdd9d0cda806ec0de"
+    },
+    "prediction_ledger.csv": {
+      "path": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\prediction_ledger.csv",
+      "sha256": "f23aeaa5e9f115ad349b2a8be42c062f8340bea186b19f7167739b58d3294f19"
+    },
+    "source_expert_diagnostics.csv": {
+      "path": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\source_expert_diagnostics.csv",
+      "sha256": "a06b6d1166a4d5e4b62ba64a9e427cd67d082c5384647884e1a2bb5a17d69fa4"
+    },
+    "config.json": {
+      "path": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\config.json",
+      "sha256": "9905dddfc2658e45d262d6711ab96d9025bc8ac1842a0562c095e124179a6f1d"
+    },
+    "run_manifest.json": {
+      "path": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\run_manifest.json",
+      "sha256": "0674e08ae7beb401a52bccf80f157bbcbe4ec87d6b7356bf1924366792e117c4"
+    }
+  },
+  "outputs": {
+    "summary.csv": {
+      "path": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\analysis\\summary.csv",
+      "sha256": "1c922181f17424aa62bb5e7255ac6266a6844308320dada187a92d3ab452f391"
+    },
+    "contrasts.csv": {
+      "path": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\analysis\\contrasts.csv",
+      "sha256": "2358b6c0cf4b00d5470a02c09667a2431c512073822601681c485f4a7afc313a"
+    },
+    "relation_shell_headroom.png": {
+      "path": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\analysis\\relation_shell_headroom.png",
+      "sha256": "f26cfb62ef32dc18f80be1620f4e5dc28a573fcfc2d89c0155b1a8cc13a17037"
+    },
+    "rank_value_dual_vs_geometry.png": {
+      "path": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\analysis\\rank_value_dual_vs_geometry.png",
+      "sha256": "f73980d7477a8a106dc5d23fb089634ce7cf469cc5a3690d3e2d19e6312a2f7b"
+    },
+    "identity_observed_vs_permuted.png": {
+      "path": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\analysis\\identity_observed_vs_permuted.png",
+      "sha256": "5eb8f440b6cfb71aa25ece3b065b031dbf1980120ed3c3bb4ed2c6c6c33ab9ce"
+    },
+    "decision.json": {
+      "path": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\analysis\\decision.json",
+      "sha256": "f5753c50a54f7d31a8347bd13d72529b0c55044d6d741907c548c9f974623ab8"
+    }
+  },
+  "conclusion": {
+    "path": "E:\\study\\暑假工作\\region_guided_reranking_study\\results\\oracle_local_model_transfer_quick\\ORACLE_LOCAL_MODEL_TRANSFER_QUICK_CONCLUSION_CN.md",
+    "sha256": "0f31472dae5cccd19c08ded311cd81fa86289743d37584c9c379a98d57827f97"
+  }
+}

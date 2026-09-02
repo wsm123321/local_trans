@@ -1,0 +1,6 @@
+hypothesis,dataset,method_a,method_b,metric,higher_is_better,n_pairs,mean_effect,ci_low,ci_high,wilcoxon_pratt_one_sided_p,wilcoxon_one_sided_p,rank_biserial,wins,ties,losses,win_rate,tie_rate,loss_rate,holm_adjusted_p,supported
+H1_mechanism_normalized_regret_LocalReliability_vs_Geometry,mechanism,Local-Rank+Reliability,Geometry-Only,normalized_regret,False,4,0.0,0.0,0.0,1.0,1.0,0.0,0,4,0,0.0,1.0,0.0,1.0,False
+H2_mechanism_top10_hit_LocalReliability_vs_Geometry,mechanism,Local-Rank+Reliability,Geometry-Only,top10_hit,True,4,0.0,0.0,0.0,1.0,1.0,0.0,0,4,0,0.0,1.0,0.0,1.0,False
+H3_sequential_final_normalized_regret_LocalReliability_vs_Geometry,sequential,Local-Rank+Reliability,Geometry-Only,final_normalized_regret,False,4,0.025253057546491528,0.0,0.07575917263947458,0.5,0.5,1.0,1,3,0,0.25,0.75,0.0,1.0,False
+H4_sequential_regret_auc_LocalReliability_vs_Geometry,sequential,Local-Rank+Reliability,Geometry-Only,auc_normalized_regret,False,4,0.027805699979423837,0.0,0.08341709993827151,0.5,0.5,1.0,1,3,0,0.25,0.75,0.0,1.0,False
+H5_mechanism_reliability_increment_LocalReliability_vs_LocalNoReliability,mechanism,Local-Rank+Reliability,Local-Rank-No-Reliability,normalized_regret,False,4,0.0,0.0,0.0,1.0,1.0,0.0,0,4,0,0.0,1.0,0.0,1.0,False

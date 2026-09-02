@@ -1,0 +1,55 @@
+{
+  "protocol_id": "unified-local-guidance-v1",
+  "stage_id": "unified-local-guidance-quick",
+  "output_dir": "results/unified_local_guidance_quick",
+  "study": {
+    "problems": ["GMM", "Ackley"],
+    "dimensions": [2],
+    "seeds": [42, 101],
+    "source_samples": 80,
+    "raw_pool_size": 300,
+    "proposal_size": 40,
+    "budget": 5,
+    "target_init_multiplier": 2,
+    "target_init_offset": 2,
+    "n_init_formula": "2d+2",
+    "methods": ["Target-Only", "Geometry-Only", "Local-Rank-No-Reliability", "Local-Rank+Reliability"],
+    "acquisition": "ei",
+    "batch_size": 1,
+    "target_noise_std": 0.0,
+    "top_fraction": 0.10,
+    "relations": ["matching", "reversed"],
+    "safety_diagnostics": ["Reversed-Local-Rank"],
+    "progress_every": 1
+  },
+  "extraction": {
+    "elite_ratio": 0.20,
+    "max_regions": 3,
+    "min_elite_per_region": 4,
+    "min_context_samples": 16,
+    "max_context_samples": 64,
+    "context_multiplier": 3.0,
+    "min_boundary_fraction": 0.25,
+    "covariance_regularization": 0.001,
+    "gmm_reg_covar": 0.0001,
+    "use_bic_model_selection": true,
+    "model_type": "gp",
+    "gp_restarts": 0,
+    "random_forest_trees": 100,
+    "cv_folds": 3,
+    "validation_top_fraction": 0.10,
+    "quality_floor": 0.10,
+    "reliability_floor": 0.25
+  },
+  "guidance": {
+    "source_weight": 1.0,
+    "target_nomination_ratio": 0.20,
+    "source_nomination_ratio": 0.20,
+    "aggregation": "max"
+  },
+  "analysis": {
+    "bootstrap_samples": 500,
+    "bootstrap_seed": 20260901,
+    "harm_margin": 0.01
+  }
+}
